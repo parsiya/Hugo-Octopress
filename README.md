@@ -1,7 +1,7 @@
 # Hugo-Octopress
 Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hugo][hugo-link].
 
-[insert screenshot here]
+![screenshot](/images/tn.png)
 
 ## Contents
 - [Config file parameters](#config)
