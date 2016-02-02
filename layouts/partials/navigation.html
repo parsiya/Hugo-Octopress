@@ -1,0 +1,31 @@
+
+<!-- reading menu items from config file -->
+
+<ul class="main-navigation">
+  <!-- do not open links to root in new window - otherwise any other link can be opened in new window -->
+  {{ range .Site.Menus.main }}
+    {{ if eq .URL "/" }}
+      <li><a href="{{ .URL | absURL }}" title="{{ .Name }}">{{ .Name }}</a></li>
+    {{ else }}
+      <li><a href="{{ .URL | absURL }}" target="_blank" title="{{ .Name }}">{{ .Name }}</a></li>
+    {{ end }}
+  {{ end }}
+</ul>
+
+<!-- http://fontawesome.io icon fa-lg adapts it to size (at least it is supposed to) -->
+<ul class="subscription">
+  {{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>{{ end }}
+
+  <!-- If you prefer RSS text (like Octopress) replace the line above with next comment -->
+  <!-- <li><a href="/index.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li> -->
+
+</ul>
+
+{{ if isset .Site.Params "search_engine_url" }}
+<form action="{{ .Site.Params.search_engine_url }}" method="get" target="_blank">
+  <fieldset role="search">
+  	<input class="search" type="text" name="q" results="0" placeholder="Search"/>
+    <input type="hidden" name="q" value="site:{{ "/" | absURL }}" />
+  </fieldset>
+</form>
+{{end}}

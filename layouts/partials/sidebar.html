@@ -1,0 +1,64 @@
+
+<!-- to modify sidebar width check the css file lines 757 and 765 (for large screens) -->
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+    <h1>Header in sidebar</h1>
+    <p>This is the rest of the sidebar - here's a link to <a target="_blank" href="http://google.com" title="Google">Google</a>.</p>
+    <p>If links are set in config file, there will be links to keybase/github/twitter/linkedin etc.</p>
+
+    <!-- {{ with .Site.Params.tagline }}<p class="lead">{{ . | markdownify }}</p>{{ end }} -->
+  </section>
+
+  <!-- Links in side bar, for example the following links add blog - I have removed them as we have links in the navigation
+  you can also add sidebar links from config file via the .Site.Menus.main  part
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item"><a href="{{ "/" | absURL }}">{{ if isset .Site.Params "home"}}{{ .Site.Params.home }}{{ else }}Blog{{ end }}</a></li>
+    {{ range .Site.Menus.main }}
+    <li class="sidebar-nav-item">{{ .Pre }}<a href="{{ .URL | absURL }}">{{ .Name }}</a></li>
+    {{end}}
+  </ul>
+-->
+
+<!-- Font awesome icons - code taken from the Hyde-x theme - "Font Awesome by Dave Gandy - http://fontawesome.io"
+     Icons: https://fortawesome.github.io/Font-Awesome/icons/
+     to give icons square dark backgrounds use them like this: fa fa-key-square
+     size is fa-3x, sizes are 1-5
+ -->
+
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+    {{ with .Site.Params.github }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-github fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.bitbucket }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-bitbucket fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.stackOverflow }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-stack-overflow fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.linkedin }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-linkedin fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.googleplus }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-google-plus fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.facebook }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-facebook fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.twitter }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-twitter fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.youtube }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-youtube fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.keybase }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-key fa-3x"></i></a>{{ end }} <!-- added keybase -->
+
+    <!-- don't need RSS here anymore -->
+    <!-- {{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-3x"></i></a>{{ end }} -->
+    </li>
+  </ul>
+
+  <!-- add recent posts - limit is .Site.Params.SidebarRecentLimit - example copied from https://gohugo.io/templates/go-templates/ -->
+  <section class="even">
+    <h1>Recent Posts</h1>
+
+    <!-- check if the number of recent posts is set in config file, otherwise use 5 -->
+    <ul id="recent_posts">
+      {{ $numberofrecentposts := 5 }}
+      {{ if isset .Site.Params "SidebarRecentLimit" }}
+        {{ $numberofrecentposts := .Site.Params.SidebarRecentLimit }}
+      {{ end }}
+      {{range first $numberofrecentposts .Site.Pages }}
+      <li class="post">
+        <a href="{{.RelPermalink}}">{{.Title}}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+
+</aside>

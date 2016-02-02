@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- added from octo -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts added from Octo-->
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  <!-- goes into the title bar -->
+  <title>{{ .Title }}</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ "/css/hugo-octopress.css" | absURL }}">
+
+  <!-- For sidebar icons - TODO: find local icons I guess-->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <!-- if you want your own highlight.css -->
+  <!-- 
+  {{ if isset .Site.Params "highlight" }}<link rel="stylesheet" href="{{ "/css/highlight/" | absURL }}{{ .Site.Params.highlight }}.css">{{ end }}
+  -->
+
+  <!-- Icons -->
+  <link href="{{ "/favicon.png" | absURL }}" rel="icon">
+
+  <!-- RSS -->
+  {{ $siteTitle := .Site.Title }}
+  {{ $authorName := .Site.Author.name }}
+  
+  <!--
+  {{ with .RSSLink }}<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }} &middot; {{ $authorName }}" />{{ end }}
+  -->
+
+  {{ with .RSSLink }}<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }}" />{{ end }}
+
+  <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
+  <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
+
+  <meta name="author" content="{{ .Site.Params.author }}">
+
+  <!-- find a way to autoamtically put Hugo version here -->
+  <meta name="generator" content="Hugo 0.15" />
+
+  <!-- Google Analytics -->
+  {{ template "_internal/google_analytics.html" . }}
+
+</head>
+<body{{ with .Site.Params.theme }} class="{{ . }}"{{ end }}>
+
+<!-- top header for octopress -->
+<header role="banner">{{ partial "octo-header.html" . }}</header>
+
+<!-- navigation -->
+<nav role="navigation">{{ partial "navigation.html" . }}</nav>
+

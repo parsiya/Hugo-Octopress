@@ -1,0 +1,24 @@
+
+<!-- Will this even work?
+if we want to do theme specific highlighting - incase we don't want to do solarized highlighting via pygment and want to do with js
+{{ if isset .Site.Params "highlight" }}<script src="{{ "/js/highlight.pack.js" | absURL }}"></script>
+<script>hljs.initHighlightingOnLoad();</script>{{ end }}
+-->
+
+<footer role="contentinfo">
+  <p>Copyright &copy; {{ .Now.Format "2006" }} {{ .Site.Params.author }} - <a href="{{ "/license/" | absURL }}">License</a> - 
+  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+</p>
+
+</footer>
+
+{{ with .Site.Params.googleAnalytics }}
+<script>
+  var _gaq=[['_setAccount','{{ . }}'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+{{ end }}
+</body>
+</html>

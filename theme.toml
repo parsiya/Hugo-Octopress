@@ -1,0 +1,19 @@
+
+name = "Hugo-Octopress"
+license = "MIT"
+licenselink = "https://github.com/parsiya/Hugo-Octopress/blob/master/LICENSE.md"
+description = "Port of the Octopress classic theme for Hugo"
+homepage = "https://github.com/parsiya/hugo-octopress/"
+tags = ["Octopress", "Hugo"]
+features = ["blog", ""]
+min_version = 0.14
+
+[author]
+  name = "Parsia Hakimian"
+  homepage = "http://parsiya.net"
+
+# If porting an existing theme
+[original]
+  name = "Octopress classic theme"
+  homepage = "http://octopress.org"
+  repo = "https://github.com/imathis/octopress/tree/master/.themes/classic"

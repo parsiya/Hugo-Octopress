@@ -1,0 +1,51 @@
+
+<!-- tags page -->
+
+{{ partial "header.html" . }}
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article role="article">
+        <header>
+          <h1 class="entry-title">
+            {{ .Data.Singular | title }}: {{ .Title }}
+          </h1>
+        </header>
+        <div id="blog-archives" class="category">
+          {{ range .Data.Pages }}
+          <h2>
+            {{ .Date | dateFormat "2006"}}
+          </h2>
+          <article>
+            <h1>
+              <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+            </h1>
+            <time>
+              <span class="month">{{ .Date | dateFormat "Jan" }}</span>
+              <span class="day">{{ .Date | dateFormat "2" }}</span>
+            </time>
+            <footer>
+              <span class="categories"> <!-- show categories and tags -->
+                posted in:
+                {{ if isset .Params "categories" }}
+                {{ range .Params.categories }} <a class="category" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
+                {{ end }}
+              </br>
+                tags:
+                {{ if isset .Params "tags" }}
+                {{ range .Params.tags }} <a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
+                {{ end }}
+              </span>
+            </footer>
+          </article>
+          {{ end }}
+        </div>
+      </article>
+    </div>
+
+    {{ partial "sidebar.html" . }}
+  </div>
+</div>
+
+{{ partial "footer.html" . }}

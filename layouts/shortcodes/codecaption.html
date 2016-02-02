@@ -1,0 +1,20 @@
+
+<!-- codecaption short code - basically this is normal highlighted code with caption on top 
+     example usage (Hugo seems to ignore stuff in this):
+
+     { { < codecaption lang="language e.g. python/csharp" title="captiontitle" > } }
+
+     code to be highlighted
+
+     { { < /codecaption > } } -->
+
+    
+
+<figure class="code">
+  <figcaption>
+  	<span>{{ .Get "title" }}</span>
+  </figcaption>
+  <div class="codewrapper"> 
+    {{ highlight .Inner (.Get "lang") "linenos=true" }}
+  </div>
+</figure>

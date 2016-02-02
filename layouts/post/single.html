@@ -1,0 +1,31 @@
+{{ partial "header.html" . }}
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+        <header>
+          <h1 class="entry-title">
+            {{ .Title }} <!-- we don't need page title to be a link on the actual page -->
+          </h1>
+          <p class="meta">{{ .Date.Format "Jan 2, 2006" }} - {{ .ReadingTime }} minute read - {{ if .Site.Params.disqusShortname }} <a href="{{ .Permalink }}#disqus_thread">Comments</a>{{ end }}
+
+          <!-- if you want anything in the header between Disqus comments and categories add them here -->
+
+          {{ if isset .Params "categories" }}
+          <!-- <br/> this will make the categories go to the second line and mess with the title -->
+          {{ range .Params.categories }}<a class="label" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
+          {{ end }}</p>
+        </header>
+        <div class="entry-content">
+          {{ .Content }}
+        </div>
+        {{ partial "post_footer.html" . }}
+      </article>
+    </div>
+    {{ partial "sidebar.html" . }}
+  </div>
+</div>
+
+{{ partial "footer.html" . }}
+

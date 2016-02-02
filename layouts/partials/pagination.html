@@ -1,0 +1,49 @@
+<!-- copy pasted from  tpl/template_embedded.go -->
+<!-- default pagination.html creates <ul class="pagination"> and then a list of links for counters, forwardw and backward
+     while Octopress uses <div class="pagination"> and links inside-->
+
+<!-- this is how octopress implements the pagination links
+<div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">← Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer →</a>
+    
+  </div>
+-->
+
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+<div class="pagination">
+
+    {{ with $pag.First }}
+        <!-- if you prefer characters instead use the following line -->
+        <!-- <a href="{{ .URL }}" aria-label="First" class="label-pagination"><span aria-hidden="true">&laquo;&laquo;</span></a> -->
+        <!-- fa-lg is supposedly dynamic size. You can use fa-1x to fa-5x and probably even more, check http://fontawesome.io -->
+        <a href="{{ .URL }}" aria-label="First" class="label-pagination"><i class="fa fa-angle-double-left fa-lg"></i></a>
+    {{ end }}
+
+    {{ if $pag.HasPrev }}
+    <!-- <a href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}" aria-label="Previous" class="label-pagination"><span aria-hidden="true">&laquo;</span></a> -->
+        <a href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}" aria-label="Previous" class="label-pagination"><i class="fa fa-angle-left fa-lg"></i></a>
+    {{ end }}
+
+    {{ range $pag.Pagers }}
+        <a href="{{ .URL }}" class="label-pagination">{{ .PageNumber }}</a>
+    {{ end }}
+
+    {{ if $pag.HasNext }}
+    <!-- <a href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}" aria-label="Next" class="label-pagination"><span aria-hidden="true">&raquo;</span></a> -->
+        <a href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}" aria-label="Next" class="label-pagination"><i class="fa fa-angle-right fa-lg"></i></a>
+    {{ end }} 
+    
+    {{ with $pag.Last }}
+    <!-- <a href="{{ .URL }}" aria-label="Last"><span aria-hidden="true" class="label-pagination">&raquo;&raquo;</span></a> -->
+        <a href="{{ .URL }}" aria-label="Last"><i class="fa fa-angle-double-right fa-lg"></i></a>
+    {{ end }}
+
+</div>
+{{ end }}
+
