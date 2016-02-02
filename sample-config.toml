@@ -1,0 +1,94 @@
+baseurl = "http://example.com"
+disablePathToLower = true
+languageCode = "en-us"
+title = "Parsia's Den"
+theme = "hugo-octopress"
+
+# number of blog posts displayed in each page
+paginate = 6
+
+pygmentsuseclasses = false
+pygmentsstyle = "solarized_dark"
+
+# you need to install Solarized from https://github.com/john2x/solarized-pygment.git
+# Octopress blog used Solarized_dark
+# options are solarized_dark (octopress), solarized_dark256 and default (solarized light)
+
+# will make the highlight shortcode and ``` do the same thing - otherwise they are treated differently and we do not want that
+pygmentscodefences = true
+
+# can pass in pygments options here, it can also be added in the highlight shortcode
+# pygmentsoptions = "linenos=true"
+
+[permalinks]
+post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the old ones
+
+
+[indexes]
+	tag = "tags"
+	category = "categories"
+
+# menu
+# links will open in a new window except links to "/" - links are added to navigation in hugo-octopress/layouts/partials/navigation.html
+[[menu.main]]
+	Name = "Blog"
+	URL = "/"
+	weight = -5
+
+[[menu.main]]
+	Name = "Google"
+	URL = "https://www.google.com/"
+	weight = -5
+
+[[menu.main]]
+	Name = "This theme on Github"
+	URL = "https://www.github.com/parsiya/hugo-octopress"
+
+[params]
+
+	# number of recent posts that will be shown in the sidebar - default is 5
+	SidebarRecentLimit = 5
+
+	# if false, all of the post will appear on front page (and in pagination)
+	truncate = true
+
+	# author's name (this will appear in metadata and under posts)
+	author = "Author's name"
+
+	# appears in the site header under website title
+	subtitle = "Subtitle appears under website title"
+
+	# used in the search engine
+	search_engine_url = "https://www.google.com/search"
+
+	# Text of the Continue Reading label. &rarr; == right arrow, but it gets messed up in the string so we will add it to index.html manually
+	continue_reading = "Would you like to know more?"
+
+	# Google analytics code
+	googleAnalytics = "google analytics"
+
+	# disqus shortcode
+	disqusShortname = "Your Google Analytics tracking code"
+
+	# sidebar links
+	github = "https://github.com/parsiya/"
+	bitbucket = "https://bitbucket.org/parsiya/"
+	twitter = "https://twitter.com/cryptogangsta/"
+	keybase = "https://keybase.io/parsiya/"
+	stackoverflow = ""
+	linkedin = ""
+	googleplus = ""
+	youtube = ""
+	facebook = ""
+
+	rss = true  # switch to true to enable RSS icon link
+
+	defaultDescription = ""
+
+	# does this even work in action?
+	# defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
+
+# blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/ (scroll down to "Configure Blackfriday rendering")
+[blackfriday]
+	hrefTargetBlank = true # open the external links in a new window
+	fractions = false

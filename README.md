@@ -20,7 +20,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 
 
 ## <a name="config"></a>Configuration
-This section talks about parameters in the [configuration file](https://gohugo.io/overview/configuration/) and how they can be used to customize the output. Below is a sample ``config.toml`` file with comments:
+This section talks about parameters in the [configuration file](https://gohugo.io/overview/configuration/) and how they can be used to customize the output. A working config file `sample-config.toml`is provided and below is a sample ``config.toml`` with comments:
 
 ``` python
 baseurl = "http://example.com/"
@@ -234,10 +234,6 @@ If you see any issues/bugs or you are looking for some features please use the G
 
 If you know how to clean it up, please let me know or better yet help me do it :)
 
-**Clean up the theme** from my own website's data.
-
-**Update `theme.toml`**  after code is uploaded to github with repo info and other items.
-
 ## <a name="attribution"></a>Attribution
 * [Octopress](octopress-link) is created by [Brandon Mathis](https://github.com/imathis). Octopress source can be found on [https://github.com/imathis/octopress](https://github.com/imathis/octopress).
 
@@ -252,7 +248,7 @@ Ported by Parsia Hakimian:
 * twitter: [@CryptoGangsta](https://twitter.com/cryptogangsta)
 
 ## <a name="themelicense"></a>Theme license
-Open sourced under the MIT license [link to MIT license in the repo after upload].
+Open sourced under the [MIT license](https://github.com/parsiya/Hugo-Octopress/blob/master/LICENSE.md).
 
 
 [octopress-link]: http://octopress.org
