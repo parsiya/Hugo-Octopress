@@ -184,6 +184,7 @@ Shortcode usage (and source) is as follows (please note that parameters are name
   </div>
 </figure>
 {{< /codecaption >}}
+```
 
 And will look like this:
 
