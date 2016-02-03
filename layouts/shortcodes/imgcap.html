@@ -1,26 +1,26 @@
 
-<!-- normal image with caption 
+<!-- normal image with caption
      sample usage:
 
-     { { < imgcap caption="figurecaption" src="imagesrc" > } }
+     { { < imgcap title="figurecaption" src="imagesrc" > } }
 
-     { { < imgcap caption="this is a tree" src="/images/2016/gardening/tree1.jpg" > } }     
+     { { < imgcap title="this is a tree" src="/images/2016/gardening/tree1.jpg" > } }
 
      alt and title and caption will be the same
 
 -->
 
 <!-- <figure class="imagecaption">
-  <img class="caption" title="{{ .Get "caption" }}" alt="{{ .Get "caption" }}" src="{{ .Get "src" }}"></img>
+  <img class="caption" title="{{ .Get "title" }}" alt="{{ .Get "title" }}" src="{{ .Get "src" }}"></img>
   <figcaption>
-    <span class="caption-text">{{ .Get "caption" }}</span>
-  </figcaption>   
+    <span class="caption-text">{{ .Get "title" }}</span>
+  </figcaption>
 </figure> -->
 
 <!-- imitates the imgcap plugin from Octopress -  -->
 
 
 <span class="caption-wrapper">
-  <img class="caption" src="{{ .Get "src" }}" title="{{ .Get "caption" }}" alt="{{ .Get "caption" }}">
-  <span class="caption-text">{{ .Get "caption" }}</span>
+  <img class="caption" src="{{ .Get "src" }}" title="{{ .Get "title" }}" alt="{{ .Get "title" }}">
+  <span class="caption-text">{{ .Get "title" }}</span>
 </span>

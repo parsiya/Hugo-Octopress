@@ -206,7 +206,7 @@ This shortcode adds captions to pictures. Due to the way the original `css` file
 Usage is as follows (please note that parameters are named and not positional):
 
 ``` go
-{{< imgcap caption="Sample caption" src="/images/2016/thetheme/1.png" >}}
+{{< imgcap title="Sample caption" src="/images/2016/thetheme/1.png" >}}
 ```
 
 Will result in:
