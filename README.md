@@ -185,7 +185,9 @@ Shortcode usage (and source) is as follows (please note that parameters are name
 </figure>
 {{< /codecaption >}}
 
-And will look like this [picture](/images/codecaption1.png).
+And will look like this:
+
+![picture](/images/codecaption1.png).
 
 If the code inside the tag overflows, a horizontal sidebar will be added to the table. It took me a while to achieve this as the `highligh` function created tables that were out of my control. The output from `highlight` is wrapped in `<div class="codewrapper">` and the scrollbar will be for the whole `div`. The following in the `css` (starting from line 2225) enables this behavior:
 
