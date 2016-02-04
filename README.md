@@ -112,18 +112,18 @@ The following options in `config.toml` modify the behavior:
 ```
 ## <a name="markdown"></a>Markdown options
 
-Blackfriday is Hugo's markdown engine. For a list of options visit [https://gohugo.io/overview/configuration/](https://gohugo.io/overview/configuration/) (scroll down to `Configure Blackfriday rendering`). Blackfriday options can be set in the `config.toml` files as follows:
+Blackfriday is Hugo's markdown engine. For a list of options visit [https://gohugo.io/overview/configuration/](https://gohugo.io/overview/configuration/) (scroll down to `Configure Blackfriday rendering`). Blackfriday options can be set in the `config.toml` file as follows:
 
     [blackfriday]
       hrefTargetBlank = true # open the external links in a new window
       fractions = false
 
 ## <a name="menu"></a>Navigation menu
-Links to the left of the navigation menu (everything other than the search input field and RSS icon) can be configured here. Navigation menu is generated using the `hugo-octopress/layouts/partials/navigation.html` template.
+Links to the left of the navigation menu (everything other than Google search and RSS icon) can be configured here. Navigation menu is generated using the `hugo-octopress/layouts/partials/navigation.html` template.
 
-All links open in a new window except links to root. If the URL is "/" the link will not open in a new window.
+All links open in a new window except links to root. If the URL is "/" the link will not open in a new window (you can see this logic in the partial template).
 
-Links are sorted according to weight from left to right. For example a link with weight of `-10` will be to the left of another link with weight `0` or `10`. Links can be added to the `config.toml` as follows:
+Links are sorted according to weight from left to right. For example a link with weight of `-10` will be to the left of links with weight `0` or `10`. Links can be added to the `config.toml` as follows:
 
     [[menu.main]]
       Name = "Blog"
@@ -139,7 +139,7 @@ Links are sorted according to weight from left to right. For example a link with
       Name = "This theme - add link"
       URL = "https://www.github.com"
 
-The searchengine can also be customized in the `config.toml` file as follows:
+The search engine can also be customized in the `config.toml` file as follows:
 
     [params]
       # search enginer paramete in the navigation menu
@@ -212,10 +212,10 @@ Usage is as follows (please note that parameters are named and not positional):
 Will result in:
 
 ``` html
-  <span class="caption-wrapper">
-    <img class="caption" src="/images/2016/thetheme/1.png" title="Sample caption" alt="Sample caption">
-    <span class="caption-text">Sample caption</span>
-  </span>
+<span class="caption-wrapper">
+  <img class="caption" src="/images/2016/thetheme/1.png" title="Sample caption" alt="Sample caption">
+  <span class="caption-text">Sample caption</span>
+</span>
 ```
 
 ## <a name="licensepage"></a>License page
@@ -228,21 +228,19 @@ The generated license page will be located at `example.com/license/`. Markdown c
 
     License text
 
-Lisence page template is located at: `hugo-octopress\layouts\license\single.html`.
+License page template is located at: `hugo-octopress\layouts\license\single.html`.
 
 ## <a name="issues"></a>Issues/TODO
 
 If you see any issues/bugs or you are looking for some features please use the Github issue tracker. Please keep in my mind that my dayjob is not development and I may be slow in fixing things (or I may ask you to help me with it).
 
-**The css is a mess.** Yes I agree with that. The `css` file is `screen.css` taken from the default Octopress theme. I found it easier to just modify the templates to generate HTML code similar to Octopress and use the `css` file. It's bulky (around 53KBs and 2300 lines) and it probably has code for elements that are never used (also duplicates). It also contains the highlight code.
+**The css is a mess.** The `css` file is `screen.css` taken from the classic Octopress theme. I found it easier to just modify the templates to generate HTML code similar to Octopress' output and use the existing `css` file. It's bulky (around 53KBs and 2300 lines) and it probably has code for elements that are never used (also duplicates). It also contains the highlight code (part of the reason it is big).
 
 If you know how to clean it up, please let me know or better yet help me do it :)
 
 ## <a name="attribution"></a>Attribution
 * [Octopress](octopress-link) is created by [Brandon Mathis](https://github.com/imathis). Octopress source can be found on [https://github.com/imathis/octopress](https://github.com/imathis/octopress).
-
 * Some code was taken from the [Hyde-x](https://github.com/zyro/hyde-x) Hugo theme by [Andrei Mihu](http://andreimihu.com/).
-
 * Sidebar icons are from Font Awesome by Dave Gandy - http://fontawesome.io.
 
 ## <a name="Ported by"></a>Ported by
