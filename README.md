@@ -96,14 +96,14 @@ The following options in `config.toml` modify the behavior:
 
 ```
 [params]
-  # if true, code highlight needs to be done using a css - not supported in this theme
+  # keep it as false please, the css file contains the code for highlighting
   pygmentsuseclasses = false
 
   # if nothing is set, then solarized_light is used
   # other styles can be viewed in [http://pygments.org/](http://pygments.org/)
   pygmentsstyle = "solarized_dark"
 
-  # will make the highlight shortcode and code fences (```) being treated similarly
+  # highlight shortcode and code fences (```) will be treated similarly
   pygmentscodefences = true
 
   # pygment options can be added here
@@ -232,7 +232,7 @@ License page template is located at: `hugo-octopress\layouts\license\single.html
 
 ## <a name="issues"></a>Issues/TODO
 
-If you see any issues/bugs or you are looking for some features please use the Github issue tracker. Please keep in my mind that my dayjob is not development and I may be slow in fixing things (or I may ask you to help me with it).
+If you see any issues/bugs or you are looking for some features please use the Github issue tracker. Please keep in my mind that my day job is not development and I may be slow in fixing things (or I may ask you to help me with it).
 
 **The css is a mess.** The `css` file is `screen.css` taken from the classic Octopress theme. I found it easier to just modify the templates to generate HTML code similar to Octopress' output and use the existing `css` file. It's bulky (around 53KBs and 2300 lines) and it probably has code for elements that are never used (also duplicates). It also contains the highlight code (part of the reason it is big).
 
