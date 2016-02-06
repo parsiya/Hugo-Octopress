@@ -12,7 +12,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 - [Shortcodes](#shortcodes)
   - [Code caption](#codecaption)
   - [Image caption](#imgcap)
-- [Hugo page summary bug]($summary)
+- [Hugo page summary bug](#summary)
 - [License page](#licensepage)
 - [Issues/TODO](#issues)
 - [Attribution](#attribution)
