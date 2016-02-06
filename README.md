@@ -12,6 +12,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 - [Shortcodes](#shortcodes)
   - [Code caption](#codecaption)
   - [Image caption](#imgcap)
+- [Hugo page summary bug]($summary)
 - [License page](#licensepage)
 - [Issues/TODO](#issues)
 - [Attribution](#attribution)
@@ -217,6 +218,24 @@ Will result in:
   <span class="caption-text">Sample caption</span>
 </span>
 ```
+
+## <a name="summary"></a>Hugo page summary bug
+If no page summary is selected, Hugo will take the first 70 words of your post (stripped on HTML tags) and displays them. This is ugly. Instead use the summary divider `<!--more-->` to specify where the summary ends. Hugo currently has a problem that reference style links in summary are not displayed. The reason behind this problem is that Hugo take the everything before the summary divider and passes it to the Markdown engine (currently BlackFriday) and if your reference style links are at the bottom of the page (they usually are), they are not passed. You can read more about this bug [here](https://discuss.gohugo.io/t/markdown-content-renders-as-regular-text-in-summary/1396/12).
+
+To be more specific, reference style links are like this:
+
+``` markdown
+This is a link to [Google][google-link].
+
+More stuff here
+
+[google-link]: https://www.google.com
+```
+
+Currently you can avoid this bug in two ways:
+
+1. Do not use reference style links in summary. Use normal links like this `[Google](https://www.google.com)`.
+2. Put the reference link before the summary divider.
 
 ## <a name="licensepage"></a>License page
 The generated license page will be located at `example.com/license/`. Markdown code for the license page can be anywhere in the content page, however the type of the markdown file should be set to `license` in front material. For example:
