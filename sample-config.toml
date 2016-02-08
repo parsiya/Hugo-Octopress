@@ -1,5 +1,5 @@
 baseurl = "http://example.com"
-disablePathToLower = true
+disablePathToLower = false
 languageCode = "en-us"
 title = "Parsia's Den"
 theme = "hugo-octopress"
