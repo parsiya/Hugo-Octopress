@@ -12,6 +12,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 - [Shortcodes](#shortcodes)
   - [Code caption](#codecaption)
   - [Image caption](#imgcap)
+    - [Atom snippets for shortcodes](#snippets)
 - [Hugo page summary bug](#summary)
 - [License page](#licensepage)
 - [Issues/TODO](#issues)
@@ -218,6 +219,28 @@ Will result in:
   <span class="caption-text">Sample caption</span>
 </span>
 ```
+#### <a name="snippets"></a>Atom snippets for shortcodes
+I use Atom editor these days so I created a couple of snippets to insert these shortcodes while editing Markdown files. In order to read on how to create snippets please refer to [Atom's Snippets package](https://github.com/atom/snippets).
+
+Open your snippets file (on Windows it's `File > Open Your Snippets`) and paste the following in the file:
+
+    '.source.gfm':
+     'imgcap':
+       'prefix': 'imgcap'
+       'body': '{{< imgcap title="$1" src="/images/$2" >}}'
+
+    '.source.gfm':
+     'codecaption':
+       'prefix': 'codecap'
+       'body': """
+          {{< codecaption title="$1" lang="$2"  >}}
+          $3
+          {{< /codecaption >}}
+        """
+
+You can trigger the shortcodes by entering `imgcap` and `codecap` respectively and then pressing enter. You can change these by modifying the `prefix` in the code above. After inserting the shortcode, the cursor will go to the first location which is designated by `$1` which is `title` in both cases. After entering the value you can go to `$2` and `$3` by pressing `tab`.
+
+Hopefully these snippets help in using these shortcodes.
 
 ## <a name="summary"></a>Hugo page summary bug
 If no page summary is selected, Hugo will take the first 70 words of your post (stripped on HTML tags) and displays them. This is ugly. Instead use the summary divider `<!--more-->` to specify where the summary ends. Hugo currently has a problem that reference style links in summary are not displayed. The reason behind this problem is that Hugo take the everything before the summary divider and passes it to the Markdown engine (currently BlackFriday) and if your reference style links are at the bottom of the page (they usually are), they are not passed. You can read more about this bug [here](https://discuss.gohugo.io/t/markdown-content-renders-as-regular-text-in-summary/1396/12).
