@@ -224,17 +224,17 @@ I use Atom editor these days so I created a couple of snippets to insert these s
 
 Open your snippets file (on Windows it's `File > Open Your Snippets`) and paste the following in the file:
 
-'.source.gfm':
-  'codecaption':
-    'prefix': 'codecap'
-    'body': """
-    {{< codecaption title="$1" lang="$2"  >}}
-    $3
-    {{< /codecaption >}}
-    """
-  'imgcap':
-    'prefix': 'imgcap'
-    'body': '{{< imgcap title="$1" src="/images/2016/$2" >}}'
+    '.source.gfm':
+      'codecaption':
+        'prefix': 'codecap'
+        'body': """
+        {{< codecaption title="$1" lang="$2"  >}}
+        $3
+        {{< /codecaption >}}
+        """
+      'imgcap':
+        'prefix': 'imgcap'
+        'body': '{{< imgcap title="$1" src="/images/2016/$2" >}}'
 
 My original mistake was to repeat `'.source.gfm'` before the `imgcap` snippet, seems like [it should cson keys should not be repeated](https://atom.io/docs/latest/using-atom-basic-customization#id-D9ATX).
 
