@@ -224,19 +224,19 @@ I use Atom editor these days so I created a couple of snippets to insert these s
 
 Open your snippets file (on Windows it's `File > Open Your Snippets`) and paste the following in the file:
 
-    '.source.gfm':
-     'imgcap':
-       'prefix': 'imgcap'
-       'body': '{{< imgcap title="$1" src="/images/$2" >}}'
+'.source.gfm':
+  'codecaption':
+    'prefix': 'codecap'
+    'body': """
+    {{< codecaption title="$1" lang="$2"  >}}
+    $3
+    {{< /codecaption >}}
+    """
+  'imgcap':
+    'prefix': 'imgcap'
+    'body': '{{< imgcap title="$1" src="/images/2016/$2" >}}'
 
-    '.source.gfm':
-     'codecaption':
-       'prefix': 'codecap'
-       'body': """
-          {{< codecaption title="$1" lang="$2"  >}}
-          $3
-          {{< /codecaption >}}
-        """
+My original mistake was to repeat `'.source.gfm'` before the `imgcap` snippet, seems like [it should cson keys should not be repeated](https://atom.io/docs/latest/using-atom-basic-customization#id-D9ATX).
 
 You can trigger the shortcodes by entering `imgcap` and `codecap` respectively and then pressing enter. You can change these by modifying the `prefix` in the code above. After inserting the shortcode, the cursor will go to the first location which is designated by `$1` which is `title` in both cases. After entering the value you can go to `$2` and `$3` by pressing `tab`.
 
