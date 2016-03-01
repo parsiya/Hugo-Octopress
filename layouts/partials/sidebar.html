@@ -49,13 +49,13 @@
 
     <!-- check if the number of recent posts is set in config file, otherwise use 5 -->
     <ul id="recent_posts">
-      {{ $numberofrecentposts := 5 }}
+      {{ $.Scratch.Set "numberofrecentposts" 5  }}
       {{ if isset .Site.Params "SidebarRecentLimit" }}
-        {{ $numberofrecentposts := .Site.Params.SidebarRecentLimit }}
+        {{ $.Scratch.Set "numberofrecentposts" .Site.Params.SidebarRecentLimit }}
       {{ end }}
-      {{range first $numberofrecentposts .Site.Pages }}
+      {{ range first ($.Scratch.Get "numberofrecentposts") .Site.Pages }}
       <li class="post">
-        <a href="{{.RelPermalink}}">{{.Title}}</a>
+        <a href="{{ .RelPermalink }}">{{.Title}}</a>
       </li>
       {{ end }}
     </ul>
