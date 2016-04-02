@@ -123,7 +123,7 @@ Blackfriday is Hugo's markdown engine. For a list of options visit [https://gohu
       hrefTargetBlank = true # open the external links in a new window
       fractions = false
 
-## <a name="menu"></a>CSS override
+## <a name="cssoverride"></a>CSS override
 You can override the built-in css by using your own. Just put your own css files in the `static` directory of your website (the one in the theme directory also works but is not recommended) and modify the `custom_css` parameter in your config file. The path referenced in the parameter should be relative to the `static` folder. These css files will be added through the `header` partial after the built-in css file.
 
 For example, if your css files are `static/css/custom.css` and `static/css/custom2.css` then add the following to the config file:
@@ -160,6 +160,8 @@ The search engine can also be customized in the `config.toml` file as follows:
 
 ## <a name="sidebarlinks"></a>Sidebar links
 The sidebar is generated using the partial template at `hugo-octopress/layouts/partials/sidebar.html`.
+
+For now, modify the text in the HTML bar to add your own sidebar text.
 
 Sidebar links are read from the config file as follows:
 
