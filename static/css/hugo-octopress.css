@@ -86,7 +86,7 @@ video {
     font-size: 100%;
     vertical-align: baseline;
     font-family: "PT Serif",Georgia,Times,"Times New Roman",serif;
-    
+
 }
 html {
     line-height: 1
@@ -382,7 +382,7 @@ big {
 article blockquote {
     font-style: italic;
     position: relative;
-    font-size: 1.2em;
+    font-size: 1.0em;
     line-height: 1.5em;
     padding-left: 1em;
     border-left: 4px solid rgba(170, 170, 170, 0.5)
@@ -1222,7 +1222,7 @@ article>footer .byline ~ .categories:before {
     display: inline-block
 }
 /* pagination stuff */
-#content div.pagination {  
+#content div.pagination {
     text-align: center;
     font-size: .95em;
     position: relative;
@@ -1264,7 +1264,7 @@ p.meta+.sharing {
 .highlighttable,
 html .gist .gist-file .gist-syntax .gist-highlighttable {
     border-left: 1px solid #05232b !important;
-   
+
 }
 .highlighttable table td.code,
 html .gist .gist-file .gist-syntax .gist-highlighttable table td.code {
@@ -1916,7 +1916,7 @@ figure.code figcaption a:hover {
     padding-left: 6.8em
 }
 #content>.category .year {
-    display: inline;    
+    display: inline;
 }
 .side-shadow-border,
 aside.sidebar section h1,
@@ -2203,7 +2203,7 @@ td.code {
 /* end of making mycode shortcode work */
 
 /* wrapped the whole output from the highlight function (which is a table) in a div to get a horizontal scrollbar for the whole row and not just the "pre" in the cell
-having a scrollbar for the cell will break alignment with line numbers    
+having a scrollbar for the cell will break alignment with line numbers
 */
 
 div.codewrapper {
@@ -2240,7 +2240,7 @@ div.entry-content > div.highlight {
   background-color: #202020;
 }
 
-/* aligns the side bar to the left, we want it to be on the right 
+/* aligns the side bar to the left, we want it to be on the right
 @media (min-width: 48em) {
   .sidebar {
     position: fixed;
