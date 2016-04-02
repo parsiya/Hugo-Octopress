@@ -16,6 +16,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
     - [Atom snippets for shortcodes](#snippets)
 - [Hugo page summary bug](#summary)
 - [License page](#licensepage)
+- [Table of contents](#tableofcontents)
 - [Issues/TODO](#issues)
 - [Attribution](#attribution)
 - [Ported by](#porterby)
@@ -98,6 +99,9 @@ post = "/blog/:year-:month-:day-:title/"
 
   # override the built-in css
   # custom_css = ["css/custom.css","css/custom2.css"]
+
+  # enable/disable Table of Contents in each page -
+  tableOfContents = false
 
 ```
 
@@ -304,6 +308,26 @@ The generated license page will be located at `example.com/license/`. Markdown c
     License text
 
 License page template is located at: `hugo-octopress\layouts\license\single.html`.
+
+## <a name="tableofcontents"></a>Table of contents
+The theme supports adding `Table of Contents (ToC)` to pages. This is added in `hugo-octopress\layouts\post\single.html`. The ToC does not appear in the summary but is on top of the actual page. Currently ToC is only accessible in the templates and there is no way to access it inside the page using shortcodes. This is due to limitations in BlackFriday (Hugo's markdown engine).
+
+There are two ways to enable Table of Contents:
+
+* Each post/page can have a variable named `toc` in its frontmatter. This needs to be set to `true`.
+
+
+    title: "title"
+    date: 2016-04-01T20:22:37-04:00
+    draft: false
+    toc: true
+
+* Global setting is available in the config file, `tableOfContents` under `[Params]` need to be set to `true`.
+
+    [Params]
+      tableOfContents = true
+
+The `toc` variable in frontmatter has priority. If it is set `false` then the config file is ignored. It is recommended to not set use the config file and enable the ToC for individual pages. Otherwise, it can be enabled for all pages in the config file and disabled for specific pages using the frontmatter.
 
 ## <a name="issues"></a>Issues/TODO
 
