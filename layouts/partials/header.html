@@ -51,8 +51,8 @@
 
   <meta name="author" content="{{ .Site.Params.author }}">
 
-  <!-- find a way to autoamtically put Hugo version here -->
-  <meta name="generator" content="Hugo 0.15" />
+  <!-- outputs the generator version for usage tacking -->
+  {{ .Hugo.Generator }}
 
   <!-- Google Analytics -->
   {{ template "_internal/google_analytics.html" . }}
