@@ -16,14 +16,20 @@
   <!-- goes into the title bar -->
   <title>{{ .Title }}</title>
 
-  <!-- CSS -->
+  <!-- css -->
+  <!-- original css -->
   <link rel="stylesheet" href="{{ "/css/hugo-octopress.css" | absURL }}">
+
+  <!-- css overrides -->
+  {{ range .Site.Params.custom_css }}
+    <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
+  {{ end }}
 
   <!-- For sidebar icons - TODO: find local icons I guess-->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
   <!-- if you want your own highlight.css -->
-  <!-- 
+  <!--
   {{ if isset .Site.Params "highlight" }}<link rel="stylesheet" href="{{ "/css/highlight/" | absURL }}{{ .Site.Params.highlight }}.css">{{ end }}
   -->
 
@@ -33,7 +39,7 @@
   <!-- RSS -->
   {{ $siteTitle := .Site.Title }}
   {{ $authorName := .Site.Author.name }}
-  
+
   <!--
   {{ with .RSSLink }}<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }} &middot; {{ $authorName }}" />{{ end }}
   -->
@@ -59,4 +65,3 @@
 
 <!-- navigation -->
 <nav role="navigation">{{ partial "navigation.html" . }}</nav>
-

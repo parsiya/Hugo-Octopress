@@ -23,7 +23,7 @@ pygmentscodefences = true
 [permalinks]
 post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the old ones
 
-
+# make tags and categories work
 [indexes]
 	tag = "tags"
 	category = "categories"
@@ -85,8 +85,12 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
 	defaultDescription = ""
 
-	# does this even work in action?
+	# populate this with your own keywords
 	# defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
+
+	# css override files
+	# paths should be relative to the `static` directory (either the website static directory or the theme one)
+	# custom_css = ["css/custom.css","css/custom2.css"]
 
 # blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/ (scroll down to "Configure Blackfriday rendering")
 [blackfriday]

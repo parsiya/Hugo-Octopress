@@ -8,6 +8,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 - [Code highlight](#highlight)
 - [Navigation menu](#menu)
 - [Markdown options](#markdown)
+- [CSS override](#cssoverride)
 - [Sidebar](#sidebarlinks)
 - [Shortcodes](#shortcodes)
   - [Code caption](#codecaption)
@@ -82,8 +83,10 @@ post = "/blog/:year-:month-:day-:title/"
   defaultDescription = ""
 
   # keywords used in meta tags
-  # does this even work in action?
   # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
+
+  # override the built-in css
+  # custom_css = ["css/custom.css","css/custom2.css"]
 
 ```
 
@@ -119,6 +122,14 @@ Blackfriday is Hugo's markdown engine. For a list of options visit [https://gohu
     [blackfriday]
       hrefTargetBlank = true # open the external links in a new window
       fractions = false
+
+## <a name="menu"></a>CSS override
+You can override the built-in css by using your own. Just put your own css files in the `static` directory of your website (the one in the theme directory also works but is not recommended) and modify the `custom_css` parameter in your config file. The path referenced in the parameter should be relative to the `static` folder. These css files will be added through the `header` partial after the built-in css file.
+
+For example, if your css files are `static/css/custom.css` and `static/css/custom2.css` then add the following to the config file:
+
+    [params]
+      custom_css = ["css/custom.css","css/custom2.css"]
 
 ## <a name="menu"></a>Navigation menu
 Links to the left of the navigation menu (everything other than Google search and RSS icon) can be configured here. Navigation menu is generated using the `hugo-octopress/layouts/partials/navigation.html` template.
@@ -170,7 +181,7 @@ Icons are from [http://fontawesome.io](http://fontawesome.io) by Dave Gandy. To 
 ## <a name="shortcodes"></a>Shortcodes
 Creating [shortcodes](https://gohugo.io/extras/shortcodes/) in Hugo was surprisingly easy. I used two plugins in Octopress that I re-created in Hugo using shortcodes. They add captions to code blocks and images. These shortcodes are located at `hugo-octopress/layouts/shortcodes/`.
 
-I have created a repository for all of my shortcodes at [https://github.com/parsiya/Hugo-Shortcodes](https://github.com/parsiya/Hugo-Shortcodes).
+I have created a repository for all of my Hugo shortcodes at [https://github.com/parsiya/Hugo-Shortcodes](https://github.com/parsiya/Hugo-Shortcodes).
 
 ### <a name="codecaption"></a>Code caption
 This shortcode adds a caption to codeblocks. The codeblock is wrapped in a `<figure>` tag and caption is added using `<figcaption>`. It has two parameters, `title` which is the caption of the code block and `lang` which is the language that is passed to the Hugo `highlight` function along with `linenos=true` which adds line numbers to the codeblock.
