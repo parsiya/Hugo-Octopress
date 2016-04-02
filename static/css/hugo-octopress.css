@@ -281,7 +281,7 @@ p,
 article blockquote,
 ul,
 ol {
-    margin-bottom: 1em; /* changed this from 1.5em to 1 */
+    margin-bottom: 0.8em; /* changed this from 1.5em to 0.8 */
 }
 ul {
     list-style-type: disc
@@ -1070,9 +1070,7 @@ article header p.meta {
         padding-bottom: 1em;
     }
 }
-article h2 {
-    padding-top: 0.8em;
-}
+
 .entry-content article h2:first-child,
 article header+h2 {
     padding-top: 0
@@ -2223,8 +2221,28 @@ div.entry-content > div.highlight {
     margin-bottom: 0.4em;
 }
 
-/* side bar code from hyde-x */
+/* decrease h1 size in article body so we can use it in the article as heading */
+div.entry-content > h1 {
+    font-size:1.7em;
+}
 
+div.entry-content > h2 {
+    font-size:1.5em;
+}
+
+/* decrease margin for article headings */
+div.entry-content >
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0.5em;
+    margin-top: 0.8em;
+}
+
+/* side bar code from hyde-x */
 
 /*
  * Sidebar

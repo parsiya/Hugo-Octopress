@@ -55,7 +55,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	# sidebar text supports markdown
 	# new lines can be added with </br> or normal markdown (two spaces at the end of line or two new lines).
 	# when adding two new lines, remember to remove the indentation otherwise the new line will be treated as a codeblock
-	sidebar_text = """Sidebar text supports is passed to *markdownify* so it supports markdown. Here's a [link to google](https://www.google.com)
+	sidebar_text = """Sidebar text is passed to *markdownify* so it supports markdown. Here's a [link to google](https://www.google.com)
 	</br>
 	Second line
 	</br>
