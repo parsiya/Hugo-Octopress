@@ -49,6 +49,19 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	# number of recent posts that will be shown in the sidebar - default is 5
 	SidebarRecentLimit = 5
 
+	# sidebar customization - passed to markdownify
+	sidebar_header = "Sidebar Header"
+
+	# sidebar text supports markdown
+	# new lines can be added with </br> or normal markdown (two spaces at the end of line or two new lines).
+	# when adding two new lines, remember to remove the indentation otherwise the new line will be treated as a codeblock
+	sidebar_text = """Sidebar text supports is passed to *markdownify* so it supports markdown. Here's a [link to google](https://www.google.com)
+	</br>
+	Second line
+	</br>
+	Third line
+	"""
+
 	# if false, all of the post will appear on front page (and in pagination)
 	truncate = true
 

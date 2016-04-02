@@ -3,11 +3,16 @@
 
 <aside class="sidebar thirds">
   <section class="first odd">
-    <h1>Header in sidebar</h1>
-    <p>This is the rest of the sidebar - here's a link to <a target="_blank" href="http://google.com" title="Google">Google</a>.</p>
-    <p>If links are set in config file, there will be links to keybase/github/twitter/linkedin etc.</p>
 
-    <!-- {{ with .Site.Params.tagline }}<p class="lead">{{ . | markdownify }}</p>{{ end }} -->
+    {{ with .Site.Params.sidebar_header }}
+      <h1>{{ . | markdownify }}</h1>
+    {{ end }}
+
+    <p>
+      {{ with .Site.Params.sidebar_text }}
+        {{ . | markdownify }}
+      {{ end }}
+    </p>
   </section>
 
   <!-- Links in side bar, for example the following links add blog - I have removed them as we have links in the navigation

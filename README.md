@@ -54,6 +54,17 @@ post = "/blog/:year-:month-:day-:title/"
   # number of recent posts that will be shown in the sidebar - default is 5
   SidebarRecentLimit = 5
 
+  # sidebar customization - passed to markdownify
+  sidebar_header = "Sidebar Header"
+
+  # sidebar text supports markdown
+  sidebar_text = """Sidebar text supports is passed to *markdownify* so it supports markdown. Here's a [link to google](https://www.google.com)
+  </br>
+  Second line
+  </br>
+  Third line
+  """
+
   # if false, all of posts' content will appear on front page (and in pagination) - not recommended
   # be sure to use the <!--more--> delimiter
   truncate = true
@@ -158,10 +169,15 @@ The search engine can also be customized in the `config.toml` file as follows:
       # search enginer paramete in the navigation menu
       search_engine_url = "https://www.google.com/search"
 
-## <a name="sidebarlinks"></a>Sidebar links
+## <a name="sidebarlinks"></a>Sidebar
 The sidebar is generated using the partial template at `hugo-octopress/layouts/partials/sidebar.html`.
 
-For now, modify the text in the HTML bar to add your own sidebar text.
+Sidebar has two parts and both can be configured in the config file. Both values are passed to `markdownify`. For example you can add links and new lines.
+
+* Sidebar header which appear on top in a `<h1>` tag. Can be configured in the config file through the `sidebar_header` tag.
+* Sidebar text appears under the header and can be configured by modifying the `sidebar_text` tag in the config file.
+
+New lines can be added with `</br>` or normal markdown (two spaces at the end of line or two new lines). When adding two new lines, remember to remove the indentation in the config file otherwise the new line will be treated as a codeblock
 
 Sidebar links are read from the config file as follows:
 
