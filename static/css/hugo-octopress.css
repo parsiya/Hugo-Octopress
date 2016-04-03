@@ -1881,23 +1881,22 @@ figure.code figcaption a:hover {
         margin-left: 5em
     }
     #blog-archives h2 {
-        margin-bottom: .3em;
+        margin-bottom: 0.3em;
         font-weight: normal;
         display: inline-block;
         position: relative;
         top: -1px;
-        float: left
-    }
-    #blog-archives h2:first-child {
-        padding-top: .75em
+        float: left;
+        margin-top: 1.7em;     /* align year with the rest */
     }
     #blog-archives time {
         position: absolute;
         text-align: right;
         left: 0em;
-        top: 3.2em; /* may need to change this to align the month/date on the tag/category (archive) pages with post name */
+        top: 3em; /* may need to change this to align the month/date on the tag/category (archive) pages with post name */
         font-family: "PT Sans","Helvetica Neue",Arial,sans-serif;
     }
+
    /* #blog-archives .year {
         display: none;
     }*/
