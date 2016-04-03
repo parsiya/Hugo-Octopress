@@ -17,6 +17,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 - [Hugo page summary bug](#summary)
 - [License page](#licensepage)
 - [Table of contents](#tableofcontents)
+- [Not Found or 404.html](#notfound)
 - [Issues/TODO](#issues)
 - [Attribution](#attribution)
 - [Ported by](#porterby)
@@ -102,6 +103,12 @@ post = "/blog/:year-:month-:day-:title/"
 
   # enable/disable Table of Contents in each page -
   tableOfContents = false
+
+  # 404.html header and text -both support markdown
+  notfound_header = "There's nothing here"
+
+  notfound_text = """Please either go back or use the navigation/sidebar menus.
+  """
 
 ```
 
@@ -328,6 +335,16 @@ There are two ways to enable Table of Contents:
       tableOfContents = true
 
 The `toc` variable in frontmatter has priority. If it is set `false` then the config file is ignored. It is recommended to not set use the config file and enable the ToC for individual pages. Otherwise, it can be enabled for all pages in the config file and disabled for specific pages using the frontmatter.
+
+## <a name="notfound"></a>Not Found or 404.html
+You can customize the `404.html` page in the config menu. For extensive customization you can modify the template at `hugo-octopress\layouts\404.html`.
+
+There are two optional parameters in the config file and both support markdown:
+
+* notfound_header: 404 page title
+* notfound_text: 404 page text
+
+If they are not set in the config file, a default page is generated.
 
 ## <a name="issues"></a>Issues/TODO
 

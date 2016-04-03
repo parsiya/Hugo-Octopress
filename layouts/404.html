@@ -8,11 +8,19 @@
       <article role="article">
         <header>
           <h1 class="entry-title">
-            Not Found - 404
+            {{ if isset .Site.Params "notfound_header" }}
+              {{ .Site.Params.notfound_header | markdownify }}
+            {{ else }}
+              Not Found
+            {{ end }}
           </h1>
         </header>
         <div id="blog-archives" class="category">
-          You can never go back.
+          {{ if isset .Site.Params "notfound_text" }}
+            {{ .Site.Params.notfound_text | markdownify }}
+          {{ else }}
+            Please either go back or use the navigation/sidebar menus.
+          {{ end }}
         </div>
       </article>
     </div>

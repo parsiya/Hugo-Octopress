@@ -105,6 +105,12 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	# paths should be relative to the `static` directory (either the website static directory or the theme one)
 	# custom_css = ["css/custom.css","css/custom2.css"]
 
+	# 404.html header and text -both support markdown
+	notfound_header = "There's nothing here"
+
+	notfound_text = """Please either go back or use the navigation/sidebar menus.
+	"""
+	
 # blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/ (scroll down to "Configure Blackfriday rendering")
 [blackfriday]
 	hrefTargetBlank = true # open the external links in a new window
