@@ -6,14 +6,14 @@
     <!-- can't put the .Date.Format inside the datetime attribute because of double quotes, so it's outside -->
     <time>{{ .Date.Format "Jan 2, 2006" }}</time>
     <span class="categories">
-      Tags: 
+      Tags:
         {{ if isset .Params "tags" }}
         <!-- need to convert the tags to lower for the URLs to work -->
           {{ range .Params.tags }}<a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>  {{ end }}
         {{ end }}
     </span>
   </p>
-    
+
   <!-- For sharing stuff -->
   <!-- <div class="sharing"> </div> -->
 
@@ -29,12 +29,13 @@
         <a class="basic-alignment left" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
     {{ end }}
 
-    {{ with .NextInSection }} 
+    {{ with .NextInSection }}
       <a class="basic-alignment right" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
     {{ end }}
   </p>
-
-  {{ partial "disqus.html" . }}
+  {{ if isset .Site.Params "disqusShortname" }}
+    {{ if not (eq .Params.comments false) }}
+      {{ partial "disqus.html" . }}
+    {{ end }}
+  {{ end }}
 </footer>
-
- 

@@ -81,6 +81,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	googleAnalytics = "google analytics"
 
 	# disqus shortcode
+	# disable comments for a specific post by adding "comments: false" in its frontmatter
 	disqusShortname = "Your Google Analytics tracking code"
 
 	# sidebar links
@@ -110,7 +111,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
 	notfound_text = """Please either go back or use the navigation/sidebar menus.
 	"""
-	
+
 # blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/ (scroll down to "Configure Blackfriday rendering")
 [blackfriday]
 	hrefTargetBlank = true # open the external links in a new window
