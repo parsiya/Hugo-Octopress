@@ -71,11 +71,6 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	# sidebar customization - passed to markdownify
 	sidebar_header = "Sidebar Header"
 
-	# sidebar menu
-	# if true will add a sidebar menu between sidebar text and recent posts
-	sidebar_menu_enabled = true
-	sidebar_menu_header = "Sidebar Links"
-
 	# sidebar text supports markdown
 	# new lines can be added with </br> or normal markdown (two spaces at the end of line or two new lines).
 	# when adding two new lines, remember to remove the indentation otherwise the new line will be treated as a codeblock
@@ -85,6 +80,11 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	</br>
 	Third line
 	"""
+
+	# sidebar menu
+	# if true will add a sidebar menu between sidebar text and recent posts
+	sidebar_menu_enabled = true
+	sidebar_menu_header = "Sidebar Links"
 
 	# if false, all of the post will appear on front page (and in pagination)
 	truncate = true

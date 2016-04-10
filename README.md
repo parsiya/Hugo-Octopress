@@ -10,6 +10,10 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 - [Markdown options](#markdown)
 - [CSS override](#cssoverride)
 - [Sidebar](#sidebarlinks)
+  - [Sidebar text](#sidebartext)
+  - [Social network icons](#sidebarsocial)
+  - [Sidebar menu](#sidebarmenu)
+  - [Recent posts](#sidebarrecent)
 - [Shortcodes](#shortcodes)
   - [Code caption](#codecaption)
   - [Image caption](#imgcap)
@@ -66,6 +70,11 @@ post = "/blog/:year-:month-:day-:title/"
   </br>
   Third line
   """
+
+  # sidebar menu
+  # if true will add a sidebar menu between sidebar text and recent posts
+  sidebar_menu_enabled = true
+  sidebar_menu_header = "Sidebar Links"
 
   # if false, all of posts' content will appear on front page (and in pagination) - not recommended
   # be sure to use the <!--more--> delimiter
