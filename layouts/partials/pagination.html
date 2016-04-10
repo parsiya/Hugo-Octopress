@@ -2,18 +2,6 @@
 <!-- default pagination.html creates <ul class="pagination"> and then a list of links for counters, forwardw and backward
      while Octopress uses <div class="pagination"> and links inside-->
 
-<!-- this is how octopress implements the pagination links
-<div class="pagination">
-    
-      <a class="prev" href="/blog/page/3/">← Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-    <a class="next" href="/">Newer →</a>
-    
-  </div>
--->
-
 {{ $pag := $.Paginator }}
 {{ if gt $pag.TotalPages 1 }}
 <div class="pagination">
@@ -37,8 +25,8 @@
     {{ if $pag.HasNext }}
     <!-- <a href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}" aria-label="Next" class="label-pagination"><span aria-hidden="true">&raquo;</span></a> -->
         <a href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}" aria-label="Next" class="label-pagination"><i class="fa fa-angle-right fa-lg"></i></a>
-    {{ end }} 
-    
+    {{ end }}
+
     {{ with $pag.Last }}
     <!-- <a href="{{ .URL }}" aria-label="Last"><span aria-hidden="true" class="label-pagination">&raquo;&raquo;</span></a> -->
         <a href="{{ .URL }}" aria-label="Last"><i class="fa fa-angle-double-right fa-lg"></i></a>
@@ -46,4 +34,3 @@
 
 </div>
 {{ end }}
-

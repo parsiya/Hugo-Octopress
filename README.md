@@ -1,7 +1,7 @@
 # Hugo-Octopress
 Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hugo][hugo-link]. For a live demo of the website please see [http://parsiya.net](http://parsiya.net).
 
-![screenshot](/images/tn.png)
+![screenshot](/images/screenshot2.png)
 
 ## Contents
 - [Config file parameters](#config)
