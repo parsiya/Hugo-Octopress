@@ -44,6 +44,25 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	Name = "This theme on Github"
 	URL = "https://www.github.com/parsiya/hugo-octopress"
 
+
+# sidebar menus
+# enable with "sidebar_menu_enabled = true" in [oarams]
+# header text is "sidebar_menu_header" in [params]
+[[menu.sidebar]]
+	Name = "Google"
+	URL = "https://www.google.com"
+	weight = 0
+
+[[menu.sidebar]]
+	Name = "Hugo"
+	URL = "/categories/hugo/"
+	weight = 1
+
+[[menu.sidebar]]
+	Name = "Homepage"
+	URL = "/"
+	weight = 2
+
 [params]
 
 	# number of recent posts that will be shown in the sidebar - default is 5
@@ -51,6 +70,11 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
 	# sidebar customization - passed to markdownify
 	sidebar_header = "Sidebar Header"
+
+	# sidebar menu
+	# if true will add a sidebar menu between sidebar text and recent posts
+	sidebar_menu_enabled = true
+	sidebar_menu_header = "Sidebar Links"
 
 	# sidebar text supports markdown
 	# new lines can be added with </br> or normal markdown (two spaces at the end of line or two new lines).

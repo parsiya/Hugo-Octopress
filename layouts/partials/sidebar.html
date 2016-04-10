@@ -48,6 +48,22 @@
     </li>
   </ul>
 
+  <!-- sidebar menu
+       first we check if it is enabled in config file and then start adding the items -->
+
+  {{ if eq .Site.Params.sidebar_menu_enabled true }}
+    <section class="odd">
+      {{ if isset .Site.Params "sidebar_menu_header" }}
+        <h1>{{ .Site.Params.sidebar_menu_header }}</h1>
+      {{ end }}
+      {{ range .Site.Menus.sidebar }}
+        <li>
+          <a href="{{ .URL | absURL }}" title="{{ .Name }}">{{ .Name }}</a>
+        </li>
+      {{ end }}
+    </section>
+  {{ end }}
+
   <!-- add recent posts - limit is .Site.Params.SidebarRecentLimit - example copied from https://gohugo.io/templates/go-templates/ -->
   <section class="even">
     <h1>Recent Posts</h1>
@@ -59,9 +75,9 @@
         {{ $.Scratch.Set "numberofrecentposts" .Site.Params.SidebarRecentLimit }}
       {{ end }}
       {{ range first ($.Scratch.Get "numberofrecentposts") .Site.Pages }}
-      <li class="post">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </li>
+        <li class="post">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
       {{ end }}
     </ul>
   </section>

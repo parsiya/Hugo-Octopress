@@ -181,15 +181,24 @@ The search engine can also be customized in the `config.toml` file as follows:
       search_engine_url = "https://www.google.com/search"
 
 ## <a name="sidebarlinks"></a>Sidebar
+Sidebar has four parts from top to bottom:
+
+* Sidebar header and text (optional).
+* Social network icons (optional): These are links to Github, Bitbucket, etc accompanied by icons.
+* Sidebar menu (optional): Optional links (usually used for categories).
+* Recent posts: Displays last X (default is 5) published posts.
+
 The sidebar is generated using the partial template at `hugo-octopress/layouts/partials/sidebar.html`.
 
-Sidebar has two parts and both can be configured in the config file. Both values are passed to `markdownify`. For example you can add links and new lines.
+### <a name="sidebartext"></a>Sidebar text
+Sidebar text has two parts and both can be configured in the config file. Both values are passed to `markdownify`. For example you can add links and new lines.
 
 * Sidebar header which appear on top in a `<h1>` tag. Can be configured in the config file through the `sidebar_header` tag.
 * Sidebar text appears under the header and can be configured by modifying the `sidebar_text` tag in the config file.
 
 New lines can be added with `</br>` or normal markdown (two spaces at the end of line or two new lines). When adding two new lines, remember to remove the indentation in the config file otherwise the new line will be treated as a codeblock
 
+### <a name="sidebarsocial"></a>Social network icons
 Sidebar links are read from the config file as follows:
 
     [params]
@@ -206,6 +215,25 @@ Sidebar links are read from the config file as follows:
 If more than links are added, then add a `</br>` between the first four and the rest. Code to display links (and the idea to use these icons) was taken from [Hyde-x](https://github.com/zyro/hyde-x/).
 
 Icons are from [http://fontawesome.io](http://fontawesome.io) by Dave Gandy. To use icons with square dark backgrounds add `-square`. For example `<i class="fa fa-twitter-square fa-3x"></i>`. Size can be from 1 to 5 or `fa-lg` to be adaptive.
+
+### <a name="sidebarmenu"></a>Sidebar menu
+This menu can be enabled by setting the `sidebar_menu_enabled` to `true` in config file. It has two main parts:
+
+* A header that appears inside the `<h1>` at the top. It can bset in the config file using the `sidebar_menu_header`. This part only supports text.
+* A series of links. They can be set in the config file similar to navigation menus using the `[[menu.sidebar]]` tag as follows:
+
+    [[menu.sidebar]]
+      Name = "Google"
+      URL = "https://www.google.com"
+      weight = 0
+
+    [[menu.sidebar]]
+      Name = "Hugo"
+      URL = "/categories/hugo/"
+      weight = 1
+
+### <a name="sidebarrecent"></a>Recent posts
+Last x recent posts can be displayed in the sidebar. This number can be set in the config file using the `SidebarRecentLimit`. If this number is not set, last five posts will be displayed.
 
 ## <a name="shortcodes"></a>Shortcodes
 Creating [shortcodes](https://gohugo.io/extras/shortcodes/) in Hugo was surprisingly easy. I used two plugins in Octopress that I re-created in Hugo using shortcodes. They add captions to code blocks and images. These shortcodes are located at `hugo-octopress/layouts/shortcodes/`.
