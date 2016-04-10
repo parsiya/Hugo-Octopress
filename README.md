@@ -57,8 +57,8 @@ post = "/blog/:year-:month-:day-:title/"
 
 [params]
 
-  # number of recent posts that will be shown in the sidebar - default is 5
-  SidebarRecentLimit = 5
+  # number of recent posts that will be shown in the sidebar - set to 0 or remove to hide this section
+  sidebarRecentLimit = 10
 
   # sidebar customization - passed to markdownify
   sidebar_header = "Sidebar Header"
@@ -242,7 +242,7 @@ This menu can be enabled by setting the `sidebar_menu_enabled` to `true` in conf
       weight = 1
 
 ### <a name="sidebarrecent"></a>Recent posts
-Last x recent posts can be displayed in the sidebar. This number can be set in the config file using the `SidebarRecentLimit`. If this number is not set, last five posts will be displayed.
+Last x recent posts can be displayed in the sidebar. This number can be set in the config file using the `sidebarRecentLimit`. To hide this section either remove `sidebarRecentLimit` from the config file or set it to zero.
 
 ## <a name="shortcodes"></a>Shortcodes
 Creating [shortcodes](https://gohugo.io/extras/shortcodes/) in Hugo was surprisingly easy. I used two plugins in Octopress that I re-created in Hugo using shortcodes. They add captions to code blocks and images. These shortcodes are located at `hugo-octopress/layouts/shortcodes/`.

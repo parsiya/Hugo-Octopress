@@ -64,22 +64,19 @@
     </section>
   {{ end }}
 
-  <!-- add recent posts - limit is .Site.Params.SidebarRecentLimit - example copied from https://gohugo.io/templates/go-templates/ -->
-  <section class="even">
-    <h1>Recent Posts</h1>
-
-    <!-- check if the number of recent posts is set in config file, otherwise use 5 -->
-    <ul id="recent_posts">
-      {{ $.Scratch.Set "numberofrecentposts" 5  }}
-      {{ if isset .Site.Params "SidebarRecentLimit" }}
-        {{ $.Scratch.Set "numberofrecentposts" .Site.Params.SidebarRecentLimit }}
-      {{ end }}
-      {{ range first ($.Scratch.Get "numberofrecentposts") .Site.Pages }}
-        <li class="post">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </li>
-      {{ end }}
-    </ul>
-  </section>
+  <!-- add recent posts - limit is .Site.Params.sidebarRecentLimit - example copied from https://gohugo.io/templates/go-templates/ -->
+  <!-- only display this section if sideBarRecentLimit is not zero -->
+  {{ if not (eq .Site.Params.sidebarRecentLimit 0) }}
+    <section class="even">
+      <h1>Recent Posts</h1>
+      <ul id="recent_posts">
+        {{ range first .Site.Params.sidebarRecentLimit .Site.Pages }}
+          <li class="post">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </section>
+  {{ end }}
 
 </aside>
