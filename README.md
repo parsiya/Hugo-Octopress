@@ -1,7 +1,5 @@
 # Hugo-Octopress
-Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hugo][hugo-link]. For a live demo of the website please see [http://parsiya.net](http://parsiya.net).
-
-![screenshot](/images/screenshot2.png)
+Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hugo][hugo-link]. For a live demo of the website please see my website at [http://parsiya.net](http://parsiya.net).
 
 ## Contents
 - [Config file parameters](#config)
@@ -27,6 +25,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 - [Ported by](#porterby)
 - [Theme license](#themelicense)
 
+![screenshot](/images/screenshot2.png)
 
 ## <a name="config"></a>Configuration
 This section is about parameters in the [configuration file](https://gohugo.io/overview/configuration/) and how they can be used to customize the output. A working config file `sample-config.toml`is provided and parameters are explained below:
