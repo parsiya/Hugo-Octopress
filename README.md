@@ -1,5 +1,5 @@
 # Hugo-Octopress
-Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hugo][hugo-link]. For a live demo of the website please see my website at [http://parsiya.net](http://parsiya.net).
+Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hugo][hugo-link]. For a live demo of the website please see my website at [https://parsiya.net](https://parsiya.net).
 
 ## Contents
 - [Config file parameters](#config)
@@ -185,7 +185,7 @@ Links are sorted according to weight from left to right. For example a link with
 The search engine can also be customized in the `config.toml` file as follows:
 
     [params]
-      # search enginer paramete in the navigation menu
+      # search engine parameter in the navigation menu
       search_engine_url = "https://www.google.com/search"
 
 ## <a name="sidebarlinks"></a>Sidebar
@@ -227,8 +227,9 @@ Icons are from [http://fontawesome.io](http://fontawesome.io) by Dave Gandy. To 
 ### <a name="sidebarmenu"></a>Sidebar menu
 This menu can be enabled by setting the `sidebar_menu_enabled` to `true` in config file. It has two main parts:
 
-* A header that appears inside the `<h1>` at the top. It can bset in the config file using the `sidebar_menu_header`. This part only supports text.
+* A header that appears inside the `<h1>` at the top. It can be set in the config file using the `sidebar_menu_header`. This part only supports text.
 * A series of links. They can be set in the config file similar to navigation menus using the `[[menu.sidebar]]` tag as follows:
+
 
     [[menu.sidebar]]
       Name = "Google"
