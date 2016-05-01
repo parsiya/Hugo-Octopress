@@ -230,16 +230,15 @@ This menu can be enabled by setting the `sidebar_menu_enabled` to `true` in conf
 * A header that appears inside the `<h1>` at the top. It can be set in the config file using the `sidebar_menu_header`. This part only supports text.
 * A series of links. They can be set in the config file similar to navigation menus using the `[[menu.sidebar]]` tag as follows:
 
+        [[menu.sidebar]]
+          Name = "Google"
+          URL = "https://www.google.com"
+          weight = 0
 
-    [[menu.sidebar]]
-      Name = "Google"
-      URL = "https://www.google.com"
-      weight = 0
-
-    [[menu.sidebar]]
-      Name = "Hugo"
-      URL = "/categories/hugo/"
-      weight = 1
+        [[menu.sidebar]]
+          Name = "Hugo"
+          URL = "/categories/hugo/"
+          weight = 1
 
 ### <a name="sidebarrecent"></a>Recent posts
 Last x recent posts can be displayed in the sidebar. This number can be set in the config file using the `sidebarRecentLimit`. To hide this section either remove `sidebarRecentLimit` from the config file or set it to zero.
