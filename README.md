@@ -28,7 +28,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 ![screenshot](/images/screenshot2.png)
 
 ## <a name="config"></a>Configuration
-This section is about parameters in the [configuration file](https://gohugo.io/overview/configuration/) and how they can be used to customize the output. A working config file `sample-config.toml`is provided and parameters are explained below:
+This section is about parameters in the [configuration file](https://gohugo.io/overview/configuration/) and how they can be used to customize the output. A working config file `sample-config.toml` is provided and parameters are explained below:
 
 ``` python
 baseurl = "http://example.com/"
@@ -118,6 +118,8 @@ post = "/blog/:year-:month-:day-:title/"
   notfound_text = """Please either go back or use the navigation/sidebar menus.
   """
 
+  # Set to true to hide ReadingTime on posts
+  disableReadingTime = false
 ```
 
 ## <a name="highlight"></a>Code highlight
