@@ -2,7 +2,7 @@
 
 <header>
     <h1 class="entry-title">
-        {{ if .IsHome }} <a href="{{ .Permalink }}">{{ .Title }}</a> {{ else }} {{ .Title }} {{ end }}
+        {{ if ($.Scratch.Get "isHome") }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ else }} {{ .Title }} {{ end }}
     </h1>
     <p class="meta">{{ .Date.Format "Jan 2, 2006" }}
         {{ if not .Site.Params.disableReadingTime }} - {{ .ReadingTime }} minute read {{ end }}

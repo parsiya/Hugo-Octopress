@@ -7,6 +7,7 @@
     {{ range $paginator.Pages }}
     <article>
 
+        {{ .Scratch.Set "isHome" true }}
         {{ partial "post_header.html" . }}
 
         {{ if eq .Site.Params.truncate false }}
@@ -30,7 +31,7 @@
     </article>
     {{ end }}
     <!-- {{ template "_internal/pagination.html" . }} default pagination -->
-    {{ partial "pagination.html" . }}  <!-- use custom pagination --> 
+    {{ partial "pagination.html" . }}  <!-- use custom pagination -->
 
   </div>
 

@@ -5,6 +5,7 @@
     <div>
       <article class="hentry" role="article">
 
+        {{ .Scratch.Set "isHome" false }}
         {{ partial "post_header.html" . }}
 
         <div class="entry-content">
