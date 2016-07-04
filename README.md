@@ -120,6 +120,9 @@ post = "/blog/:year-:month-:day-:title/"
 
   # Set to true to hide ReadingTime on posts
   disableReadingTime = false
+
+  # Set to true to disable downloading of remote Google fonts
+  disableGoogleFonts = false
 ```
 
 ## <a name="highlight"></a>Code highlight
