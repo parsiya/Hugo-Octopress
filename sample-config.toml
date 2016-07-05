@@ -121,6 +121,10 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
 	rss = true  # switch to true to enable RSS icon link
 
+        # set to true to use a text label for RSS instead of an icon
+        # this is overwritten by the `rss` setting
+        textrss = false
+
 	defaultDescription = ""
 
 	# populate this with your own keywords
