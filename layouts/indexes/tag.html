@@ -27,13 +27,13 @@
             </time>
             <footer>
               <span class="categories"> <!-- show categories and tags -->
-                posted in:
                 {{ if isset .Params "categories" }}
+                posted in:
                 {{ range .Params.categories }} <a class="category" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
-                {{ end }}
               </br>
-                tags:
+                {{ end }}
                 {{ if isset .Params "tags" }}
+                tags:
                 {{ range .Params.tags }} <a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
                 {{ end }}
               </span>
