@@ -111,7 +111,7 @@ post = "/blog/:year-:month-:day-:title/"
   # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
 
   # override the built-in css
-  # custom_css = ["css/custom.css","css/custom2.css"]
+  # customCSS = ["css/custom.css","css/custom2.css"]
 
   # enable/disable Table of Contents in each page -
   tableOfContents = false
@@ -163,12 +163,12 @@ Blackfriday is Hugo's markdown engine. For a list of options visit [https://gohu
       fractions = false
 
 ## <a name="cssoverride"></a>CSS override
-You can override the built-in css by using your own. Just put your own css files in the `static` directory of your website (the one in the theme directory also works but is not recommended) and modify the `custom_css` parameter in your config file. The path referenced in the parameter should be relative to the `static` folder. These css files will be added through the `header` partial after the built-in css file.
+You can override the built-in css by using your own. Just put your own css files in the `static` directory of your website (the one in the theme directory also works but is not recommended) and modify the `customCSS` parameter in your config file. The path referenced in the parameter should be relative to the `static` folder. These css files will be added through the `header` partial after the built-in css file.
 
 For example, if your css files are `static/css/custom.css` and `static/css/custom2.css` then add the following to the config file:
 
     [params]
-      custom_css = ["css/custom.css","css/custom2.css"]
+      customCSS = ["css/custom.css","css/custom2.css"]
 
 ## <a name="menu"></a>Navigation menu
 Links to the left of the navigation menu (everything other than Google search and RSS icon) can be configured here. Navigation menu is generated using the `hugo-octopress/layouts/partials/navigation.html` template.

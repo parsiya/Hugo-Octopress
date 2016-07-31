@@ -46,7 +46,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
 
 # sidebar menus
-# enable with "sidebarMenuEnabled = true" in [oarams]
+# enable with "sidebarMenuEnabled = true" in [params]
 # header text is "sidebarMenuHeader" in [params]
 [[menu.sidebar]]
 	Name = "Google"
@@ -136,7 +136,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
 	# css override files
 	# paths should be relative to the `static` directory (either the website static directory or the theme one)
-	# custom_css = ["css/custom.css","css/custom2.css"]
+	# customCSS = ["css/custom.css","css/custom2.css"]
 
 	# 404.html header and text -both support markdown
 	notFoundHeader = "There's nothing here"
