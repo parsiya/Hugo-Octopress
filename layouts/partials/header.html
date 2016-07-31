@@ -48,7 +48,7 @@
   {{ .Hugo.Generator }}
 
   <!-- Google Analytics -->
-  {{ template "_internal/google_analytics.html" . }}
+  {{ template "_internal/google_analytics_async.html" . }}
 
 </head>
 <body{{ with .Site.Params.theme }} class="{{ . }}"{{ end }}>
