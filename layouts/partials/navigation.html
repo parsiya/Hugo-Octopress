@@ -1,12 +1,12 @@
 <!-- reading menu items from config file -->
 
 <ul class="main-navigation">
-  <!-- do not open links to root in new window - otherwise any other link can be opened in new window -->
+  <!-- links to root open in the same window - other links will be opened in a new window if navigationNewWindow is set to true in the config file -->
   {{ range .Site.Menus.main }}
     {{ if eq .URL "/" }}
       <li><a href="{{ .URL | absURL }}" title="{{ .Name }}">{{ .Name }}</a></li>
     {{ else }}
-      <li><a href="{{ .URL | absURL }}" target="_blank" title="{{ .Name }}">{{ .Name }}</a></li>
+      <li><a href="{{ .URL | absURL }}" {{ if eq $.Site.Params.navigationNewWindow true }} target="_blank" {{ end }} title="{{ .Name }}">{{ .Name }}</a></li>
     {{ end }}
   {{ end }}
 </ul>

@@ -173,7 +173,7 @@ For example, if your css files are `static/css/custom.css` and `static/css/custo
 ## <a name="menu"></a>Navigation menu
 Links to the left of the navigation menu (everything other than Google search and RSS icon) can be configured here. Navigation menu is generated using the `hugo-octopress/layouts/partials/navigation.html` template.
 
-All links open in a new window except links to root. If the URL is "/" the link will not open in a new window (you can see this logic in the partial template).
+By default navigation menu links will open in the same window. You can change this by setting the `navigationNewWindow` parameter in the config file as seen below. Links to root ("/") will always open in the same window. Currently Hugo does not support adding custom attributes to menu items.
 
 Links are sorted according to weight from left to right. For example a link with weight of `-10` will be to the left of links with weight `0` or `10`. Links can be added to the `config.toml` as follows:
 
@@ -190,6 +190,11 @@ Links are sorted according to weight from left to right. For example a link with
     [[menu.main]]
       Name = "This theme - add link"
       URL = "https://www.github.com"
+
+    [params]
+      # if set to true, navigation menu links will open in a new window with the exception of links to root ("\")
+    	# if this item does not exist or set to false, then navigation menu links will open in the same window
+    	navigationNewWindow = true
 
 The search engine can also be customized in the `config.toml` file as follows:
 

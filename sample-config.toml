@@ -65,6 +65,10 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
 [params]
 
+	# if set to true, navigation menu links will open in a new window with the exception of links to root ("\")
+	# if this item does not exist or set to false, then navigation menu links will open in the same window
+	navigationNewWindow = true
+
 	# number of recent posts that will be shown in the sidebar - set to 0 or remove to hide this section
 	sidebarRecentLimit = 10
 
