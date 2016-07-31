@@ -6,7 +6,7 @@
     {{ if eq .URL "/" }}
       <li><a href="{{ .URL | absURL }}" title="{{ .Name }}">{{ .Name }}</a></li>
     {{ else }}
-      <li><a href="{{ .URL | absURL }}" {{ if eq $.Site.Params.navigationNewWindow true }} target="_blank" {{ end }} title="{{ .Name }}">{{ .Name }}</a></li>
+      <li><a href="{{ .URL | absURL }}" title="{{ .Name }}" {{ if eq $.Site.Params.navigationNewWindow true }} target="_blank" {{ end }}>{{ .Name }}</a></li>
     {{ end }}
   {{ end }}
 </ul>

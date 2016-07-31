@@ -193,7 +193,7 @@ Links are sorted according to weight from left to right. For example a link with
 
     [params]
       # if set to true, navigation menu links will open in a new window with the exception of links to root ("\")
-    	# if this item does not exist or set to false, then navigation menu links will open in the same window
+      # if this item does not exist or set to false, then navigation menu links will open in the same window
     	navigationNewWindow = true
 
 The search engine can also be customized in the `config.toml` file as follows:
