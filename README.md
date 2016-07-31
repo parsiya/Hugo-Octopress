@@ -100,6 +100,10 @@ post = "/blog/:year-:month-:day-:title/"
   # switch to true to enable RSS icon link in the navigation menu
   rss = true  
 
+  # set to true to use a text label for RSS instead of an icon
+  # this is overwritten by the `rss` setting
+  textrss = false
+
   # Website's default description used in meta tags
   defaultDescription = ""
 
@@ -120,6 +124,9 @@ post = "/blog/:year-:month-:day-:title/"
 
   # Set to true to hide ReadingTime on posts
   disableReadingTime = false
+
+  # Set to true to disable downloading of remote Google fonts
+  disableGoogleFonts = false
 ```
 
 ## <a name="highlight"></a>Code highlight

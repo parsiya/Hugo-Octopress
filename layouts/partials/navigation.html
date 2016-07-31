@@ -13,10 +13,13 @@
 
 <!-- http://fontawesome.io icon fa-lg adapts it to size (at least it is supposed to) -->
 <ul class="subscription">
-  {{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>{{ end }}
-
-  <!-- If you prefer RSS text (like Octopress) replace the line above with next comment -->
-  <!-- <li><a href="/index.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li> -->
+  {{ if or .Site.Params.rss .Site.Params.textrss }}
+    {{ if .Site.Params.rss }}
+        <a href="{{ "/index.xml" | absURL }}" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    {{ else }}
+        <li><a href="/index.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+    {{ end }}
+  {{ end }}
 
 </ul>
 
