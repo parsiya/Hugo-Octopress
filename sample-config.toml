@@ -46,8 +46,8 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
 
 # sidebar menus
-# enable with "sidebar_menu_enabled = true" in [oarams]
-# header text is "sidebar_menu_header" in [params]
+# enable with "sidebarMenuEnabled = true" in [oarams]
+# header text is "sidebarMenuHeader" in [params]
 [[menu.sidebar]]
 	Name = "Google"
 	URL = "https://www.google.com"
@@ -73,12 +73,12 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	sidebarRecentLimit = 10
 
 	# sidebar customization - passed to markdownify
-	sidebar_header = "Sidebar Header"
+	sidebarHeader = "Sidebar Header"
 
 	# sidebar text supports markdown
 	# new lines can be added with </br> or normal markdown (two spaces at the end of line or two new lines).
 	# when adding two new lines, remember to remove the indentation otherwise the new line will be treated as a codeblock
-	sidebar_text = """Sidebar text is passed to *markdownify* so it supports markdown. Here's a [link to google](https://www.google.com)
+	sidebarText = """Sidebar text is passed to *markdownify* so it supports markdown. Here's a [link to google](https://www.google.com)
 	</br>
 	Second line
 	</br>
@@ -87,8 +87,8 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
 	# sidebar menu
 	# if true will add a sidebar menu between sidebar text and recent posts
-	sidebar_menu_enabled = true
-	sidebar_menu_header = "Sidebar Links"
+	sidebarMenuEnabled = true
+	sidebarMenuHeader = "Sidebar Links"
 
 	# if false, all of the post will appear on front page (and in pagination)
 	truncate = true
@@ -100,10 +100,10 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	subtitle = "Subtitle appears under website title"
 
 	# used in the search engine
-	search_engine_url = "https://www.google.com/search"
+	searchEngineURL = "https://www.google.com/search"
 
 	# Text of the Continue Reading label. &rarr; == right arrow, but it gets messed up in the string so we will add it to index.html manually
-	continue_reading = "Would you like to know more?"
+	continueReadingText = "Would you like to know more?"
 
 	# Google analytics code
 	googleAnalytics = "google analytics"
@@ -139,9 +139,9 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	# custom_css = ["css/custom.css","css/custom2.css"]
 
 	# 404.html header and text -both support markdown
-	notfound_header = "There's nothing here"
+	notFoundHeader = "There's nothing here"
 
-	notfound_text = """Please either go back or use the navigation/sidebar menus.
+	notFoundText = """Please either go back or use the navigation/sidebar menus.
 	"""
 
         # Set to true to hide ReadingTime on posts

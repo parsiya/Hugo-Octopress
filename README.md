@@ -60,10 +60,10 @@ post = "/blog/:year-:month-:day-:title/"
   sidebarRecentLimit = 10
 
   # sidebar customization - passed to markdownify
-  sidebar_header = "Sidebar Header"
+  sidebarHeader = "Sidebar Header"
 
   # sidebar text supports markdown
-  sidebar_text = """Sidebar text supports is passed to *markdownify* so it supports markdown. Here's a [link to google](https://www.google.com)
+  sidebarText = """Sidebar text supports is passed to *markdownify* so it supports markdown. Here's a [link to google](https://www.google.com)
   </br>
   Second line
   </br>
@@ -72,8 +72,8 @@ post = "/blog/:year-:month-:day-:title/"
 
   # sidebar menu
   # if true will add a sidebar menu between sidebar text and recent posts
-  sidebar_menu_enabled = true
-  sidebar_menu_header = "Sidebar Links"
+  sidebarMenuEnabled = true
+  sidebarMenuHeader = "Sidebar Links"
 
   # if false, all of posts' content will appear on front page (and in pagination) - not recommended
   # be sure to use the <!--more--> delimiter
@@ -88,7 +88,7 @@ post = "/blog/:year-:month-:day-:title/"
   # text of the Continue Reading label - if not set, it will default to "Read On &rarr;"
   # &rarr; == right arrow, but it gets messed up in the string so it is added to hugo-octopress/layouts/index.html manually
   # this can be modified in hugo-octopress/layouts/index.html
-  continue_reading = "Would you like to know more?"
+  continueReadingText = "Would you like to know more?"
 
   # disqus - simply enter your disqus - using the template from https://gohugo.io/extras/comments/ at /hugo-octopress/layouts/partials/disqus.html that disables disqus when running on localhost (if you are testing it offline remember to comment out the if in the template that checks for localhost)
   # the template is injected into the pages in /hugo-octopress/layouts/partials/post-footer.html which is in every post (and not non-post pages like license.html)
@@ -117,9 +117,9 @@ post = "/blog/:year-:month-:day-:title/"
   tableOfContents = false
 
   # 404.html header and text -both support markdown
-  notfound_header = "There's nothing here"
+  notFoundHeader = "There's nothing here"
 
-  notfound_text = """Please either go back or use the navigation/sidebar menus.
+  notFoundText = """Please either go back or use the navigation/sidebar menus.
   """
 
   # Set to true to hide ReadingTime on posts
@@ -200,7 +200,7 @@ The search engine can also be customized in the `config.toml` file as follows:
 
     [params]
       # search engine parameter in the navigation menu
-      search_engine_url = "https://www.google.com/search"
+      searchEngineURL = "https://www.google.com/search"
 
 ## <a name="sidebarlinks"></a>Sidebar
 Sidebar has four parts from top to bottom:
@@ -215,8 +215,8 @@ The sidebar is generated using the partial template at `hugo-octopress/layouts/p
 ### <a name="sidebartext"></a>Sidebar text
 Sidebar text has two parts and both can be configured in the config file. Both values are passed to `markdownify`. For example you can add links and new lines.
 
-* Sidebar header which appear on top in a `<h1>` tag. Can be configured in the config file through the `sidebar_header` tag.
-* Sidebar text appears under the header and can be configured by modifying the `sidebar_text` tag in the config file.
+* Sidebar header which appear on top in a `<h1>` tag. Can be configured in the config file through the `sidebarHeader` tag.
+* Sidebar text appears under the header and can be configured by modifying the `sidebarText` tag in the config file.
 
 New lines can be added with `</br>` or normal markdown (two spaces at the end of line or two new lines). When adding two new lines, remember to remove the indentation in the config file otherwise the new line will be treated as a codeblock
 
@@ -239,9 +239,9 @@ If more than links are added, then add a `</br>` between the first four and the 
 Icons are from [http://fontawesome.io](http://fontawesome.io) by Dave Gandy. To use icons with square dark backgrounds add `-square`. For example `<i class="fa fa-twitter-square fa-3x"></i>`. Size can be from 1 to 5 or `fa-lg` to be adaptive.
 
 ### <a name="sidebarmenu"></a>Sidebar menu
-This menu can be enabled by setting the `sidebar_menu_enabled` to `true` in config file. It has two main parts:
+This menu can be enabled by setting the `sidebarMenuEnabled` to `true` in config file. It has two main parts:
 
-* A header that appears inside the `<h1>` at the top. It can be set in the config file using the `sidebar_menu_header`. This part only supports text.
+* A header that appears inside the `<h1>` at the top. It can be set in the config file using the `sidebarMenuHeader`. This part only supports text.
 * A series of links. They can be set in the config file similar to navigation menus using the `[[menu.sidebar]]` tag as follows:
 
         [[menu.sidebar]]
@@ -393,8 +393,8 @@ You can customize the `404.html` page in the config menu. For extensive customiz
 
 There are two optional parameters in the config file and both support markdown:
 
-* notfound_header: 404 page title
-* notfound_text: 404 page text
+* notFoundHeader: 404 page title
+* notFoundText: 404 page text
 
 If they are not set in the config file, a default page is generated.
 

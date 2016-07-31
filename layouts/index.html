@@ -15,14 +15,14 @@
         {{ else if .Description }}
         {{ .Description }}
           <footer>
-            <a href="{{ .Permalink }}" rel="full-article">{{ if isset .Site.Params "continue_reading" }}{{ .Site.Params.continue_reading }} &rarr;{{ else }}Read On &rarr;{{ end }}</a>
+            <a href="{{ .Permalink }}" rel="full-article">{{ if isset .Site.Params "continueReadingText" }}{{ .Site.Params.continueReadingText }} &rarr;{{ else }}Read On &rarr;{{ end }}</a>
           </footer>
         {{ else }}
           <p>{{ .Summary }}</p>
 
           {{ if .Truncated }}
               <footer>
-                  <a href="{{ .Permalink }}" rel="full-article">{{ if isset .Site.Params "continue_reading" }}{{ .Site.Params.continue_reading }} &rarr;{{ else }}Read On &rarr;{{ end }}</a>
+                  <a href="{{ .Permalink }}" rel="full-article">{{ if isset .Site.Params "continueReadingText" }}{{ .Site.Params.continueReadingText }} &rarr;{{ else }}Read On &rarr;{{ end }}</a>
               </footer>
           {{ end }}
 
