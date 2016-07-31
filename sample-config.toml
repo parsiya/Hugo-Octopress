@@ -1,35 +1,37 @@
 baseurl = "http://example.com"
 disablePathToLower = false
 languageCode = "en-us"
-title = "Parsia's Den"
+title = "Site title"
 theme = "hugo-octopress"
 
-# number of blog posts displayed in each page
+# Number of blog posts displayed in each page
 paginate = 6
 
 pygmentsuseclasses = false
 pygmentsstyle = "solarized_dark"
 
-# you need to install Solarized from https://github.com/john2x/solarized-pygment.git
+# You need to install Solarized from https://github.com/john2x/solarized-pygment.git
 # Octopress blog used Solarized_dark
-# options are solarized_dark (octopress), solarized_dark256 and default (solarized light)
+# Options are solarized_dark (octopress), solarized_dark256 and default (solarized light)
 
-# will make the highlight shortcode and ``` do the same thing - otherwise they are treated differently and we do not want that
+# This will make the highlight shortcode and ``` do the same thing - otherwise they are treated differently and we do not want that
 pygmentscodefences = true
 
-# can pass in pygments options here, it can also be added in the highlight shortcode
+# We can pass in pygments options here, it can also be added in the highlight shortcode
 # pygmentsoptions = "linenos=true"
 
 [permalinks]
 post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the old ones
 
-# make tags and categories work
+# Make tags and categories work
 [indexes]
 	tag = "tags"
 	category = "categories"
 
-# menu
-# links will open in a new window except links to "/" - links are added to navigation in hugo-octopress/layouts/partials/navigation.html
+# Menu
+# Links are added to navigation in hugo-octopress/layouts/partials/navigation.html
+# If navigationNewWindow is set in [params] to true then all links except root ("/") will open in a new window
+# If navigationNewWindow does not exist or set to false then links will open in the same window
 [[menu.main]]
 	Name = "Blog"
 	URL = "/"
@@ -45,9 +47,9 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	URL = "https://www.github.com/parsiya/hugo-octopress"
 
 
-# sidebar menus
-# enable with "sidebarMenuEnabled = true" in [params]
-# header text is "sidebarMenuHeader" in [params]
+# Sidebar menus
+# Enable with "sidebarMenuEnabled = true" in [params]
+# Header text is "sidebarMenuHeader" in [params]
 [[menu.sidebar]]
 	Name = "Google"
 	URL = "https://www.google.com"
@@ -65,18 +67,15 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
 [params]
 
-	# if set to true, navigation menu links will open in a new window with the exception of links to root ("\")
-	# if this item does not exist or set to false, then navigation menu links will open in the same window
-	navigationNewWindow = true
-
-	# number of recent posts that will be shown in the sidebar - set to 0 or remove to hide this section
+	# --- Start sidebar options ---
+	# Number of recent posts that will be shown in the sidebar - set to 0 or remove to hide this section
 	sidebarRecentLimit = 10
 
-	# sidebar customization - passed to markdownify
+	# Sidebar header - passed to markdownify so you can write markdown here
 	sidebarHeader = "Sidebar Header"
 
-	# sidebar text supports markdown
-	# new lines can be added with </br> or normal markdown (two spaces at the end of line or two new lines).
+	# Sidebar text also sipports markdown
+	# New lines can be added with </br> or normal markdown (two spaces at the end of line or two new lines).
 	# when adding two new lines, remember to remove the indentation otherwise the new line will be treated as a codeblock
 	sidebarText = """Sidebar text is passed to *markdownify* so it supports markdown. Here's a [link to google](https://www.google.com)
 	</br>
@@ -84,33 +83,9 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	</br>
 	Third line
 	"""
-
-	# sidebar menu
-	# if true will add a sidebar menu between sidebar text and recent posts
+	# Sidebar menu - if true will add a sidebar menu between sidebar text and recent posts
 	sidebarMenuEnabled = true
 	sidebarMenuHeader = "Sidebar Links"
-
-	# if false, all of the post will appear on front page (and in pagination)
-	truncate = true
-
-	# author's name (this will appear in metadata and under posts)
-	author = "Author's name"
-
-	# appears in the site header under website title
-	subtitle = "Subtitle appears under website title"
-
-	# used in the search engine
-	searchEngineURL = "https://www.google.com/search"
-
-	# Text of the Continue Reading label. &rarr; == right arrow, but it gets messed up in the string so we will add it to index.html manually
-	continueReadingText = "Would you like to know more?"
-
-	# Google analytics code
-	googleAnalytics = "google analytics"
-
-	# disqus shortcode
-	# disable comments for a specific post by adding "comments: false" in its frontmatter
-	disqusShortname = "Your Google Analytics tracking code"
 
 	# sidebar links
 	github = "https://github.com/parsiya/"
@@ -123,19 +98,48 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	youtube = ""
 	facebook = ""
 
+	# --- End sidebar options ---
+
+	# If set to true, navigation menu links will open in a new window with the exception of links to root ("\")
+	# If this item does not exist or set to false, then navigation menu links will open in the same window
+	navigationNewWindow = true
+
+	# If false, all of the post will appear on front page (and in pagination)
+	truncate = true
+
+	# Author's name (this will appear in metadata and under posts)
+	author = "Author's name"
+
+	# This text appears in the site header under website title
+	subtitle = "Subtitle appears under website title"
+
+	# Used in the search engine
+	searchEngineURL = "https://www.google.com/search"
+
+	# Text of the "Continue Reading" label. &rarr; == right arrow, but it gets messed up in the string so we will add it to index.html manually
+	continueReadingText = "Would you like to know more?"
+
+	# Google analytics code
+	googleAnalytics = "google analytics"
+
+	# Disqus shortcode
+	# Disable comments for a specific post by adding "comments: false" in its frontmatter
+	disqusShortname = "Your Google Analytics tracking code"
+
 	rss = true  # switch to true to enable RSS icon link
 
-        # set to true to use a text label for RSS instead of an icon
-        # this is overwritten by the `rss` setting
-        textrss = false
+  # Set to true to use a text label for RSS instead of an icon
+  # This is overwritten by the `rss` setting
+  textrss = false
 
+	# Website's default description
 	defaultDescription = ""
 
-	# populate this with your own keywords
+	# Populate this with your own search keywords - these will appear in the meta tags
 	# defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
 
-	# css override files
-	# paths should be relative to the `static` directory (either the website static directory or the theme one)
+	# CSS override files
+	# Paths should be relative to the `static` directory (either the website static directory or the theme one)
 	# customCSS = ["css/custom.css","css/custom2.css"]
 
 	# 404.html header and text -both support markdown
@@ -150,7 +154,8 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
         # Set to true to disable downloading of remote Google fonts
         disableGoogleFonts = false
 
-# blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/ (scroll down to "Configure Blackfriday rendering")
+
+# Blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/ (scroll down to "Configure Blackfriday rendering")
 [blackfriday]
 	hrefTargetBlank = true # open the external links in a new window
 	fractions = false
