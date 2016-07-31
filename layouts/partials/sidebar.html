@@ -39,7 +39,8 @@
   </ul>
 
   <!-- sidebar menu - items are read from the config file
-       first we check if it is enabled in config file and then start adding the items -->
+       first we check if it is enabled in config file and then start adding the items
+       if Site.Params.sidebarNewWindow exists and is set to true then open these links in a new window -->
 
   {{ if eq .Site.Params.sidebar_menu_enabled true }}
     <section class="odd">
@@ -48,7 +49,7 @@
       {{ end }}
       {{ range .Site.Menus.sidebar }}
         <li>
-          <a href="{{ .URL | absURL }}" title="{{ .Name }}">{{ .Name }}</a>
+          <a href="{{ .URL | absURL }}" title="{{ .Name }}" {{ if eq $.Site.Params.sidebarNewWindow true }} target="_blank" {{ end }}>{{ .Name }}</a>
         </li>
       {{ end }}
     </section>

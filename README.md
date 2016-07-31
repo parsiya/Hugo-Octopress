@@ -254,6 +254,8 @@ This menu can be enabled by setting the `sidebar_menu_enabled` to `true` in conf
           URL = "/categories/hugo/"
           weight = 1
 
+  * If the `sidebarNewWindow` parameter in config file to `true` to open the sidebar links in a new window. If this parameter does not exist or set to `false` then links open in the same window (default behavior).
+
 ### <a name="sidebarrecent"></a>Recent posts
 Last x recent posts can be displayed in the sidebar. This number can be set in the config file using the `sidebarRecentLimit`. To hide this section either remove `sidebarRecentLimit` from the config file or set it to zero.
 
