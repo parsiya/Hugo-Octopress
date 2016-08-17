@@ -42,32 +42,36 @@
        first we check if it is enabled in config file and then start adding the items
        if Site.Params.sidebarNewWindow exists and is set to true then open these links in a new window -->
 
-  {{ if eq .Site.Params.sidebarMenuEnabled true }}
-    <section class="odd">
-      {{ if isset .Site.Params "sidebarMenuHeader" }}
-        <h1>{{ .Site.Params.sidebarMenuHeader }}</h1>
-      {{ end }}
-      {{ range .Site.Menus.sidebar }}
-        <li>
-          <a href="{{ .URL | absURL }}" title="{{ .Name }}" {{ if eq $.Site.Params.sidebarNewWindow true }} target="_blank" {{ end }}>{{ .Name }}</a>
-        </li>
-      {{ end }}
-    </section>
+  {{ with .Site.Params.sidebarMenuEnabled }}
+    {{ if eq . true }}
+      <section class="odd">
+        {{ if isset $.Site.Params "sidebarMenuHeader" }}
+          <h1>{{ $.Site.Params.sidebarMenuHeader }}</h1>
+        {{ end }}
+        {{ range $.Site.Menus.sidebar }}
+          <li>
+            <a href="{{ .URL | absURL }}" title="{{ .Name }}" {{ if eq $.Site.Params.sidebarNewWindow true }} target="_blank" {{ end }}>{{ .Name }}</a>
+          </li>
+        {{ end }}
+      </section>
+    {{ end }}
   {{ end }}
 
   <!-- add recent posts - limit is .Site.Params.sidebarRecentLimit - example copied from https://gohugo.io/templates/go-templates/ -->
   <!-- only display this section if sideBarRecentLimit is not zero -->
-  {{ if not (eq .Site.Params.sidebarRecentLimit 0) }}
-    <section class="even">
-      <h1>Recent Posts</h1>
-      <ul id="recent_posts">
-        {{ range first .Site.Params.sidebarRecentLimit .Site.Pages }}
-          <li class="post">
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          </li>
-        {{ end }}
-      </ul>
-    </section>
+  {{ with .Site.Params.sidebarRecentLimit }}
+    {{ if not (eq $.Site.Params.sidebarRecentLimit 0) }}
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          {{ range first $.Site.Params.sidebarRecentLimit $.Site.Pages }}
+            <li class="post">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </section>
+    {{ end }}
   {{ end }}
 
 </aside>
