@@ -22,7 +22,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 - [Not Found or 404.html](#notfound)
 - [Issues/TODO](#issues)
 - [Attribution](#attribution)
-- [Ported by](#porterby)
+- [Ported by](#portedby)
 - [Theme license](#themelicense)
 
 ![screenshot](/images/screenshot.png)
@@ -380,7 +380,7 @@ If you know how to clean it up, please let me know or better yet help me do it :
 ## <a name="Ported by"></a>Ported by
 Ported by Parsia Hakimian:
 
-* website: [parsiya.net](http://parsiya.net)
+* website: [parsiya.net](https://parsiya.net)
 * twitter: [@CryptoGangsta](https://twitter.com/cryptogangsta)
 
 ## <a name="themelicense"></a>Theme license
