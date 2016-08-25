@@ -71,7 +71,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
 	# Disqus shortcode
 	# Disable comments for a specific post by adding "comments: false" in its frontmatter
-	disqusShortname = "Your Google Analytics tracking code"
+	disqusShortname = "Your disqus shortname"
 
 	rss = true  # switch to true to enable RSS icon link
 
@@ -108,8 +108,8 @@ The following options in `config.toml` modify the behavior:
   pygmentscodefences = true
 
   # pygments options can be added here
-  # Hugo supports these pygments options: style, encoding, noclasses, hl_lines, linenos - for example:
-  # pygmentsoptions = "linenos=true"
+  # Hugo supports these pygments options: style, encoding, noclasses, hl_lines, linenos
+  # for example: pygmentsoptions = "linenos=true"
 ```
 ## <a name="markdown"></a>Markdown options
 

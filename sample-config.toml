@@ -124,13 +124,13 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
 	# Disqus shortcode
 	# Disable comments for a specific post by adding "comments: false" in its frontmatter
-	disqusShortname = "Your Google Analytics tracking code"
+	disqusShortname = "Your disqus shortname"
 
 	rss = true  # switch to true to enable RSS icon link
 
-  # Set to true to use a text label for RSS instead of an icon
-  # This is overwritten by the `rss` setting
-  textrss = false
+	# Set to true to use a text label for RSS instead of an icon
+	# This is overwritten by the `rss` setting
+	textrss = false
 
 	# Website's default description
 	defaultDescription = ""
@@ -148,11 +148,11 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	notFoundText = """Please either go back or use the navigation/sidebar menus.
 	"""
 
-  # Set to true to hide ReadingTime on posts
-  disableReadingTime = false
+	# Set to true to hide ReadingTime on posts
+	disableReadingTime = false
 
-  # Set to true to disable downloading of remote Google fonts
-  disableGoogleFonts = false
+	# Set to true to disable downloading of remote Google fonts
+	disableGoogleFonts = false
 
 	# Generate taxonomy pages
 	generateTaxonomyList = true
