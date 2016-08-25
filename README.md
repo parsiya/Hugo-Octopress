@@ -20,9 +20,10 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 - [License page](#licensepage)
 - [Table of contents](#tableofcontents)
 - [Not Found or 404.html](#notfound)
+- [Taxonomy pages](#taxonomy)
 - [Issues/TODO](#issues)
 - [Attribution](#attribution)
-- [Ported by](#porterby)
+- [Ported by](#portedby)
 - [Theme license](#themelicense)
 
 ![screenshot](/images/screenshot.png)
@@ -364,6 +365,19 @@ There are two optional parameters in the config file and both support markdown:
 
 If they are not set in the config file, a default page is generated.
 
+## <a name="taxonomy"></a>Taxonomy pages
+The theme can create pages that list all taxonomies (categories and tags) and their count. The taxonomy pages are at `baseURL/tags/` and `baseURL/categories`. This can be accomplished by adding `generateTaxonomyList = true` to the config file. By default the theme sorts the items by count. It can be changed to alphabetical by including `sortTaxonomyAlphabetical = true`.
+
+The switches are as follows:
+
+    [Params]
+      generateTaxonomyList = true
+
+      # This is not needed unless alphabetical sort is needed
+      # sortTaxonomyAlphabetical = true
+
+To revert back to ByCount sort, remove `sortTaxonomyAlphabetical` or set it to false.
+
 ## <a name="issues"></a>Issues/TODO
 
 If you see any issues/bugs or you are looking for some features please use the Github issue tracker. Please keep in my mind that my day job is not development and I may be slow in fixing things (or I may ask you to help me with it).
@@ -380,7 +394,7 @@ If you know how to clean it up, please let me know or better yet help me do it :
 ## <a name="Ported by"></a>Ported by
 Ported by Parsia Hakimian:
 
-* website: [parsiya.net](http://parsiya.net)
+* website: [parsiya.net](https://parsiya.net)
 * twitter: [@CryptoGangsta](https://twitter.com/cryptogangsta)
 
 ## <a name="themelicense"></a>Theme license

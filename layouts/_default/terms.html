@@ -1,0 +1,40 @@
+<!-- Template for /tags/ and /categories/ -->
+
+{{ $page := . }}
+{{ $data := .Data }}
+{{ $.Scratch.Set "terms" $data.Terms.ByCount }}  <!-- default is ByCount -->
+
+{{ with .Site.Params.generateTaxonomyList }}
+
+  {{ partial "header.html" $page }}
+  <div id="main">
+    <div id="content">
+      <div>
+        <article role="article">
+          <header>
+            <h1 class="entry-title">
+              {{ $.Title }}:
+            </h1>
+          </header>
+          <ul>
+            {{ with $.Site.Params.sortTaxonomyAlphabetical }}
+              {{ if eq . true }}
+                {{ $.Scratch.Set "terms" $data.Terms.Alphabetical }}
+              {{ end }}
+            {{ end }}
+            <!-- Non-relative paths also work - fallback in case the relative path stops working -->
+            {{ range $key, $value := ($.Scratch.Get "terms") }}
+              <!-- <li><a href="{{ $.Site.BaseURL }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ humanize $value.Name }}</a> {{ $value.Count }}</li> -->
+              <li><a href="{{ $value.Name | urlize }}">{{ humanize $value.Name }}</a> {{ $value.Count }}</li>
+            {{ end }}
+          </ul>
+        </article>
+      </div>
+
+      {{ partial "sidebar.html" $page }}
+    </div>
+  </div>
+
+  {{ partial "footer.html" $page }}
+
+{{ end }}
