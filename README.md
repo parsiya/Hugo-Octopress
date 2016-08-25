@@ -20,6 +20,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 - [License page](#licensepage)
 - [Table of contents](#tableofcontents)
 - [Not Found or 404.html](#notfound)
+- [Taxonomy pages](#taxonomy)
 - [Issues/TODO](#issues)
 - [Attribution](#attribution)
 - [Ported by](#portedby)
@@ -363,6 +364,19 @@ There are two optional parameters in the config file and both support markdown:
 * notFoundText: 404 page text
 
 If they are not set in the config file, a default page is generated.
+
+## <a name="taxonomy"></a>Taxonomy pages
+The theme can create pages that list all taxonomies (categories and tags) and their count. The taxonomy pages are at `baseURL/tags/` and `baseURL/categories`. This can be accomplished by adding `generateTaxonomyList = true` to the config file. By default the theme sorts the items by count. It can be changed to alphabetical by including `sortTaxonomyAlphabetical = true`.
+
+The switches are as follows:
+
+    [Params]
+      generateTaxonomyList = true
+
+      # This is not needed unless alphabetical sort is needed
+      # sortTaxonomyAlphabetical = true
+
+To revert back to ByCount sort, remove `sortTaxonomyAlphabetical` or set it to false.
 
 ## <a name="issues"></a>Issues/TODO
 

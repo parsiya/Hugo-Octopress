@@ -148,11 +148,17 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	notFoundText = """Please either go back or use the navigation/sidebar menus.
 	"""
 
-        # Set to true to hide ReadingTime on posts
-        disableReadingTime = false
+  # Set to true to hide ReadingTime on posts
+  disableReadingTime = false
 
-        # Set to true to disable downloading of remote Google fonts
-        disableGoogleFonts = false
+  # Set to true to disable downloading of remote Google fonts
+  disableGoogleFonts = false
+
+	# Generate taxonomy pages
+	generateTaxonomyList = true
+
+	# This is not needed unless alphabetical sort is needed
+	# sortTaxonomyAlphabetical = true
 
 
 # Blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/ (scroll down to "Configure Blackfriday rendering")
