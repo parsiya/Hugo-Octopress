@@ -342,16 +342,19 @@ There are two ways to enable Table of Contents:
 
 * Each post/page can have a variable named `toc` in its frontmatter. This needs to be set to `true`.
 
-
-    title: "title"
-    date: 2016-04-01T20:22:37-04:00
-    draft: false
-    toc: true
+```
+title: "title"
+date: 2016-04-01T20:22:37-04:00
+draft: false
+toc: true
+```
 
 * Global setting is available in the config file, `tableOfContents` under `[Params]` need to be set to `true`.
 
-    [Params]
-      tableOfContents = true
+```
+[Params]
+  tableOfContents = true
+```
 
 The `toc` variable in frontmatter has priority. If it is set `false` then the config file is ignored. It is recommended to not set use the config file and enable the ToC for individual pages. Otherwise, it can be enabled for all pages in the config file and disabled for specific pages using the frontmatter.
 
