@@ -1040,7 +1040,7 @@ article {
 }
 article header {
     position: relative;
-    padding-top: 2em;
+    /*padding-top: 2em;*/
     padding-bottom: 1em;
     margin-bottom: 1em;
 }
@@ -1061,7 +1061,7 @@ article header p {
 }
 article header p.meta {
     text-transform: uppercase;
-    position: absolute;
+    /*position: absolute;*/
     top: 0;
 }
 @media only screen and (min-width: 768px) {
@@ -2150,7 +2150,6 @@ th {
   line-height: 1;
   color: #fff;
   text-align: center;
-  white-space: nowrap;
   vertical-align: baseline;
   border-radius: .25em;
 }
