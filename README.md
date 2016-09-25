@@ -192,6 +192,7 @@ Sidebar links are read from the config file as follows:
 [params]
   github = "https://github.com/parsiya/"
   bitbucket = "https://bitbucket.org/parsiya/"
+  gitlab = ""
   twitter = "https://twitter.com/cryptogangsta/"
   keybase = "https://keybase.io/parsiya/"
   stackoverflow = ""
