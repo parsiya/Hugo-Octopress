@@ -97,7 +97,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 	googleplus = ""
 	youtube = ""
 	facebook = ""
-    instagram = ""
+	instagram = ""
 
 	# --- End sidebar options ---
 
