@@ -4,6 +4,11 @@ languageCode = "en-us"
 title = "Site title"
 theme = "hugo-octopress"
 
+# Disqus shortcode
+# Disable comments for any individual post by adding "comments: false" in its frontmatter
+# Note it's not under [params] anymore
+disqusShortname = "Your disqus shortname"
+
 # Number of blog posts in each pagination page
 paginate = 6
 
@@ -91,10 +96,6 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   # Google analytics code - remove if you do not have/want Google Analytics - needs JavaScript
   # googleAnalytics = "UA-XXXXX-X"
 
-  # Disqus shortcode
-  # Disable comments for any individual post by adding "comments: false" in its frontmatter
-  disqusShortname = "Your disqus shortname"
-
   # Switch to true to enable RSS icon link
   rss = true
 
@@ -166,7 +167,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   URL = "/"
   weight = 2
 
-# Blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/ (scroll down to "Configure Blackfriday rendering")
+# Blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/#configure-blackfriday-rendering
 [blackfriday]
   hrefTargetBlank = true # open the external links in a new window
   fractions = false

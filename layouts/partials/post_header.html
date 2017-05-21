@@ -3,7 +3,7 @@
 <header>
     <p class="meta">{{ .Date.Format "Jan 2, 2006" }}
         {{ if not .Site.Params.disableReadingTime }} - {{ .ReadingTime }} minute read {{ end }}
-        {{ if .Site.Params.disqusShortname }} - <a href="{{ .Permalink }}#disqus_thread">Comments</a>{{ end }}
+        {{ if .Site.DisqusShortname }} - <a href="{{ .Permalink }}#disqus_thread">Comments</a>{{ end }}
 
         {{ if isset .Params "categories" }}
         <!-- <br/> this will make the categories go to the second line and mess with the title -->
