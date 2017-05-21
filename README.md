@@ -39,6 +39,11 @@ languageCode = "en-us"
 title = "Site title"
 theme = "hugo-octopress"
 
+# Disqus shortcode
+# Disable comments for any individual post by adding "comments: false" in its frontmatter
+disqusShortname = "Your disqus shortname"
+
+
 # Number of blog posts in each pagination page
 paginate = 6
 
@@ -70,10 +75,6 @@ post = "/blog/:year-:month-:day-:title/"
 
 	# Google analytics code - remove if you do not have/want Google Analytics - needs JavaScript
 	googleAnalytics = "UA-XXXXX-X"
-
-	# Disqus shortcode
-	# Disable comments for any individual post by adding "comments: false" in its frontmatter
-	disqusShortname = "Your disqus shortname"
 
   # Switch to true to enable RSS icon link
 	rss = true
@@ -408,6 +409,15 @@ For example:
       # sortTaxonomyAlphabetical = true
 
 To revert back to ByCount sort, remove `sortTaxonomyAlphabetical` or set it to false.
+
+## <a name="disqus"></a>Disqus
+Hugo supports Disqus. Note that previously Disqus short name was `[params]/disqusShortname` but it stopped working. It's most likely because my custom variable had the same name as Hugo's internal variable for Disqus. Disqus shortname is now directly in the config file (similar to baseurl for example):
+
+``` toml
+disqusShortname = "whatever"
+```
+
+The disqus partial is at `layouts/partials/disqus.html`. By default it does not add Disqus when you are testing on localhost using the test server. This can be disabled (e.g. if you want to test Disqus locally) by commenting the `if and return` lines in the partial above.
 
 ## <a name="issues"></a>Issues/TODO
 If you discover any issues/bugs or want new features please use the Github issue tracker. Please keep in my mind that development has not been my day job for quite a while and I may be slow in fixing things (don't be surprised if I ask you about details).
