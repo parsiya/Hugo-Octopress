@@ -4,165 +4,169 @@ languageCode = "en-us"
 title = "Site title"
 theme = "hugo-octopress"
 
-# Number of blog posts displayed in each page
+# Number of blog posts in each pagination page
 paginate = 6
 
+# Keep it as false please, the CSS file contains the code for highlighting
 pygmentsuseclasses = false
 pygmentsstyle = "solarized_dark"
 
-# You need to install Solarized from https://github.com/john2x/solarized-pygment.git
-# Octopress blog used Solarized_dark
-# Options are solarized_dark (octopress), solarized_dark256 and default (solarized light)
+# You need to install Solarized from https://github.com/john2x/solarized-pygment
+# Octopress classic theme uses Solarized_dark
+# Options are solarized_dark (octopress), solarized_dark256 and solarized_light
 
-# This will make the highlight shortcode and ``` do the same thing - otherwise they are treated differently and we do not want that
+# Highlight shortcode and code fences (```) will be treated similarly
 pygmentscodefences = true
 
-# We can pass in pygments options here, it can also be added in the highlight shortcode
-# pygmentsoptions = "linenos=true"
+# pygments options can be added here (and in the highlight shortcode in the markdown file)
+# Hugo supports these pygments options: style, encoding, noclasses, hl_lines, linenos
+# for example: pygmentsoptions = "linenos=true"
 
 [permalinks]
 post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the old ones
 
 # Make tags and categories work
 [indexes]
-	tag = "tags"
-	category = "categories"
+  tag = "tags"
+  category = "categories"
 
-# Menu
-# Links are added to navigation in hugo-octopress/layouts/partials/navigation.html
-# If navigationNewWindow is set in [params] to true then all links except root ("/") will open in a new window
-# If navigationNewWindow does not exist or set to false then links will open in the same window
-[[menu.main]]
-	Name = "Blog"
-	URL = "/"
-	weight = -5
-
-[[menu.main]]
-	Name = "Google"
-	URL = "https://www.google.com/"
-	weight = -5
-
-[[menu.main]]
-	Name = "This theme on Github"
-	URL = "https://www.github.com/parsiya/hugo-octopress"
-
-
-# Sidebar menus
-# Enable with "sidebarMenuEnabled = true" in [params]
-# Header text is "sidebarMenuHeader" in [params]
-[[menu.sidebar]]
-	Name = "Google"
-	URL = "https://www.google.com"
-	weight = 0
-
-[[menu.sidebar]]
-	Name = "Hugo"
-	URL = "/categories/hugo/"
-	weight = 1
-
-[[menu.sidebar]]
-	Name = "Homepage"
-	URL = "/"
-	weight = 2
 
 [params]
 
-	# --- Start sidebar options ---
-	# Number of recent posts that will be shown in the sidebar - set to 0 or remove to hide this section
-	sidebarRecentLimit = 10
+  # --- Start sidebar options ---
+  # Number of last posts that will be displayed in the sidebar - set to 0 or remove to hide this section
+  sidebarRecentLimit = 5
 
-	# Sidebar header - passed to markdownify so you can write markdown here
-	sidebarHeader = "Sidebar Header"
+  # Sidebar header - passed to markdownify so you can write markdown here
+  sidebarHeader = "Sidebar Header"
 
-	# Sidebar text also sipports markdown
-	# New lines can be added with </br> or normal markdown (two spaces at the end of line or two new lines).
-	# when adding two new lines, remember to remove the indentation otherwise the new line will be treated as a codeblock
-	sidebarText = """Sidebar text is passed to *markdownify* so it supports markdown. Here's a [link to google](https://www.google.com)
-	</br>
-	Second line
-	</br>
-	Third line
-	"""
-	# Sidebar menu - if true will add a sidebar menu between sidebar text and recent posts
-	sidebarMenuEnabled = true
-	sidebarMenuHeader = "Sidebar Links"
+  # Sidebar text also supports markdown
+  # New lines can be added with </br> or normal markdown (two spaces at the end of line or two new lines).
+  # when adding two new lines, remember to remove the indentation otherwise the new line will be treated as a codeblock
+  sidebarText = """Here's a [link to google](https://www.google.com)
+  </br>
+  Second line
+  </br>
+  Third line
+  This line has two spaces in the end to create a new line using markdown
+  Forth line
+  """
+  # Sidebar menu - if true will add a sidebar menu between sidebar text and recent posts
+  sidebarMenuEnabled = true
+  sidebarMenuHeader = "Sidebar Links"
 
-	# sidebar links
-	github = "https://github.com/parsiya/"
-	bitbucket = "https://bitbucket.org/parsiya/"
-	twitter = "https://twitter.com/cryptogangsta/"
-	keybase = "https://keybase.io/parsiya/"
-	stackoverflow = ""
-	linkedin = ""
-	googleplus = ""
-	youtube = ""
-	facebook = ""
-	instagram = ""
+  # sidebar links
+  github = "https://github.com/parsiya/"
+  bitbucket = "https://bitbucket.org/parsiya/"
+  twitter = "https://twitter.com/cryptogangsta/"
+  keybase = "https://keybase.io/parsiya/"
+  stackoverflow = ""
+  linkedin = ""
+  googleplus = ""
+  youtube = ""
+  facebook = ""
+  instagram = ""
 
-	# --- End sidebar options ---
+  # --- End sidebar options ---
 
-	# If set to true, navigation menu links will open in a new window with the exception of links to root ("\")
-	# If this item does not exist or set to false, then navigation menu links will open in the same window
-	navigationNewWindow = true
+  # If set to true, navigation menu links will open in a new window with the exception of links to root ("/")
+  # If this item does not exist or set to false, then navigation menu links will open in the same window
+  navigationNewWindow = true
 
-	# If false, all of the post will appear on front page (and in pagination)
-	truncate = true
+  # If false, all of blog post will appear on front page (and in pagination)
+  truncate = true
 
-	# Author's name (this will appear in metadata and under posts)
-	author = "Author's name"
+  # Author's name (appears in meta tags and under posts)
+  author = "Author's name"
 
-	# This text appears in the site header under website title
-	subtitle = "Subtitle appears under website title"
+  # This text appears in the site header under website title
+  subtitle = "Subtitle appears under website title"
 
-	# Used in the search engine
-	searchEngineURL = "https://www.google.com/search"
+  # Search engine URL
+  searchEngineURL = "https://www.google.com/search"
 
-	# Text of the "Continue Reading" label. &rarr; == right arrow, but it gets messed up in the string so we will add it to index.html manually
-	continueReadingText = "Would you like to know more?"
+  # Text of the "Continue Reading" label. &rarr; == right arrow, but it gets messed up in the string so it was added to index.html manually
+  continueReadingText = "Would you like to know more?"
 
-	# Google analytics code
-	googleAnalytics = "google analytics"
+  # Google analytics code - remove if you do not have/want Google Analytics - needs JavaScript
+  # googleAnalytics = "UA-XXXXX-X"
 
-	# Disqus shortcode
-	# Disable comments for a specific post by adding "comments: false" in its frontmatter
-	disqusShortname = "Your disqus shortname"
+  # Disqus shortcode
+  # Disable comments for any individual post by adding "comments: false" in its frontmatter
+  disqusShortname = "Your disqus shortname"
 
-	rss = true  # switch to true to enable RSS icon link
+  # Switch to true to enable RSS icon link
+  rss = true
 
-	# Set to true to use a text label for RSS instead of an icon
-	# This is overwritten by the `rss` setting
-	textrss = false
+  # Set to true to use a text label for RSS instead of an icon
+  # This is overwritten by the "rss" setting
+  textrss = false
 
-	# Website's default description
-	defaultDescription = ""
+  # Website's default description
+  defaultDescription = ""
 
-	# Populate this with your own search keywords - these will appear in the meta tags
-	# defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
+  # Populate this with your own search keywords - these will appear in the meta tags
+  # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
 
-	# CSS override files
-	# Paths should be relative to the `static` directory (either the website static directory or the theme one)
-	# customCSS = ["css/custom.css","css/custom2.css"]
+  # CSS override files
+  # Paths should be relative to the `static` directory
+  # customCSS = ["css/custom.css","css/custom2.css"]
 
-	# 404.html header and text -both support markdown
-	notFoundHeader = "There's nothing here"
+  # 404.html header and text - both support markdown
+  notFoundHeader = "There's nothing here"
 
-	notFoundText = """Please either go back or use the navigation/sidebar menus.
-	"""
+  notFoundText = """Please either go back or use the navigation/sidebar menus.
+  """
 
-	# Set to true to hide ReadingTime on posts
-	disableReadingTime = false
+  # Set to true to hide ReadingTime on posts
+  disableReadingTime = false
 
-	# Set to true to disable downloading of remote Google fonts
-	disableGoogleFonts = false
+  # Set to true to disable downloading of remote Google fonts
+  disableGoogleFonts = false
 
-	# Generate taxonomy pages
-	generateTaxonomyList = true
+  # Generate taxonomy pages
+  generateTaxonomyList = true
 
-	# This is not needed unless alphabetical sort is needed
-	# sortTaxonomyAlphabetical = true
+  # This is not needed unless alphabetical sort is needed
+  # sortTaxonomyAlphabetical = true
 
+# Menu
+# If navigationNewWindow (under [params]) is set to true then all links except root ("/") will open in a new window
+# If it does not exist or is set to false then links will open in the same window
+[[menu.main]]
+  Name = "Blog"
+  URL = "/"
+  weight = -5
+
+[[menu.main]]
+  Name = "Google"
+  URL = "https://www.google.com/"
+  weight = -5
+
+[[menu.main]]
+  Name = "This theme on Github"
+  URL = "https://www.github.com/parsiya/hugo-octopress"
+
+
+# Sidebar menus
+# Enable with "sidebarMenuEnabled = true" under [params]
+# Header text is "sidebarMenuHeader" under [params]
+[[menu.sidebar]]
+  Name = "Google"
+  URL = "https://www.google.com"
+  weight = 0
+
+[[menu.sidebar]]
+  Name = "Hugo"
+  URL = "/categories/hugo/"
+  weight = 1
+
+[[menu.sidebar]]
+  Name = "Homepage"
+  URL = "/"
+  weight = 2
 
 # Blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/ (scroll down to "Configure Blackfriday rendering")
 [blackfriday]
-	hrefTargetBlank = true # open the external links in a new window
-	fractions = false
+  hrefTargetBlank = true # open the external links in a new window
+  fractions = false
