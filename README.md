@@ -26,7 +26,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 - [Ported by](#portedby)
 - [Theme license](#themelicense)
 
-![screenshot](/images/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/parsiya/Hugo-Octopress/master/images/screenshot.png)
 
 ## <a name="config"></a>Configuration
 This section is about parameters in the [configuration file](https://gohugo.io/overview/configuration/) and how they can be used to customize the output. A working config file `sample-config.toml` is provided and miscellaneous parameters are explained below:
@@ -252,7 +252,7 @@ Shortcode usage (and source) is as follows (please note that parameters are name
 
 And will look like this:
 
-![picture](/images/codecaption1.png).
+![picture](https://raw.githubusercontent.com/parsiya/Hugo-Octopress/master/images/codecaption1.png).
 
 If the code inside the tag overflows, a horizontal sidebar will be added to the table. It took me a while to achieve this as the `highlight` function created tables that were out of my control. The output from `highlight` is wrapped in `<div class="codewrapper">` and the scroll bar will be added for the whole `div`. The following in the `css` (starting from line 2225) enables this behavior:
 
