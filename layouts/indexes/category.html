@@ -28,8 +28,11 @@
             <footer>
               <span class="categories"> <!-- show tags -->
                 tags:
-                {{ if isset .Params "categories" }}
-                {{ range .Params.tags }} <a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
+                <!-- although tags had no issues with isset (it is alwaus lowercase) I switched it to with anyways.
+                     However, .Params.tags is not visible inside so I had to use scratch -->
+                {{ $.Scratch.Set "tags" .Params.tags }}
+                {{ with .Params.categories }}
+                {{ range ($.Scratch.Get "tags") }} <a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
                 {{ end }}
               </span>
             </footer>
