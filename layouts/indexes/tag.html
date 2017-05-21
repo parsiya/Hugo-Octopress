@@ -27,14 +27,17 @@
             </time>
             <footer>
               <span class="categories"> <!-- show categories and tags -->
-                {{ if isset .Params "categories" }}
+                {{ $.Scratch.Set "cats" .Params.categories }}
+                {{ with .Params.categories }}
                 posted in:
-                {{ range .Params.categories }} <a class="category" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
+                {{ range ($.Scratch.Get "cats") }} <a class="category" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
               </br>
                 {{ end }}
-                {{ if isset .Params "tags" }}
+
+                {{ $.Scratch.Set "tags" .Params.tags }}
+                {{ with .Params.tags }}
                 tags:
-                {{ range .Params.tags }} <a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
+                {{ range ($.Scratch.Get "tags") }} <a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
                 {{ end }}
               </span>
             </footer>
