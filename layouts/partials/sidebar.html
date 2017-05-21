@@ -47,8 +47,8 @@
   {{ with .Site.Params.sidebarMenuEnabled }}
     {{ if eq . true }}
       <section class="odd">
-        {{ if isset $.Site.Params "sidebarMenuHeader" }}
-          <h1>{{ $.Site.Params.sidebarMenuHeader }}</h1>
+        {{ with $.Site.Params.sidebarMenuHeader }}
+          <h1>{{ . }}</h1>
         {{ end }}
         {{ range $.Site.Menus.sidebar }}
           <li>
@@ -62,11 +62,11 @@
   <!-- add recent posts - limit is .Site.Params.sidebarRecentLimit - example copied from https://gohugo.io/templates/go-templates/ -->
   <!-- only display this section if sideBarRecentLimit is not zero -->
   {{ with .Site.Params.sidebarRecentLimit }}
-    {{ if not (eq $.Site.Params.sidebarRecentLimit 0) }}
+    {{ if not (eq . 0) }}
       <section class="even">
         <h1>Recent Posts</h1>
         <ul id="recent_posts">
-          {{ range first $.Site.Params.sidebarRecentLimit $.Site.Pages }}
+          {{ range first . $.Site.Pages }}
             <li class="post">
               <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             </li>
