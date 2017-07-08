@@ -2132,7 +2132,7 @@ table,
 th,
 td
  {
-    border-left: 1px solid black; /* remove the right border for when overflow happens */
+    border: 1px solid black;
     padding: 3px;
 }
 th {
