@@ -76,6 +76,10 @@ post = "/blog/:year-:month-:day-:title/"
 	# Google analytics code - remove if you do not have/want Google Analytics - needs JavaScript
 	googleAnalytics = "UA-XXXXX-X"
 
+  # Piwik code - remove if you do not have/want Piwik tracking - needs JavaScript
+  # piwikUrl = "http://piwik.mydomain.tld
+  # piwikID = 1
+
   # Switch to true to enable RSS icon link
 	rss = true
 
