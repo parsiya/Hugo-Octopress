@@ -108,15 +108,17 @@ Octopress classic theme uses the pygments' `solarized dark` for highlighting. It
 * solarized_dark: use this to re-create the Octopress classic theme highlighting
 * solarized_dark256
 
+As on Hugo 0.28 the built-in Chroma highlighter is used by default. It does not support solarized dark yet. To keep using the highlighting by CSS add `pygmentsUseClassic=true` to the config file.
+
 The following options control code highlighting:
 
 ``` toml
 [params]
-  # Keep it as false please, the CSS file contains the code for highlighting
-  pygmentsuseclasses = false
-
   # If nothing is set, then solarized_light is used
   pygmentsstyle = "solarized_dark"
+
+  # Use internal highlighter instead of Chroma
+  pygmentsUseClassic=true
 
   # Highlight shortcode and code fences (```) will be treated similarly
   pygmentscodefences = true

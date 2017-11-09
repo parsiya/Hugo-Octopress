@@ -1417,23 +1417,37 @@ li pre code {
     background: none;
     border: none
 }
-.pre-code,
+
+/*.pre-code,
 html .gist .gist-file .gist-syntax .highlighttable pre,
 .highlighttable code {
     font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !important;
     overflow: scroll;
     overflow-y: hidden;
-    display: block;
-    padding: .8em;
     overflow-x: auto;
     line-height: 1.45em;
     color: #93a1a1 !important
+}*/
+
+/* Fix codecaption and the new Chroma highlighter */
+
+div.highlight > pre > code,
+pre > code
+{
+    overflow-y: hidden;
+    display: block;
 }
-.pre-code span,
-html .gist .gist-file .gist-syntax .highlighttable pre span,
-.highlighttable code span {
-    color: #93a1a1 !important
+
+td > div.highlight > pre > code,
+div.linenodiv > pre > code
+{
+    overflow: scroll;
+    overflow-y: hidden;
+    display: inline; !important
 }
+
+/* End fix codecaption and the new Chroma highlighter */
+
 .pre-code span,
 html .gist .gist-file .gist-syntax .highlighttable pre span,
 .highlighttable code span {
@@ -1740,9 +1754,6 @@ pre::-webkit-scrollbar-thumb:horizontal,
     background: rgba(255, 255, 255, 0.2);
     -webkit-border-radius: 4px;
     border-radius: 4px
-}
-.highlighttable code {
-    background: #000
 }
 figure.code {
     background: none;
