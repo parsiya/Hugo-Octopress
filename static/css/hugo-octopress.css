@@ -193,7 +193,7 @@ body>header h2,
 article header p.meta,
 article>footer,
 #content .blog-index footer,
-html .gist .gist-file .gist-meta,
+/*html .gist .gist-file .gist-meta,*/
 #blog-archives a.category,
 #blog-archives time,
 aside.sidebar section,
@@ -1323,7 +1323,7 @@ figure.code .highlighttable *::selection {
     color: inherit;
     text-shadow: #002b36 0 1px
 }
-html .gist .gist-file {
+/*html .gist .gist-file {
     margin-bottom: 1.8em;
     position: relative;
     border: none;
@@ -1345,6 +1345,7 @@ html .gist .gist-file .gist-syntax .highlighttable pre {
 html .gist .gist-file .gist-meta {
     padding: .6em 0.8em;
     border: 1px solid #083e4b !important;
+    font-size: 100%;
     color: #586e75;
     font-size: .7em !important;
     line-height: 1.5em
@@ -1371,7 +1372,7 @@ html .gist .gist-file .gist-meta a[href*='#file']:hover {
 }
 html .gist .gist-file .gist-meta a[href*=raw] {
     top: .4em
-}
+}*/
 pre {
     background: #002b36 top left;
     -webkit-border-radius: 0.0em;
@@ -1773,7 +1774,7 @@ figure.code .highlighttable {
     width: 100%;
 }
 .code-title,
-html .gist .gist-file .gist-meta a[href*='#file'],
+/*html .gist .gist-file .gist-meta a[href*='#file'],*/
 h3.filename,
 figure.code figcaption { /* figcaption changes */
     text-align: center;
@@ -1789,7 +1790,7 @@ figure.code figcaption { /* figcaption changes */
     -webkit-border-top-right-radius: 5px;
     border-top-right-radius: 5px;
     background: #aaa top repeat-x;
-    font-family: "Helvetica Neue",Arial,"Lucida Grande","Lucida Sans Unicode",Lucida,sans-serif;
+/*    font-family: "Helvetica Neue",Arial,"Lucida Grande","Lucida Sans Unicode",Lucida,sans-serif;*/
     border: 1px solid #565656;
     border-top-color: #cbcbcb;
     border-left-color: #a5a5a5;
@@ -1798,7 +1799,7 @@ figure.code figcaption { /* figcaption changes */
     font-size: 90%; /* change size of font in figcaption */
 }
 .download-source,
-html .gist .gist-file .gist-meta a[href*=raw],
+/*html .gist .gist-file .gist-meta a[href*=raw],*/
 figure.code figcaption a {
     position: absolute;
     right: .8em;
@@ -1810,7 +1811,7 @@ figure.code figcaption a {
     padding-left: 3em
 }
 .download-source:hover,
-html .gist .gist-file .gist-meta a[href*=raw]:hover,
+/*html .gist .gist-file .gist-meta a[href*=raw]:hover,*/
 figure.code figcaption a:hover {
     text-decoration: underline
 }
@@ -2295,3 +2296,84 @@ h6 {
     left:   1rem;
   }
 }
+
+/* Start - Making the gist work */
+.gist .gist-meta {
+    font-size: 90% !important;
+    color: #586069 !important;
+    background-color: #f7f7f7;
+    border-radius: 0 0 2px 2px;
+    border: 1px solid #a5a5a5 !important;
+    background: #aaa top repeat-x !important;
+    -moz-border-radius-bottomleft: 5px !important;
+    -webkit-border-bottom-left-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+    -moz-border-radius-bottomright: 5px !important;
+    -webkit-border-bottom-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
+
+/* Force gist linenos to be the same size as code linenos */
+.gist .blob-num {
+    font-size: 0.938em !important; 
+}
+
+.gist .highlight, .gist .blob-code-inner {
+    font-size: 0.938em !important; /* oh lol what have I done? */
+    font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace !important;
+    line-height: 1.25em !important;
+}
+
+/* credit: https://gist.github.com/RomkeVdMeulen/889d44d3d4c5a11002c57ca068d295ec */
+
+.gist .pl-c1, .gist .pl-s .pl-v {
+    color: #719e07 !important;
+}
+
+.gist .gist-meta {
+    background-color: #073642 !important;
+    color: #93a1a1 !important;
+}
+
+.gist .gist-meta a {
+    color: #268bd2 !important;
+
+}
+
+.gist .gist-data, .gist .highlight {
+    background-color: #002b36 !important;
+    color: #93a1a1 !important;
+}
+
+.gist .pl-smi, .gist .pl-s .pl-s1, .gist .blob-code-inner, .gist .blob-num {
+    color: #93a1a1 !important;
+}
+
+.gist .pl-k {
+    color: #719e07 !important;
+}
+
+.gist .pl-e, .gist .pl-en {
+    color: #cb4b16 !important;
+}
+
+.gist .pl-s, .gist .pl-pds, .gist .pl-s .pl-pse .pl-s1, .gist .pl-sr,
+.gist .pl-sr .pl-cce, .gist .pl-sr .pl-sre, .gist .pl-sr .pl-sra {
+    color: #2aa198 !important;
+    
+}
+
+.gist .pl-s, .gist .pl-pds, .gist .pl-s .pl-pse .pl-s1, .gist .pl-sr,
+.gist .pl-sr .pl-cce, .gist .pl-sr .pl-sre, .gist .pl-sr .pl-sra,
+.gist .pl-e, .gist .pl-en,
+.gist .pl-k,
+.gist .pl-smi, .gist .pl-s .pl-s1, .gist .blob-code-inner, .gist .blob-num,
+.gist .gist-data, .gist .highlight,
+.gist .pl-c1, .gist .pl-s .pl-v,
+.gist .pl-c /* comments */ {
+    font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace !important;
+}
+
+/* End credit gist */
+
+/* End - Making the gist work */
