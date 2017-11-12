@@ -1443,7 +1443,7 @@ div.linenodiv > pre > code
 {
     overflow: scroll;
     overflow-y: hidden;
-    display: inline; !important
+    display: inline;
 }
 
 /* End fix codecaption and the new Chroma highlighter */
