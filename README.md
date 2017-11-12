@@ -53,28 +53,28 @@ post = "/blog/:year-:month-:day-:title/"
 
 # Make tags and categories work
 [indexes]
-	tag = "tags"
-	category = "categories"
+  tag = "tags"
+  category = "categories"
 
 [params]
 
-	# If false, all of blog post will appear on front page (and in pagination)
-	truncate = true
+  # If false, all of blog post will appear on front page (and in pagination)
+  truncate = true
 
-	# Author's name (appears in meta tags and under posts)
-	author = "Author's name"
+  # Author's name (appears in meta tags and under posts)
+  author = "Author's name"
 
-	# This text appears in site header under website title
-	subtitle = "Subtitle appears under website title"
+  # This text appears in site header under website title
+  subtitle = "Subtitle appears under website title"
 
-	# Search engine URL
-	searchEngineURL = "https://www.google.com/search"
+  # Search engine URL
+  searchEngineURL = "https://www.google.com/search"
 
-	# Text of the "Continue Reading" label. &rarr; == right arrow, but it gets messed up in the string so it was added to index.html manually
-	continueReadingText = "Would you like to know more?"
+  # Text of the "Continue Reading" label. &rarr; == right arrow, but it gets messed up in the string so it was added to index.html manually
+  continueReadingText = "Would you like to know more?"
 
-	# Google analytics code - remove if you do not have/want Google Analytics - needs JavaScript
-	googleAnalytics = "UA-XXXXX-X"
+  # Google analytics code - remove if you do not have/want Google Analytics - needs JavaScript
+  googleAnalytics = "UA-XXXXX-X"
 
   # Optional piwik tracking
   #[params.analytics.piwik]
@@ -82,17 +82,17 @@ post = "/blog/:year-:month-:day-:title/"
   #  ID = "42"
 
   # Switch to true to enable RSS icon link
-	rss = true
+  rss = true
 
   # Set to true to use a text label for RSS instead of an icon
   # This is overwritten by the "rss" setting
   textrss = false
 
-	# Website's default description
-	defaultDescription = ""
+  # Website's default description
+  defaultDescription = ""
 
-	# Populate this with your own search keywords - these will appear in meta tags
-	# defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
+  # Populate this with your own search keywords - these will appear in meta tags
+  # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
 
   # Set to true to hide ReadingTime on posts
   disableReadingTime = false
@@ -175,7 +175,7 @@ Links are sorted according to weight from left to right. For example a link with
 [params]
   # If set to true, navigation menu links will open in a new window with the exception of links to root ("/")
   # If this item does not exist or is set to false, then navigation menu links will open in the same window
-	navigationNewWindow = true
+  navigationNewWindow = true
 ```
 
 Search engine can also be customized:
@@ -246,15 +246,15 @@ This menu can be enabled by setting `sidebarMenuEnabled` to `true`. It has two p
 * A header that appears inside the `<h1>` tag on top. It can be set by `sidebarMenuHeader`. This part only supports text.
 * A series of links. They can be configured similar to navigation menu items by using the `[[menu.sidebar]]` tag:
 
-        [[menu.sidebar]]
-          Name = "Google"
-          URL = "https://www.google.com"
-          weight = 0
+    [[menu.sidebar]]
+      Name = "Google"
+      URL = "https://www.google.com"
+      weight = 0
 
-        [[menu.sidebar]]
-          Name = "Hugo"
-          URL = "/categories/hugo/"
-          weight = 1
+    [[menu.sidebar]]
+      Name = "Hugo"
+      URL = "/categories/hugo/"
+      weight = 1
 
   * Set `sidebarNewWindow` to `true` to open these links in a new window.
 
@@ -378,19 +378,19 @@ There two ways to enable the ToC:
 
 1. Each post/page can have a variable named `toc` in its frontmatter. This needs to be set to `true`.
 
-```
-title: "title"
-date: 2016-04-01T20:22:37-04:00
-draft: false
-toc: true
-```
+    ```
+    title: "title"
+    date: 2016-04-01T20:22:37-04:00
+    draft: false
+    toc: true
+    ```
 
 2. Global setting is available in the config file, `tableOfContents` under `[Params]` needs to be set to `true`.
 
-```
-[Params]
-  tableOfContents = true
-```
+    ```
+    [Params]
+      tableOfContents = true
+    ```
 
 The `toc` variable in frontmatter has priority. If it is set to `false` then `tableOfContents` in the config file is ignored. Depending on your usage, you can not use it in the config file and set it for individual pages. Otherwise, it can be enabled for all pages and disabled for specific pages in the frontmatter.
 
