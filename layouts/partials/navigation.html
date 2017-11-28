@@ -1,5 +1,20 @@
-<!-- reading menu items from config file -->
+<!-- mobile navigation -->
+<fieldset class="mobile-nav">
+  <select>
+    <option value="">Navigate…</option>
+      {{ range .Site.Menus.main }}
+        <option value="{{ .URL | absURL }}">» {{ .Name }}</option>
+      {{ end }}
+<!--         <option value="http://octopress.org/">» Blog</option>
+        <option value="http://octopress.org/docs">» Documentation</option>
+        <option value="http://octopress.org/help">» Help</option>
+        <option value="http://github.com/imathis/octopress">» Source</option> -->
+        <!-- RSS -->
+        <option value="{{ "/index.xml" | absURL }}">» RSS</option>
+  </select>
+</fieldset>
 
+<!-- reading menu items from config file -->
 <ul class="main-navigation">
   <!-- links to root open in the same window - other links will be opened in a new window if navigationNewWindow is set to true in the config file -->
   {{ range .Site.Menus.main }}
