@@ -1,16 +1,12 @@
 <!-- mobile navigation -->
 <fieldset class="mobile-nav">
-  <select>
+  <!-- this needs JavaScript but works until I manage to make one with CSS without wrecking the site -->
+  <select onchange="location = this.value;">
     <option value="">Navigate…</option>
       {{ range .Site.Menus.main }}
         <option value="{{ .URL | absURL }}">» {{ .Name }}</option>
       {{ end }}
-<!--         <option value="http://octopress.org/">» Blog</option>
-        <option value="http://octopress.org/docs">» Documentation</option>
-        <option value="http://octopress.org/help">» Help</option>
-        <option value="http://github.com/imathis/octopress">» Source</option> -->
-        <!-- RSS -->
-        <option value="{{ "/index.xml" | absURL }}">» RSS</option>
+<!--         <option value="{{ "/index.xml" | absURL }}">» RSS</option> -->
   </select>
 </fieldset>
 
