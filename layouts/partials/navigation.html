@@ -1,5 +1,16 @@
-<!-- reading menu items from config file -->
+<!-- mobile navigation -->
+<fieldset class="mobile-nav">
+  <!-- this needs JavaScript but works until I manage to make one with CSS without wrecking the site -->
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      {{ range .Site.Menus.main }}
+        <option value="{{ .URL | absURL }}">» {{ .Name }}</option>
+      {{ end }}
+<!--         <option value="{{ "/index.xml" | absURL }}">» RSS</option> -->
+  </select>
+</fieldset>
 
+<!-- reading menu items from config file -->
 <ul class="main-navigation">
   <!-- links to root open in the same window - other links will be opened in a new window if navigationNewWindow is set to true in the config file -->
   {{ range .Site.Menus.main }}

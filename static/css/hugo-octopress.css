@@ -178,7 +178,7 @@ body>div>div {
     background: #f8f8f8 top left;
     border-right: 1px solid #e0e0e0
 }
-.heading,
+/*.heading,
 body>header h1,
 h1,
 h2,
@@ -187,7 +187,7 @@ h4,
 h5,
 h6 {
     font-family: "PT Serif", "Georgia", "Helvetica Neue", Arial, sans-serif
-}
+}*/
 .sans,
 body>header h2,
 article header p.meta,
