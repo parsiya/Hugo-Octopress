@@ -2377,3 +2377,48 @@ h6 {
 /* End credit gist */
 
 /* End - Making the gist work */
+
+/* Hugo Figure shortcode */
+
+figure figcaption {
+    background: #fff;
+    text-align: center;
+    font-size: 1em;
+    color: #666;
+    display: block;
+}
+
+figure {
+    color: #666;
+}
+
+figure a {
+    color: #666;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/*figure figcaption h4  {
+    text-align: center;
+    line-height: 2em;
+    text-shadow: #cbcccc 0 1px 0;
+    color: #474747;
+    font-weight: normal;
+    margin-bottom: 0;
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #aaa top repeat-x;
+    border: 1px solid #565656;
+    border-top-color: #cbcbcb;
+    border-left-color: #a5a5a5;
+    border-right-color: #a5a5a5;
+    border-bottom: 0;
+    font-size: 90%;
+    margin: 0px;
+}*/
