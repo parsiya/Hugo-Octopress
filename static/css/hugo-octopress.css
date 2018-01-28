@@ -1381,7 +1381,7 @@ pre {
     -o-border-radius: 0.0em;
     border-radius: 0.0em;
     line-height: 1.45em;
-    margin-bottom: 0em;
+    margin-bottom: 0.8em;
     padding: 0em 0em;
     color: #93a1a1;
     font-size: 80%;  /* change the code font size */
@@ -1760,7 +1760,7 @@ figure.code {
     background: none;
     padding: 0;
     border: 0;
-    margin-bottom: 1.5em
+    margin-bottom: 0.8em
 }
 figure.code pre {
     margin-bottom: 0
