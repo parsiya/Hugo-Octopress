@@ -66,14 +66,16 @@
       <section class="even">
         <h1>Recent Posts</h1>
         <ul id="recent_posts">
-          {{ range first . $.Site.Pages }}
-            <li class="post">
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </li>
+          {{ $pages := where $.Site.Pages "Type" "post" }}
+          {{ range first . $pages }}
+            {{ if .IsPage }}
+              <li class="post">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </li>
+            {{ end }}
           {{ end }}
         </ul>
       </section>
     {{ end }}
   {{ end }}
-
 </aside>
