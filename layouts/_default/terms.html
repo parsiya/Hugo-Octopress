@@ -1,5 +1,20 @@
 <!-- Template for /tags/ and /categories/ -->
 
+<!-- Styling for the table -->
+<style>
+  table.terms, td.terms-date, td.terms-title {
+    border:none;
+  }
+  
+  td.terms-date {
+      padding: 0 10px 0 0;
+  }
+  
+  td.terms-title {
+      font-size: 110%;
+  }
+  </style>
+
 {{ $page := . }}
 {{ $data := .Data }}
 {{ $.Scratch.Set "terms" $data.Terms.ByCount }}  <!-- default is ByCount -->
@@ -16,18 +31,19 @@
               {{ $.Title }}:
             </h1>
           </header>
-          <ul>
-            {{ with $.Site.Params.sortTaxonomyAlphabetical }}
-              {{ if eq . true }}
-                {{ $.Scratch.Set "terms" $data.Terms.Alphabetical }}
-              {{ end }}
+          {{ with $.Site.Params.sortTaxonomyAlphabetical }}
+            {{ if eq . true }}
+              {{ $.Scratch.Set "terms" $data.Terms.Alphabetical }}
             {{ end }}
-            <!-- Non-relative paths also work - fallback in case the relative path stops working -->
+          {{ end }}
+          <table class="terms">
             {{ range $key, $value := ($.Scratch.Get "terms") }}
-              <!-- <li><a href="{{ $.Site.BaseURL }}{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ humanize $value.Name }}</a> {{ $value.Count }}</li> -->
-              <li><a href="{{ $value.Name | urlize }}">{{ humanize $value.Name }}</a> {{ $value.Count }}</li>
-            {{ end }}
-          </ul>
+                 <tr>
+                  <td class="terms-date"><a href="{{ $value.Name | urlize }}">{{ humanize $value.Name }}</a></td>
+                  <td class="terms-title"><strong>{{ $value.Count }}</strong></td>
+                </tr>
+             {{ end }}
+          </table>
         </article>
       </div>
 
