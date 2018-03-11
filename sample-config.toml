@@ -32,10 +32,10 @@ pygmentscodefences = true
 post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the old ones
 
 # Make tags and categories work
-[indexes]
-  tag = "tags"
-  category = "categories"
-
+# As of Hugo v0.33 these are not needed anymore
+# [indexes]
+#   tag = "tags"
+#   category = "categories"
 
 [params]
 

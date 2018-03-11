@@ -52,9 +52,10 @@ paginate = 6
 post = "/blog/:year-:month-:day-:title/"
 
 # Make tags and categories work
-[indexes]
-  tag = "tags"
-  category = "categories"
+# As of Hugo v0.33 these are not needed anymore
+# [indexes]
+#   tag = "tags"
+#   category = "categories"
 
 [params]
 
