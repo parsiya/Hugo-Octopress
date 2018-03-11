@@ -245,22 +245,22 @@ Icons are from [http://fontawesome.io](http://fontawesome.io) by Dave Gandy. To 
 This menu can be enabled by setting `sidebarMenuEnabled` to `true`. It has two parts:
 
 * A header that appears inside the `<h1>` tag on top. It can be set by `sidebarMenuHeader`. This part only supports text.
-* A series of links. They can be configured similar to navigation menu items by using the `[[menu.sidebar]]` tag:
+* A series of links. They can be configured similar to navigation menu items by using the `[[menu.sidebar]]` tag. Set `sidebarNewWindow` to `true` to open these links in a new window
 
-    [[menu.sidebar]]
-      Name = "Google"
-      URL = "https://www.google.com"
-      weight = 0
+``` toml
+[[menu.sidebar]]
+  Name = "Google"
+  URL = "https://www.google.com"
+  weight = 0
 
-    [[menu.sidebar]]
-      Name = "Hugo"
-      URL = "/categories/hugo/"
-      weight = 1
-
-  * Set `sidebarNewWindow` to `true` to open these links in a new window.
+[[menu.sidebar]]
+  Name = "Hugo"
+  URL = "/categories/hugo/"
+  weight = 1
+```
 
 ### <a name="sidebarrecent"></a>Recent posts
-Last x posts can be displayed in the sidebar. This number is controlled by `sidebarRecentLimit`. To hide this section either remove `sidebarRecentLimit` or set it to zero.
+Last x posts can be displayed in the sidebar. This number is controlled by `sidebarRecentLimit`. To hide this section either remove `sidebarRecentLimit` from the config file or set it to zero.
 
 ## <a name="shortcodes"></a>Shortcodes
 Creating [shortcodes](https://gohugo.io/extras/shortcodes/) in Hugo was surprisingly easy (and one of the reasons I switched to it). I used two plugins in Octopress that I re-created in Hugo using shortcodes. They add captions to code blocks and images. These shortcodes are located at `layouts/shortcodes/`.
@@ -340,24 +340,24 @@ My original mistake was to repeat `'.source.gfm'` before the `imgcap` snippet, s
 You can trigger the shortcodes by entering `imgcap` and `codecap` respectively and then pressing enter. You can change these keywords by modifying the `prefix` tag. After inserting the shortcode, the cursor will go to the first location which is designated by `$1`. After entering the first parameter you can go to `$2` and then `$3` using `tab`.
 
 ## <a name="summary"></a>Hugo page summary bug
-If no page summary is designated in the post, Hugo will use first 70 words (HTML tags are stripped). The result is usually ugly. Instead use the summary divider `<!--more-->` to specify where the summary ends in post source.
+Hugo will use first 70 words of the post if it does not have a summary divider. The result is usually not pretty and contains raw HTML. To avoid this, always use the summary divider `<!--more-->` to designate summary.
 
 Hugo currently does not display reference style links in post summary. Because it takes everything before the summary divider and passes it to the Markdown engine (currently BlackFriday) and if your reference style links are at the bottom of the page (they usually are), they are not included. As a result your reference style links will be treated as unformatted text. You can read more about this bug [here](https://discuss.gohugo.io/t/markdown-content-renders-as-regular-text-in-summary/1396/12).
 
-To be more specific, reference style links look like this:
+Reference style links look like this:
 
 ``` markdown
-This is a link to [Google][google-link].
+This is a link to [Example][example-link].
 
 More stuff here.
 
 Usually at the end of the markdown file.
-[google-link]: https://www.google.com
+[example-link]: https://www.example.com
 ```
 
 There are two workarounds:
 
-1. Do not use reference style links in summary. Use normal links like `[Google](https://www.google.com)`.
+1. Do not use reference style links in summary. Use normal links like `[Example](https://www.example.com)`.
 2. Put the reference links before the summary divider.
 
 ## <a name="licensepage"></a>License page
@@ -379,7 +379,7 @@ There two ways to enable the ToC:
 
 1. Each post/page can have a variable named `toc` in its frontmatter. This needs to be set to `true`.
 
-    ```
+    ``` yaml
     title: "title"
     date: 2016-04-01T20:22:37-04:00
     draft: false
@@ -388,18 +388,18 @@ There two ways to enable the ToC:
 
 2. Global setting is available in the config file, `tableOfContents` under `[Params]` needs to be set to `true`.
 
-    ```
+    ``` toml
     [Params]
       tableOfContents = true
     ```
 
-The `toc` variable in frontmatter has priority. If it is set to `false` then `tableOfContents` in the config file is ignored. Depending on your usage, you can not use it in the config file and set it for individual pages. Otherwise, it can be enabled for all pages and disabled for specific pages in the frontmatter.
+The `toc` variable in frontmatter has priority. If it is set to `false` then `tableOfContents` in the config file is ignored. You skip it in the config file and set it for individual pages or enable it for all pages and disable it for specific pages in their frontmatter.
 
 ## <a name="notfound"></a>Not Found or 404.html
-The `404.html` has two optional parameters and both support markdown:
+The `404.html` page has two optional parameters and both support markdown:
 
-* notFoundHeader: 404 page title
-* notFoundText: 404 page text
+* `notFoundHeader`: 404 page title
+* `notFoundText`: 404 page text
 
 If they are not set in the config file, a default page is generated.
 
@@ -417,6 +417,11 @@ For example:
       # sortTaxonomyAlphabetical = true
 
 To revert back to ByCount sort, remove `sortTaxonomyAlphabetical` or set it to false.
+
+Note: As of Hugo 0.33, `indexes` has been removed. If your taxonomy pages are not rendered, please update to the latest version of Hugo. Templates are now at:
+
+* `/layouts/category/category.html`
+* `/layouts/tag/tag.html`
 
 ## <a name="disqus"></a>Disqus
 Hugo supports Disqus. Note that previously Disqus short name was `[params]/disqusShortname` but it stopped working. It's most likely because my custom variable had the same name as Hugo's internal variable for Disqus. Disqus shortname is now directly in the config file (similar to baseurl for example):
@@ -436,6 +441,7 @@ If you discover any issues/bugs or want new features please use the Github issue
 * [Octopress](octopress-link) is created by [Brandon Mathis](https://github.com/imathis). Octopress source can be found on [https://github.com/imathis/octopress](https://github.com/imathis/octopress).
 * Some code was taken from the [Hyde-x](https://github.com/zyro/hyde-x) Hugo theme by [Andrei Mihu](http://andreimihu.com/).
 * Sidebar icons are from Font Awesome by Dave Gandy - http://fontawesome.io.
+* Special thanks to everyone who has helped me with pull requests and issues.
 
 ## <a name="Ported by"></a>Ported by
 Ported by Parsia Hakimian:
