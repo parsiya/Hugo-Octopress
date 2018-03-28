@@ -21,6 +21,7 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hu
 - [Table of contents](#tableofcontents)
 - [Not Found or 404.html](#notfound)
 - [Taxonomy pages](#taxonomy)
+- [Individual pages](#page)
 - [Disqus](#disqus)
 - [Issues/TODO](#issues)
 - [Attribution](#attribution)
@@ -422,6 +423,14 @@ Note: As of Hugo 0.33, `indexes` has been removed. If your taxonomy pages are no
 
 * `/layouts/category/category.html`
 * `/layouts/tag/tag.html`
+
+## <a name="page"></a>Individual pages
+Individual pages can be created in two ways:
+
+* Create a new content file in `content/page`.
+* Set the type of page to `page` in frontmatter. E.g. `type: page`.
+
+The template to individual page is at `Hugo-Octopress/layouts/page/single.html`. It can be overridden by a file in the website's `layouts/page/single.html`.
 
 ## <a name="disqus"></a>Disqus
 Hugo supports Disqus. Note that previously Disqus short name was `[params]/disqusShortname` but it stopped working. It's most likely because my custom variable had the same name as Hugo's internal variable for Disqus. Disqus shortname is now directly in the config file (similar to baseurl for example):
