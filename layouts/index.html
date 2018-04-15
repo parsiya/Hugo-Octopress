@@ -4,7 +4,7 @@
  <div id="content">
   <div class="blog-index">
     {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-    {{ range $paginator.Pages }}
+    {{ range where $paginator.Pages "Params.hidden" "ne" "true" }}
     <article>
 
         {{ .Scratch.Set "isHome" true }}

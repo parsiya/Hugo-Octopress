@@ -8,10 +8,14 @@
      { { < /codecaption > } } -->
 
 <figure class="code">
+  {{ if isset .Params "title" }}
   <figcaption>
   	<span>{{ .Get "title" }}</span>
   </figcaption>
-  <div class="codewrapper">
-    {{ highlight .Inner (.Get "lang") "linenos=true" }}
-  </div>
+  {{ end }}
+  {{ if isset .Params "plain" }}
+  <div class="codewrapper" style="padding: 2px 5px;">{{ highlight .Inner (.Get "lang") "" }}</div>
+  {{ else }}
+  <div class="codewrapper">{{ highlight .Inner (.Get "lang") "linenos=true"  }}</div>
+  {{ end }}
 </figure>
