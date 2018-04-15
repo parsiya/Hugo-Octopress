@@ -12,6 +12,6 @@
   	<span>{{ .Get "title" }}</span>
   </figcaption>
   <div class="codewrapper">
-    {{ highlight .Inner (.Get "lang") "linenos=true" }}
+    {{ highlight (trim .Inner "\n\r") (.Get "lang") "linenos=true" }}
   </div>
 </figure>

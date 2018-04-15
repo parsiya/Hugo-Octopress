@@ -12,17 +12,13 @@ disqusShortname = "Your disqus shortname"
 # Number of blog posts in each pagination page
 paginate = 6
 
-pygmentsstyle = "solarized_dark"
-
-# Use internal highlighter instead of Chroma
-pygmentsUseClassic=true
-
-# You need to install Solarized from https://github.com/john2x/solarized-pygment
-# Octopress classic theme uses Solarized_dark
-# Options are solarized_dark (octopress), solarized_dark256 and solarized_light
+# Code highlighting options
 
 # Highlight shortcode and code fences (```) will be treated similarly
 pygmentscodefences = true
+
+# Use CSS for highlighting
+pygmentsuseclasses = true
 
 # pygments options can be added here (and in the highlight shortcode in the markdown file)
 # Hugo supports these pygments options: style, encoding, noclasses, hl_lines, linenos

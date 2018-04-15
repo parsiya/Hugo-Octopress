@@ -108,36 +108,25 @@ post = "/blog/:year-:month-:day-:title/"
 ```
 
 ## <a name="highlight"></a>Code highlight
-Octopress classic theme uses the pygments' `solarized dark` for highlighting. It is not installed by default. You can get it from https://github.com/john2x/solarized-pygment. It has three options:
-
-* solarized_light: default option after installation
-* solarized_dark: use this to re-create the Octopress classic theme highlighting
-* solarized_dark256
-
-As on Hugo 0.28 the built-in Chroma highlighter is used by default. It does not support solarized dark yet. To keep using the highlighting by CSS add `pygmentsUseClassic=true` to the config file.
+The theme now supports the built-in Chroma highlighter. However, Chroma does not support the pygments `solarized dark` style. It's added to the CSS instead and must be enabled with `pygmentsuseclasses = true` in the config file. To use the Chroma highlighter, you need to disable Pygments with `pygmentsUseClassic=false`.
 
 The following options control code highlighting:
 
 ``` toml
-[params]
-  # If nothing is set, then solarized_light is used
-  pygmentsstyle = "solarized_dark"
+# Highlight shortcode and code fences (```) will be treated similarly
+pygmentscodefences = true
 
-  # Use internal highlighter instead of Chroma
-  pygmentsUseClassic=true
+# Use CSS for highlighting
+pygmentsuseclasses = true
 
-  # Highlight shortcode and code fences (```) will be treated similarly
-  pygmentscodefences = true
-
-  # pygments options can be added here (and in the highlight shortcode in the markdown file)
-  # Hugo supports these pygments options: style, encoding, noclasses, hl_lines, linenos
-  # for example: pygmentsoptions = "linenos=true"
+# pygments options can be added here (and in the highlight shortcode in the markdown file)
+# Hugo supports these pygments options: style, encoding, noclasses, hl_lines, linenos
+# for example: pygmentsoptions = "linenos=true"
 ```
 
 For more information see [Syntax Highlighting](https://gohugo.io/extras/highlighting/) in Hugo's documentation.
 
 ## <a name="markdown"></a>Markdown options
-
 Blackfriday is Hugo's markdown engine. For a list of options see [Configure Blackfriday rendering](https://gohugo.io/overview/configuration/#configure-blackfriday-rendering). Blackfriday options can be set as follows:
 
 ``` toml
