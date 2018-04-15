@@ -1301,7 +1301,8 @@ p pre code,
 li pre code {
     font-size: 1em !important;
     background: none;
-    border: none
+    border: none;
+    color: #93a1a1;
 }
 
 /* Fix codecaption and the new Chroma highlighter */
@@ -1933,7 +1934,7 @@ figure a {
 /* Background */ .chroma { color: #93a1a1; background-color: #002b36 }
 /* Other */ .chroma .x { color: #cb4b16 }
 /* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
-/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+/* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; display: block; }
 /* LineHighlight */ .chroma .hl { display: block; width: 100%; }
 /* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em; }
 /* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em; }
