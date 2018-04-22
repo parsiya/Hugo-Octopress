@@ -1,0 +1,27 @@
+{{ partial "header.html" . }}
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        {{ .Scratch.Set "isHome" false }}
+        {{ partial "post_header.html" . }}
+
+        <div class="entry-content">
+          <!-- insert table of contents if it is set either in the config file or in the frontmatter - frontmatter has priority -->
+          {{ $.Scratch.Set "pagetoc" .TableOfContents }}
+          <!-- the isset here is working properly becasue everything is lower case -->
+          {{ if or (and (isset .Params "toc") (eq .Params.toc true)) (and (not (isset .Params "toc")) (eq .Site.Params.tableOfContents true)) }}
+            {{ $.Scratch.Get "pagetoc" }}
+          {{ end }}
+          {{ .Content }}
+        </div>
+        {{ partial "post_footer.html" . }}
+      </article>
+    </div>
+    {{ partial "sidebar.html" . }}
+  </div>
+</div>
+
+{{ partial "footer.html" . }}
