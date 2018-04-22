@@ -1936,8 +1936,8 @@ figure a {
 /* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
 /* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; display: block; }
 /* LineHighlight */ .chroma .hl { display: block; width: 100%; }
-/* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em; }
-/* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em; }
+/* LineNumbersTable */ .chroma .lnt { margin-right: 0.3em; padding: 0 0.3em 0 0.3em; }
+/* LineNumbers */ .chroma .ln { margin-right: 0.3em; padding: 0 0.3em 0 0.3em; }
 /* Keyword */ .chroma .k { color: #719e07 }
 /* KeywordConstant */ .chroma .kc { color: #cb4b16 }
 /* KeywordDeclaration */ .chroma .kd { color: #268bd2 }
