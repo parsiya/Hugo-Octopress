@@ -231,7 +231,7 @@ h1 {
     font-size: 2.2em;
     line-height: 1.2em
 }
-@media only screen and (min-width: 992px) {
+/* @media only screen and (min-width: 992px) {
     body {
         font-size: 1.15em
     }
@@ -239,7 +239,7 @@ h1 {
         font-size: 2.6em;
         line-height: 1.2em
     }
-}
+} */
 h1,
 h2,
 h3,
