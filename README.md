@@ -105,6 +105,9 @@ post = "/blog/:year-:month-:day-:title/"
 
   # Set to true to disable downloading of remote Google fonts
   disableGoogleFonts = false
+
+  # Remove or Set to false to use local fonts
+  remoteFonts = false
 ```
 
 ## <a name="highlight"></a>Code highlight
