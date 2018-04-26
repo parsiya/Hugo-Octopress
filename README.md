@@ -108,6 +108,9 @@ post = "/blog/:year-:month-:day-:title/"
 
   # Remove or Set to false to use local fonts
   remoteFonts = false
+
+  # Remove or set to false to use FontAwesome CDN, otherwise the theme uses ForkAwesome local fonts.
+  # fontAwesome = false
 ```
 
 ## <a name="highlight"></a>Code highlight

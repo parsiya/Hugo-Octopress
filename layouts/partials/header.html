@@ -32,8 +32,11 @@
     <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
   {{ end }}
 
-  <!-- For sidebar icons - TODO: find local icons I guess -->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  {{ if not .Site.Params.fontAwesome }}
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  {{ else }}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  {{ end }}
 
   <!-- Icons -->
   <link href="{{ "/favicon.png" | absURL }}" rel="icon">
