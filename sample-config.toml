@@ -139,6 +139,15 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   # This is not needed unless alphabetical sort is needed
   # sortTaxonomyAlphabetical = true
 
+  # Twitter card config
+  # Enable with this.
+  # twitterCardEnabled = true
+  # Don't include the @.
+  # twitterCardSite = 
+  # twitterCardDomain = "parsiya.net"
+  # Don't include the @.
+  # twitterCardAuthor = "CryptoGangsta"
+
 # Menu
 # If navigationNewWindow (under [params]) is set to true then all links except root ("/") will open in a new window
 # If it does not exist or is set to false then links will open in the same window

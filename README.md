@@ -27,6 +27,7 @@ My personal website runs a modified version of the theme (mainly modified index)
 - [Taxonomy pages](#taxonomy)
 - [Individual pages](#page)
 - [Disqus](#disqus)
+- [Twitter Card](#twitter)
 - [Issues/TODO](#issues)
 - [Attribution](#attribution)
 - [Ported by](#portedby)
@@ -47,7 +48,6 @@ theme = "hugo-octopress"
 # Disqus shortcode
 # Disable comments for any individual post by adding "comments: false" in its frontmatter
 disqusShortname = "Your disqus shortname"
-
 
 # Number of blog posts in each pagination page
 paginate = 6
@@ -439,6 +439,35 @@ disqusShortname = "whatever"
 ```
 
 The disqus partial is at `layouts/partials/disqus.html`. By default it does not add Disqus when you are testing on localhost using the test server. This can be disabled (e.g. if you want to test Disqus locally) by commenting the `if and return` lines in the partial above.
+
+## <a name="twitter"></a>Twitter Card
+Twitter card support can be enabled in the config file under `Params`:
+
+``` toml
+[params]
+  # Twitter card config
+  # Enable with this.
+  twitterCardEnabled = true
+  # Don't include the @.
+  # twitterCardSite = 
+  twitterCardDomain = "parsiya.net"
+  # Don't include the @.
+  twitterCardAuthor = "CryptoGangsta"
+```
+
+After Twitter card is enabled, you can add summary images to your posts via front matter through `twitterImage`:
+
+``` yaml
+twitterImage: 02-fuzzer-crash.png
+```
+
+**Note:** Image URL should be relative to the page, otherwise the final URL will not be correct. In short, image URL should be part of the page bundle. In this case, both `index.md` and `02-fuzzer-crash.png` are in the same root directory. If the image is in a subdirectory of page bundle, it can be added like this:
+
+``` yaml
+twitterImage: images/02-fuzzer-crash.png
+```
+
+The template can be modified at `Hugo-Octopress/partials/custom_twitter_card.html`.
 
 ## <a name="issues"></a>Issues/TODO
 If you discover any issues/bugs or want new features please use the Github issue tracker. Please keep in my mind that development has not been my day job for quite a while and I may be slow in fixing things (don't be surprised if I ask you about details).

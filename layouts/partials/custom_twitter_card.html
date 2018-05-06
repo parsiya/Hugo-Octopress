@@ -1,0 +1,16 @@
+<!-- Modified from _internal/twitter_card.html -->
+{{ if .IsPage }}
+  {{ with .Params.twitterImage }}
+  <!-- Twitter summary card with large image must be at least 280x150px -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image:src" content="{{ index . 0 | absURL }}"/>
+  {{ else }}
+    <meta name="twitter:card" content="summary"/>
+  {{ end }}
+  <!-- Twitter Card data -->
+  <meta name="twitter:title" content="{{ .Title }}"/>
+  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}"/>
+  {{ with .Site.Params.twitterCardSite }}<meta name="twitter:site" content="@{{ . }}"/>{{ end }}
+  {{ with .Site.Params.twitterCardDomain }}<meta name="twitter:domain" content="{{ . }}"/>{{ end }}
+  {{ with .Site.Params.twitterCardAuthor }}<meta name="twitter:creator" content="@{{ . }}"/>{{ end }}
+{{ end }}
