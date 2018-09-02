@@ -1,4 +1,4 @@
-<!-- to modify sidebar width check the css file lines 757 and 765 (for large screens) -->
+<!-- To modify sidebar width check the css file lines 757 and 765 (for large screens) -->
 
 <aside class="sidebar thirds">
   <section class="first odd">
@@ -40,13 +40,13 @@
       {{ with .Site.Params.instagram }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-instagram fa-3x"></i></a>{{ end }}
       {{ with .Site.Params.bitcoin }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-bitcoin fa-3x"></i></a>{{ end }}
 
-    <!-- don't need RSS here anymore -->
+    <!-- Uncomment to add the RSS icon -->
     <!-- {{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-3x"></i></a>{{ end }} -->
     </li>
   </ul>
 
-  <!-- sidebar menu - items are read from the config file
-       first we check if it is enabled in config file and then start adding the items
+  <!-- Sidebar menu - items are read from the config file
+       first we check if it is enabled in config file and then start adding items.
        if Site.Params.sidebarNewWindow exists and is set to true then open these links in a new window -->
 
   {{ with .Site.Params.sidebarMenuEnabled }}
@@ -64,8 +64,8 @@
     {{ end }}
   {{ end }}
 
-  <!-- add recent posts - limit is .Site.Params.sidebarRecentLimit - example copied from https://gohugo.io/templates/go-templates/ -->
-  <!-- only display this section if sideBarRecentLimit is not zero -->
+  <!-- Add recent posts - limit is .Site.Params.sidebarRecentLimit - example copied from https://gohugo.io/templates/go-templates/ -->
+  <!-- Only display this section if sideBarRecentLimit is not zero -->
   {{ with .Site.Params.sidebarRecentLimit }}
     {{ if not (eq . 0) }}
       <section class="even">

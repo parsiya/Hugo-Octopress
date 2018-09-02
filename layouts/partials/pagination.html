@@ -1,6 +1,9 @@
-<!-- copy pasted from  tpl/template_embedded.go -->
-<!-- default pagination.html creates <ul class="pagination"> and then a list of links for counters, forwardw and backward
-     while Octopress uses <div class="pagination"> and links inside-->
+<!-- Pagination partial for index -->
+<!-- Modified tpl/template_embedded.go -->
+
+<!-- default pagination.html creates <ul class="pagination"> and then a list of
+    links for counters, forward and backward while Octopress uses
+    <div class="pagination"> and links inside-->
 
 {{ $pag := $.Paginator }}
 {{ if gt $pag.TotalPages 1 }}

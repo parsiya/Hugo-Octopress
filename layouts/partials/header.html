@@ -41,17 +41,14 @@
   <link href="{{ "/favicon.png" | absURL }}" rel="icon">
 
   <!-- RSS -->
-  {{ $siteTitle := .Site.Title }}
-  {{ $authorName := .Site.Author.name }}
-
-  {{ with .RSSLink }}<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }}" />{{ end }}
+  {{ with .RSSLink }}<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />{{ end }}
 
   <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
   <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
 
   <meta name="author" content="{{ .Site.Params.author }}">
 
-  <!-- outputs the generator version for usage tacking -->
+  <!-- Generator version for usage tacking -->
   {{ .Hugo.Generator }}
 
   <!-- Google Analytics -->

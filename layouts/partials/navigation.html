@@ -1,12 +1,11 @@
 <!-- mobile navigation -->
 <fieldset class="mobile-nav">
-  <!-- this needs JavaScript but works until I manage to make one with CSS without wrecking the site -->
+  <!-- Apart from Disqus, this is the only place where we need JavaScript. -->
   <select onchange="location = this.value;">
     <option value="">Navigate…</option>
       {{ range .Site.Menus.main }}
         <option value="{{ .URL | absURL }}">» {{ .Name }}</option>
       {{ end }}
-<!--         <option value="{{ "/index.xml" | absURL }}">» RSS</option> -->
   </select>
 </fieldset>
 
@@ -22,7 +21,6 @@
   {{ end }}
 </ul>
 
-<!-- http://fontawesome.io icon fa-lg adapts it to size (at least it is supposed to) -->
 <ul class="subscription">
   {{ if or .Site.Params.rss .Site.Params.textrss }}
     {{ if .Site.Params.rss }}

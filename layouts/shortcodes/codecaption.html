@@ -1,11 +1,18 @@
-<!-- codecaption short code - basically this is normal highlighted code with caption on top
-     example usage (Hugo seems to ignore stuff in this):
+<!-- Author: Parsia Hakimian https://github.com/parsiya/Hugo-Shortcodes -->
 
-     { { < codecaption lang="language e.g. python/csharp" title="captiontitle" > } }
+<!-- codecaption short code - basically this is normal highlighted code with caption on top.
 
-     code to be highlighted
+  Usage:
 
-     { { < /codecaption > } } -->
+  {{< codecaption lang="language e.g. python/csharp" title="captiontitle" >}}
+  package main
+
+  import "fmt"
+
+  func main() {
+	  fmt.Println("Hello World!")
+  }
+  {{< /codecaption >}} -->
 
 <figure class="code">
   <figcaption>
