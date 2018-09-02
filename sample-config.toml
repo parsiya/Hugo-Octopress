@@ -29,12 +29,6 @@ pygmentsStyle = "solarized-dark"
 [permalinks]
 post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the old ones
 
-# Make tags and categories work
-# As of Hugo v0.33 these are not needed anymore
-# [indexes]
-#   tag = "tags"
-#   category = "categories"
-
 [params]
 
   # --- Start sidebar options ---
@@ -89,8 +83,9 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   # Search engine URL
   searchEngineURL = "https://www.google.com/search"
 
-  # Text of the "Continue Reading" label. &rarr; == right arrow, but it gets messed up in the string so it was added to index.html manually
-  continueReadingText = "Would you like to know more?"
+  # Text of the "Continue Reading" label. Supports markdown and inline HTML.
+  # For example, &rarr; == right arrow.
+  continueReadingText = "Would you like to know more? &rarr;"
 
   # Google analytics code - remove if you do not have/want Google Analytics - needs JavaScript
   # googleAnalytics = "UA-XXXXX-X"
