@@ -19,7 +19,6 @@ My personal website runs a modified version of the theme (mainly modified index)
 - [Shortcodes](#shortcodes)
   - [Code caption](#codecaption)
   - [Image caption](#imgcap)
-    - [Atom snippets for shortcodes](#snippets)
 - [Hugo page summary bug](#summary)
 - [License page](#licensepage)
 - [Table of contents](#tableofcontents)
@@ -106,7 +105,7 @@ post = "/blog/:year-:month-:day-:title/"
   # Set to true to disable downloading of remote Google fonts
   disableGoogleFonts = false
 
-  # Remove or Set to false to use local fonts
+  # Remove or set to false to use local fonts
   remoteFonts = false
 
   # Remove or set to false to use FontAwesome CDN, otherwise the theme uses ForkAwesome local fonts.
@@ -114,7 +113,7 @@ post = "/blog/:year-:month-:day-:title/"
 ```
 
 ## <a name="highlight"></a>Code highlight
-The theme now supports the built-in Chroma highlighter. However, Chroma does not support the pygments `solarized dark` style. It's added to the CSS instead and must be enabled with `pygmentsuseclasses = true` in the config file. To use the Chroma highlighter, you need to disable Pygments with `pygmentsUseClassic=false`.
+This theme use the built-in Chroma highlighter with the `solarized-dark` theme. To use the Chroma highlighter, you need to disable Pygments with `pygmentsUseClassic=false`.
 
 The following options control code highlighting:
 
@@ -122,11 +121,12 @@ The following options control code highlighting:
 # Highlight shortcode and code fences (```) will be treated similarly
 pygmentscodefences = true
 
-# Use CSS for highlighting
-pygmentsuseclasses = true
+# Change highlight style here.
+# For a full list see: https://xyproto.github.io/splash/docs/all.html
+pygmentsStyle = "solarized-dark"
 
-# pygments options can be added here (and in the highlight shortcode in the markdown file)
-# Hugo supports these pygments options: style, encoding, noclasses, hl_lines, linenos
+# Other Chroma options can be added here (and in the highlight shortcode in the markdown file)
+# See list of supported options: https://gohugo.io/content-management/syntax-highlighting/#options
 # for example: pygmentsoptions = "linenos=true"
 ```
 
@@ -316,28 +316,6 @@ Will result in:
   <span class="caption-text">Sample caption</span>
 </span>
 ```
-#### <a name="snippets"></a>Atom snippets for shortcodes
-In order to read about creating Atom snippets please see [Atom's Snippets package](https://github.com/atom/snippets).
-
-Open your snippets file (`File > Open Your Snippets`) and paste the following:
-
-``` coffee
-'.source.gfm':
-  'codecaption':
-    'prefix': 'codecap'
-    'body': """
-    {{< codecaption title="$1" lang="$2"  >}}
-    $3
-    {{< /codecaption >}}
-    """
-  'imgcap':
-    'prefix': 'imgcap'
-    'body': '{{< imgcap title="$1" src="/images/2016/$2" >}}'
-```
-
-My original mistake was to repeat `'.source.gfm'` before the `imgcap` snippet, seems like [cson keys should not be repeated](https://atom.io/docs/latest/using-atom-basic-customization#id-D9ATX).
-
-You can trigger the shortcodes by entering `imgcap` and `codecap` respectively and then pressing enter. You can change these keywords by modifying the `prefix` tag. After inserting the shortcode, the cursor will go to the first location which is designated by `$1`. After entering the first parameter you can go to `$2` and then `$3` using `tab`.
 
 ## <a name="summary"></a>Hugo page summary bug
 Hugo will use first 70 words of the post if it does not have a summary divider. The result is usually not pretty and contains raw HTML. To avoid this, always use the summary divider `<!--more-->` to designate summary.

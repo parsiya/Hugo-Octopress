@@ -13,15 +13,17 @@ disqusShortname = "Your disqus shortname"
 paginate = 6
 
 # Code highlighting options
+# Hugo uses Chroma but names are the same as the old pygments highlighter
 
 # Highlight shortcode and code fences (```) will be treated similarly
 pygmentscodefences = true
 
-# Use CSS for highlighting
-pygmentsuseclasses = true
+# Change highlight style here.
+# For a full list see: https://xyproto.github.io/splash/docs/all.html
+pygmentsStyle = "solarized-dark"
 
-# pygments options can be added here (and in the highlight shortcode in the markdown file)
-# Hugo supports these pygments options: style, encoding, noclasses, hl_lines, linenos
+# Other Chroma options can be added here (and in the highlight shortcode in the markdown file)
+# See list of supported options: https://gohugo.io/content-management/syntax-highlighting/#options
 # for example: pygmentsoptions = "linenos=true"
 
 [permalinks]
