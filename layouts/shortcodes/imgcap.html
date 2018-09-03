@@ -1,20 +1,8 @@
 
 <!-- Author: Parsia Hakimian https://github.com/parsiya/Hugo-Shortcodes -->
 
-<!-- normal image with caption
-     sample usage:
-
-     {{< imgcap title="figurecaption" src="imagesrc" >}}
-
-     {{< imgcap title="this is a tree" src="/images/2016/gardening/tree1.jpg" >}}
-
-     alt text and title and caption will be the same.
-
-     Images can be referenced from the static directory or from the page bundle.
--->
-
-<!-- imitates the imgcap plugin from Octopress -->
-
+<!-- imitates the imgcap plugin from Octopress
+  see readme or the above repository for usage -->
 
 <span class="caption-wrapper">
   <img class="caption" src="{{ .Get "src" }}" title="{{ .Get "title" }}" alt="{{ .Get "title" }}">
