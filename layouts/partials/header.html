@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
   {{ if not .Site.Params.disableGoogleFonts }}
-    <!-- If local Google Fonts are enabled -->
+    <!-- if local Google fonts are enabled -->
     {{ if not .Site.Params.remoteFonts }}
       <link href="/css/fonts.css" rel="stylesheet" type="text/css">
     {{ else }}
@@ -45,7 +45,6 @@
 
   <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
   <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
-
   <meta name="author" content="{{ .Site.Params.author }}">
 
   <!-- Generator version for usage tacking -->
@@ -58,7 +57,6 @@
   {{ with .Site.Params.twitterCardEnabled }}
     {{ partial "custom_twitter_card.html" $ }}
   {{ end }}
-
 </head>
 <body>
 

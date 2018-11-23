@@ -472,7 +472,7 @@ If you discover any issues/bugs or want new features please use the Github issue
 * [Octopress](octopress-link) is created by [Brandon Mathis](https://github.com/imathis). Octopress source can be found on [https://github.com/imathis/octopress](https://github.com/imathis/octopress).
 * Some code was taken from the [Hyde-x](https://github.com/zyro/hyde-x) Hugo theme by [Andrei Mihu](http://andreimihu.com/).
 * Sidebar icons are from [Font Awesome](https://github.com/FortAwesome/Font-Awesome) by Dave Gandy and [Fork Awesome](https://github.com/ForkAwesome/Fork-Awesome).
-* Special thanks to everyone who has helped with pull requests and issues.
+* Special thanks to [contributors](https://github.com/parsiya/Hugo-Octopress/graphs/contributors) and everyone who has helped with issues.
 
 ## <a name="Ported by"></a>Ported by
 Ported by Parsia Hakimian:

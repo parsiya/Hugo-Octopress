@@ -1,36 +1,35 @@
-<footer role="contentinfo">
-  <p>Copyright &copy; {{ now.Format "2006" }} {{ .Site.Params.author }} - <a href="{{ "/license/" | absURL }}">License</a> -
-  <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
-</p>
+    <footer role="contentinfo">
+      <p>Copyright &copy; {{ now.Format "2006" }} {{ .Site.Params.author }} - <a href="{{ "/license/" | absURL }}">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
 
-</footer>
+    <!-- Piwik -->
+    {{ with .Site.Params.analytics.piwik.ID }}
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//{{ $.Site.Params.analytics.piwik.URL }}/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', {{ . }}]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+    {{ end }}
+    <!-- End Piwik Code -->
 
-<!-- Piwik -->
-{{ with .Site.Params.analytics.piwik.ID }}
-<script type="text/javascript">
-  var _paq = _paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//{{ $.Site.Params.analytics.piwik.URL }}/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', {{ . }}]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-{{ end }}
-<!-- End Piwik Code -->
-
-{{ with .Site.Params.googleAnalytics }}
-<script>
-  var _gaq=[['_setAccount','{{ . }}'],['_trackPageview']];
-  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-  s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
-{{ end }}
-</body>
+    {{ with .Site.Params.googleAnalytics }}
+      <script>
+        var _gaq=[['_setAccount','{{ . }}'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    {{ end }}
+  </body>
 </html>

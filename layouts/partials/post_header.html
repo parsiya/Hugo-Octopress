@@ -1,18 +1,18 @@
-<!-- Partial that geenrates the header/title for each post -->
+<!-- Partial that generates the header/title for each post -->
 
 <header>
-    <p class="meta">{{ .Date.Format "Jan 2, 2006" }}
-        {{ if not .Site.Params.disableReadingTime }} - {{ .ReadingTime }} minute read {{ end }}
-        {{ if .Site.DisqusShortname }} - <a href="{{ .Permalink }}#disqus_thread">Comments</a>{{ end }}
+  <p class="meta">{{ .Date.Format "Jan 2, 2006" }}
+    {{ if not .Site.Params.disableReadingTime }} - {{ .ReadingTime }} minute read {{ end }}
+    {{ if .Site.DisqusShortname }} - <a href="{{ .Permalink }}#disqus_thread">Comments</a>{{ end }}
 
-        {{ if isset .Params "categories" }}
-        <!-- in order to make category URLs work, we need to urlize them and
-             convert them to lowercase 
-             e.g. .NET Remoting -urlize-> .NET-Remoting -lowercase-> .net-remoting -->
-            - {{ range .Params.categories }}<a class="label" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}/">{{ . }} </a>{{ end }}
-        {{ end }}
-    </p>
-    <h1 class="entry-title">
-        {{ if ($.Scratch.Get "isHome") }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ else }} {{ .Title }} {{ end }}
-    </h1>
+    {{ if isset .Params "categories" }}
+    <!-- in order to make category URLs work, we need to urlize them and
+        convert them to lowercase 
+        e.g. .NET Remoting -urlize-> .NET-Remoting -lowercase-> .net-remoting -->
+      - {{ range .Params.categories }}<a class="label" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}/">{{ . }} </a>{{ end }}
+    {{ end }}
+  </p>
+  <h1 class="entry-title">
+    {{ if ($.Scratch.Get "isHome") }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ else }} {{ .Title }} {{ end }}
+  </h1>
 </header>

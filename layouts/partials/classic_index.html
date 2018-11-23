@@ -1,42 +1,34 @@
 <!-- Partial for classic index page -->
 
 <div id="main">
-    <div id="content">
-     <div class="blog-index">
-       {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-       {{ range $paginator.Pages }}
-       <article>
-   
-           {{ .Scratch.Set "isHome" true }}
-           {{ partial "post_header.html" . }}
-   
-           {{ if eq .Site.Params.truncate false }}
-           {{ .Content }}
-           {{ else if .Description }}
-           {{ .Description }}
-             <footer>
-               <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}Read On &rarr;{{ end }}</a>
-             </footer>
-           {{ else }}
-             <p>{{ .Summary }}</p>
-   
-             {{ if .Truncated }}
-                 <footer>
-                     <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}Read On &rarr;{{ end }}</a>
-                 </footer>
-             {{ end }}
-   
-           {{ end }}
-   
-       </article>
-       {{ end }}
-       <!-- {{ template "_internal/pagination.html" . }} default pagination -->
-       {{ partial "pagination.html" . }}  <!-- use custom pagination -->
-   
-     </div>
-   
-     {{ partial "sidebar.html" . }}    <!-- sidebar -->
+  <div id="content">
+    <div class="blog-index">
+      {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+      {{ range $paginator.Pages }}
+      <article>
+        {{ .Scratch.Set "isHome" true }}
+        {{ partial "post_header.html" . }}
+        {{ if eq .Site.Params.truncate false }}
+        {{ .Content }}
+        {{ else if .Description }}
+        {{ .Description }}
+          <footer>
+            <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}Read On &rarr;{{ end }}</a>
+          </footer>
+        {{ else }}
+          <p>{{ .Summary }}</p>
+          {{ if .Truncated }}
+            <footer>
+              <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}Read On &rarr;{{ end }}</a>
+            </footer>
+          {{ end }}
+        {{ end }}
+      </article>
+      {{ end }}
+      <!-- {{ template "_internal/pagination.html" . }} default pagination -->
+      {{ partial "pagination.html" . }}  <!-- use custom pagination -->
     </div>
-   </div>
-   
-   {{ partial "footer.html" . }}   <!-- footer -->
+    {{ partial "sidebar.html" . }}    <!-- sidebar -->
+  </div>
+</div>
+{{ partial "footer.html" . }}   <!-- footer -->
