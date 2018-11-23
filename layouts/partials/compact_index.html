@@ -1,0 +1,36 @@
+<!-- Partial for compact index -->
+
+<style>
+table.allposts, td.allposts-date, td.allposts-title {
+  border:none;
+}
+
+td.allposts-date {
+    padding: 0 0.5em 0 0;
+}
+
+td.allposts-title {
+    font-size: 110%;
+}
+</style>
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article role="article">
+          <table class="allposts">
+            {{ range (where .Site.Pages "Type" "post") }}
+              {{ if .IsPage }}
+                <tr>
+                  <td class="allposts-date"><strong>{{ .Date | dateFormat "2006"}} {{ .Date | dateFormat "Jan" }} {{ .Date | dateFormat "2" }}</strong></td>
+                  <td class="allposts-title"><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></td>
+                </tr>
+              {{ end }}
+            {{ end }}
+          </table>
+      </article>
+    </div>
+    {{ partial "sidebar.html" . }}
+  </div>
+</div>
+{{ partial "footer.html" . }}

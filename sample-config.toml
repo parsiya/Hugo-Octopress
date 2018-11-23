@@ -145,6 +145,9 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   # Don't include the @.
   # twitterCardAuthor = "CryptoGangsta"
 
+  # Set to true to enable compact index. Set to false or remove to go back to classic view.
+  # compactIndex = true
+
 # Menu
 # If navigationNewWindow (under [params]) is set to true then all links except root ("/") will open in a new window
 # If it does not exist or is set to false then links will open in the same window

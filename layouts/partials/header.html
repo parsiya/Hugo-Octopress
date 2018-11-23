@@ -60,10 +60,10 @@
   {{ end }}
 
 </head>
-<body{{ with .Site.Params.theme }} class="{{ . }}"{{ end }}>
+<body>
 
 <!-- top header for octopress -->
-<header role="banner">{{ partial "octo-header.html" . }}</header>
+<header role="banner">{{ partial "octo_header.html" . }}</header>
 
 <!-- navigation -->
 <nav role="navigation">{{ partial "navigation.html" . }}</nav>

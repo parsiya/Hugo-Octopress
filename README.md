@@ -6,7 +6,7 @@ Live demo using the unmodified theme:
 * [http://hugo-octopress-test.s3-website-us-east-1.amazonaws.com/](http://hugo-octopress-test.s3-website-us-east-1.amazonaws.com/).
 * Source: [https://github.com/parsiya/Hugo-Octopress-Test](https://github.com/parsiya/Hugo-Octopress-Test).
 
-My personal website runs a modified version (modified index):
+My personal website uses the compact index (see below):
 
 * [https://parsiya.net](https://parsiya.net).
 * Source: [https://github.com/parsiya/parsiya.net](https://github.com/parsiya/parsiya.net)
@@ -33,6 +33,7 @@ My personal website runs a modified version (modified index):
 - [Individual pages](#page)
 - [Disqus](#disqus)
 - [Twitter Card](#twitter)
+- [Compact Index](#index)
 - [Issues/TODO](#issues)
 - [Attribution](#attribution)
 - [Ported by](#portedby)
@@ -188,7 +189,7 @@ Search engine customization:
 ```
 
 ## <a name="sidebarlinks"></a>Sidebar
-The sidebar has four section, from top to bottom:
+The sidebar has four sections, from top to bottom:
 
 * Sidebar header and text (optional).
 * Social network icons (optional): Icons and links to Github, Bitbucket, and more.
@@ -448,6 +449,19 @@ twitterImage: images/02-fuzzer-crash.png
 ```
 
 The template can be modified at `Hugo-Octopress/partials/custom_twitter_card.html`.
+
+## <a name="index"></a>Compact Index
+The original theme renders each post's summary in the main page. I prefer a more compact index and have been using it for my own website for quite a while. You can enable it by adding the following to the config file:
+
+``` toml
+[params]
+  # Set to true to enable compact index. Set to false or remove to go back to classic view.
+  compactIndex = true
+```
+
+Compare the views (classic - compact) - click for full-size image:
+
+[![classic index](images/classicindex_tn.png)](https://raw.githubusercontent.com/parsiya/Hugo-Octopress/master/images/classicindex.png) [![compact index](images/compactindex_tn.png)](https://raw.githubusercontent.com/parsiya/Hugo-Octopress/master/images/compactindex.png)
 
 ## <a name="issues"></a>Issues/TODO
 If you discover any issues/bugs or want new features please use the Github issue tracker. Please keep in my mind that development has not been my day job for quite a while and I may be slow in fixing things (don't be surprised if I ask you about details).
