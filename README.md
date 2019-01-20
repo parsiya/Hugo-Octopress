@@ -96,7 +96,7 @@ post = "/blog/:year-:month-:day-:title/"
   textrss = false
 
   # Website's default description
-  defaultDescription = ""
+  description = ""
 
   # Populate with your search keywords - these will appear in meta tags
   # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
