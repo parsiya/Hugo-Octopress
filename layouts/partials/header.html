@@ -38,14 +38,14 @@
   <link href="{{ "/favicon.png" | absURL }}" rel="icon">
 
   <!-- RSS -->
-  {{ with .RSSLink }}<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />{{ end }}
+  {{ with .RelPermalink }}<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />{{ end }}
 
   <meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
   <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
   <meta name="author" content="{{ .Site.Params.author }}">
 
   <!-- Generator version for usage tracking -->
-  {{ .Hugo.Generator }}
+  {{ hugo.Generator }}
 
   <!-- Google Analytics -->
   {{ template "_internal/google_analytics_async.html" . }}
