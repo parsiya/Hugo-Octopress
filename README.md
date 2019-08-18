@@ -1,4 +1,4 @@
-# Hugo-Octopress
+# Hugo-Octopress <!-- omit in toc -->
 Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to [Hugo][hugo-link].
 
 Live demo using the unmodified theme:
@@ -11,37 +11,41 @@ My personal website uses the compact index (see below):
 * [https://parsiya.net](https://parsiya.net).
 * Source: [https://github.com/parsiya/parsiya.net](https://github.com/parsiya/parsiya.net)
 
-## Contents
-- [Config file parameters](#config)
-- [Code highlight](#highlight)
-- [Navigation menu](#menu)
-- [Markdown options](#markdown)
-- [CSS override](#cssoverride)
-- [Sidebar](#sidebarlinks)
-  - [Sidebar text](#sidebartext)
-  - [Social network icons](#sidebarsocial)
-  - [Sidebar menu](#sidebarmenu)
-  - [Recent posts](#sidebarrecent)
+## Contents <!-- omit in toc -->
+- [Configuration](#configuration)
+- [Code highlight](#code-highlight)
+- [Markdown options](#markdown-options)
+- [CSS override](#css-override)
+- [Navigation menu](#navigation-menu)
+- [Sidebar](#sidebar)
+  - [Sidebar text](#sidebar-text)
+  - [Social network icons](#social-network-icons)
+  - [Sidebar menu](#sidebar-menu)
+  - [Recent posts](#recent-posts)
 - [Shortcodes](#shortcodes)
-  - [Code caption](#codecaption)
-  - [Image caption](#imgcap)
-- [Hugo page summary bug](#summary)
-- [License page](#licensepage)
-- [Table of contents](#tableofcontents)
-- [Not Found or 404.html](#notfound)
-- [Taxonomy pages](#taxonomy)
-- [Individual pages](#page)
+  - [Code caption](#code-caption)
+  - [Image caption](#image-caption)
+- [Pages](#pages)
+  - [License page](#license-page)
+  - [Not Found or 404.html](#not-found-or-404html)
+  - [Taxonomy pages](#taxonomy-pages)
+  - [Individual pages](#individual-pages)
+- [Table of contents](#table-of-contents)
 - [Disqus](#disqus)
-- [Twitter Card](#twitter)
-- [Compact Index](#index)
-- [Issues/TODO](#issues)
+- [Twitter Card](#twitter-card)
+- [Compact Index](#compact-index)
+- [mainSections](#mainsections)
+- [Troubleshooting](#troubleshooting)
+  - [Hugo page summary bug](#hugo-page-summary-bug)
+  - [Empty Posts Link on Homepage](#empty-posts-link-on-homepage)
+- [Issues/TODO](#issuestodo)
 - [Attribution](#attribution)
-- [Ported by](#portedby)
-- [Theme license](#themelicense)
+- [Ported by](#ported-by)
+- [Theme license](#theme-license)
 
 ![screenshot](https://raw.githubusercontent.com/parsiya/Hugo-Octopress/master/images/screenshot.png)
 
-## <a name="config"></a>Configuration
+## Configuration
 Hugo-Octopress can be configured by modifying the parameters in the [configuration file](https://gohugo.io/overview/configuration/). A working config file `sample-config.toml` is provided. Some miscellaneous parameters are explained below:
 
 ``` toml
@@ -114,7 +118,7 @@ post = "/blog/:year-:month-:day-:title/"
   # fontAwesome = false
 ```
 
-## <a name="highlight"></a>Code highlight
+## Code highlight
 This theme uses the built-in [Chroma](https://github.com/alecthomas/chroma) highlighter with the `solarized-dark` theme. See all supported styles at [https://xyproto.github.io/splash/docs/all.html](https://xyproto.github.io/splash/docs/all.html).
 
 Some options to control code highlighting:
@@ -134,7 +138,7 @@ pygmentsStyle = "solarized-dark"
 
 For more information see [Syntax Highlighting](https://gohugo.io/extras/highlighting/) in Hugo's documentation.
 
-## <a name="markdown"></a>Markdown options
+## Markdown options
 Blackfriday is Hugo's markdown engine. For a complete list of options see [Configure Blackfriday rendering](https://gohugo.io/getting-started/configuration/#configure-blackfriday-rendering). Blackfriday options can be set as follows:
 
 ``` toml
@@ -143,7 +147,7 @@ Blackfriday is Hugo's markdown engine. For a complete list of options see [Confi
   fractions = false
 ```
 
-## <a name="cssoverride"></a>CSS override
+## CSS override
 You can override the built-in CSS and add your own. Put your CSS files in the `static` directory of your website. While storing them inside the `themes/Hugo-Octopress/static` directory works, it's not recommended (keep your website and theme as separated as possible to be able to switch themes easily). Then modify the `customCSS` parameter. The path should be relative to the `static` folder. These CSS files will be added through the `header` partial after the built-in CSS file.
 
 For example, if custom CSS files are `static/css/custom.css` and `static/css/custom2.css` then `customCSS` will look like this:
@@ -153,7 +157,7 @@ For example, if custom CSS files are `static/css/custom.css` and `static/css/cus
   customCSS = ["css/custom.css","css/custom2.css"]
 ```
 
-## <a name="menu"></a>Navigation menu
+## Navigation menu
 Links in the navigation menu (everything other than Google search and RSS icon) can be customized. The navigation menu is generated using the `layouts/partials/navigation.html` partial.
 
 By default, navigation menu links will open in the same window. You can change this behavior by setting the `navigationNewWindow` parameter to true. Links to root ("/") will always open in the same window. Currently, Hugo does not support adding custom attributes to menus.
@@ -188,7 +192,7 @@ Search engine customization:
   searchEngineURL = "https://www.google.com/search"
 ```
 
-## <a name="sidebarlinks"></a>Sidebar
+## Sidebar
 The sidebar has four sections, from top to bottom:
 
 * Sidebar header and text (optional).
@@ -198,7 +202,7 @@ The sidebar has four sections, from top to bottom:
 
 The sidebar is generated using the partial at `layouts/partials/sidebar.html`.
 
-### <a name="sidebartext"></a>Sidebar text
+### Sidebar text
 The sidebar text has two parts and both can be configured. Both are passed to `markdownify` so you can use markdown (e.g. add links or new lines).
 
 * Sidebar header appears first in an `<h1>` tag. It can be configured with `sidebarHeader`.
@@ -219,7 +223,7 @@ Forth line
 """
 ```
 
-### <a name="sidebarsocial"></a>Social network icons
+### Social network icons
 Sidebar social network icons are configured as follows:
 
 ``` toml
@@ -244,7 +248,7 @@ Code to display links (and the idea to use these icons) is from [Hyde-x](https:/
 
 Icons are from [Font Awesome](https://fontawesome.com/) and [Fork Awesome](https://github.com/ForkAwesome/Fork-Awesome). To use icons with square dark backgrounds add `-square`. For example `<i class="fa fa-twitter-square fa-3x"></i>`. Size can be from 1 to 5 use `fa-lg` to make them adaptive.
 
-### <a name="sidebarmenu"></a>Sidebar menu
+### Sidebar menu
 This menu can be enabled by setting `sidebarMenuEnabled` to `true`. It has two parts:
 
 * A header that appears inside the `<h1>` tag on top. It can be set by `sidebarMenuHeader`. This part only supports text.
@@ -262,15 +266,15 @@ This menu can be enabled by setting `sidebarMenuEnabled` to `true`. It has two p
   weight = 1
 ```
 
-### <a name="sidebarrecent"></a>Recent posts
+### Recent posts
 Last x posts can be displayed in the sidebar. This number is controlled by `sidebarRecentLimit`. To hide this section you can remove `sidebarRecentLimit` from the config file or set it to zero.
 
-## <a name="shortcodes"></a>Shortcodes
+## Shortcodes
 Creating [shortcodes](https://gohugo.io/extras/shortcodes/) in Hugo was surprisingly easy (and one of the reasons I switched to it). I recreated two plugins from Octopress. They add captions to code blocks and images. These shortcodes are in `layouts/shortcodes/`.
 
 For all my Hugo shortcodes see [https://github.com/parsiya/Hugo-Shortcodes](https://github.com/parsiya/Hugo-Shortcodes).
 
-### <a name="codecaption"></a>Code caption
+### Code caption
 This shortcode adds a caption to codeblocks. The codeblock is wrapped in a `<figure>` tag and caption is added using `<figcaption>`. It has two parameters, `title` which is the caption of the code block and `lang` which is the language that is passed to the Hugo's `highlight` function along with `linenos=true` to enable line numbers.
 
 Usage and source (parameters are named and not positional):
@@ -302,7 +306,7 @@ div.codewrapper {
 }
 ```
 
-### <a name="imgcap"></a>Image caption
+### Image caption
 This shortcode adds captions to pictures. Due to the way the original CSS file was organized, this shortcode does not use `<figure>` and `<figcaption>`. `Alt` tag is also set to `title`.
 
 Usage (parameters are named and not positional):
@@ -320,28 +324,10 @@ Results in:
 </span>
 ```
 
-## <a name="summary"></a>Hugo page summary bug
-Without a summary divider `<!--more-->`, Hugo uses the first 70 words of the post. The result is usually not pretty and contains raw HTML. Always use the summary divider `<!--more-->` in your posts.
+## Pages
+This section discusses the different kind of pages that are supported by the theme.
 
-Hugo does not display render style links in the page summary if the link is also not before the summary divider. You can read more it [here](https://discuss.gohugo.io/t/markdown-content-renders-as-regular-text-in-summary/1396/12).
-
-Reference style links look like this:
-
-``` markdown
-This is a link to [Example][example-link].
-
-More stuff here.
-
-Usually at the end of the markdown file.
-[example-link]: https://www.example.com
-```
-
-There are two workarounds:
-
-1. Do not use reference style links in summary. Use normal links like `[Example](https://www.example.com)`.
-2. Put the reference links before the summary divider.
-
-## <a name="licensepage"></a>License page
+### License page
 License page address is `baseurl/license/`. Create a markdown file containing the text for the license page under `content` and set its type to `license` in frontmatter:
 
 ``` yaml
@@ -355,7 +341,41 @@ License text
 
 License page template is: `layouts/license/single.html`.
 
-## <a name="tableofcontents"></a>Table of contents
+### Not Found or 404.html
+The `404.html` page has two optional parameters and both support markdown:
+
+* `notFoundHeader`: 404 page title
+* `notFoundText`: 404 page text
+
+If they are not set in the config file, theme's default page is used (`layouts/404.html`).
+
+### Taxonomy pages
+You can create taxonomy lists (e.g. categories and tags). Set `generateTaxonomyList = true` to get generate them at `baseURL/tags/` and `baseURL/categories`. By default items are sorted by count. `sortTaxonomyAlphabetical = true` changes the sort to alphabetical.
+
+``` toml
+[Params]
+  generateTaxonomyList = true
+
+  # Alphabetical sort
+  # sortTaxonomyAlphabetical = true
+```
+
+To revert, remove `sortTaxonomyAlphabetical` or set it to false.
+
+Note: As of Hugo 0.33, `indexes` has been removed. If your taxonomy pages are not rendered, please update to the latest version of Hugo. Templates are now at:
+
+* `/layouts/category/category.html`
+* `/layouts/tag/tag.html`
+
+### Individual pages
+Individual pages can be created in two ways:
+
+* Create a new content file in `content/page`.
+* Create a page anywhere inside `content` and set the type `page` in frontmatter. E.g. `type: page`.
+
+The template for individual pages is at `Hugo-Octopress/layouts/page/single.html`. It can be overridden by a file in the website's `layouts/page/single.html`. For more information see [Single Page Templates in Hugodocs](https://gohugo.io/templates/single-page-templates/).
+
+## Table of contents
 You can add `Table of Contents (ToC)` to pages. The ToC is on top of the actual page and does not appear in the summary. You can also use various editor plugins to manually create them inside your markdown files.
 
 Customize ToC either globally or for each page:
@@ -378,41 +398,7 @@ Customize ToC either globally or for each page:
 
 The `toc` variable in the frontmatter has priority. If it is set to `false` the global setting is ignored.
 
-## <a name="notfound"></a>Not Found or 404.html
-The `404.html` page has two optional parameters and both support markdown:
-
-* `notFoundHeader`: 404 page title
-* `notFoundText`: 404 page text
-
-If they are not set in the config file, theme's default page is used (`layouts/404.html`).
-
-## <a name="taxonomy"></a>Taxonomy pages
-You can create taxonomy lists (e.g. categories and tags). Set `generateTaxonomyList = true` to get generate them at `baseURL/tags/` and `baseURL/categories`. By default items are sorted by count. `sortTaxonomyAlphabetical = true` changes the sort to alphabetical.
-
-``` toml
-[Params]
-  generateTaxonomyList = true
-
-  # Alphabetical sort
-  # sortTaxonomyAlphabetical = true
-```
-
-To revert, remove `sortTaxonomyAlphabetical` or set it to false.
-
-Note: As of Hugo 0.33, `indexes` has been removed. If your taxonomy pages are not rendered, please update to the latest version of Hugo. Templates are now at:
-
-* `/layouts/category/category.html`
-* `/layouts/tag/tag.html`
-
-## <a name="page"></a>Individual pages
-Individual pages can be created in two ways:
-
-* Create a new content file in `content/page`.
-* Create a page anywhere inside `content` and set the type `page` in frontmatter. E.g. `type: page`.
-
-The template for individual pages is at `Hugo-Octopress/layouts/page/single.html`. It can be overridden by a file in the website's `layouts/page/single.html`. For more information see [Single Page Templates in Hugodocs](https://gohugo.io/templates/single-page-templates/).
-
-## <a name="disqus"></a>Disqus
+## Disqus
 Hugo supports Disqus. Note Disqus shortname is directly in the config file (and not under `params`):
 
 ``` toml
@@ -421,7 +407,7 @@ disqusShortname = "whatever"
 
 By default, Disqus is not enabled on localhost using `hugo serve`. This can be disabled (e.g. if you want to test Disqus locally) by commenting the `if and return` lines in the Disqus partial in `layouts/partials/disqus.html`.
 
-## <a name="twitter"></a>Twitter Card
+## Twitter Card
 Twitter card support can be enabled in the config file under `Params`:
 
 ``` toml
@@ -450,7 +436,7 @@ twitterImage: images/02-fuzzer-crash.png
 
 The template can be modified at `Hugo-Octopress/partials/custom_twitter_card.html`.
 
-## <a name="index"></a>Compact Index
+## Compact Index
 The original theme renders each post's summary in the main page. I prefer a more compact index and have been using it for my own website for quite a while. You can enable it by adding the following to the config file:
 
 ``` toml
@@ -463,24 +449,73 @@ Compare the views (classic - compact) - click for full-size image:
 
 [![classic index](images/classicindex_tn.png)](https://raw.githubusercontent.com/parsiya/Hugo-Octopress/master/images/classicindex.png) [![compact index](images/compactindex_tn.png)](https://raw.githubusercontent.com/parsiya/Hugo-Octopress/master/images/compactindex.png)
 
-## <a name="issues"></a>Issues/TODO
+## mainSections
+Hugo-Octopress supports using the [mainSections](https://gohugo.io/functions/where/#mainsections) property in the config file to display different kinds of posts on the main page. If not defined, `mainSection` will default to the section with the most number of pages. In a vanilla Hugo-Octopress setup, it will be under `post`. However, you can add your own in the config file as follows:
+
+```toml
+[params]
+  mainSections = ["posts", "blogs"]
+```
+
+See the code in `layouts/partials/classic_index.html`:
+
+```html
+<div class="blog-index">
+  {{ $paginator := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
+  {{ range $paginator.Pages }}
+  <article>
+  ...
+```
+
+## Troubleshooting
+Common issues when dealing with the theme.
+
+### Hugo page summary bug
+Without a summary divider `<!--more-->`, Hugo uses the first 70 words of the post. The result is usually not pretty and contains raw HTML. Always use the summary divider `<!--more-->` in your posts.
+
+Hugo does not display render style links in the page summary if the link is also not before the summary divider. You can read more it [here](https://discuss.gohugo.io/t/markdown-content-renders-as-regular-text-in-summary/1396/12).
+
+Reference style links look like this:
+
+``` markdown
+This is a link to [Example][example-link].
+
+More stuff here.
+
+Usually at the end of the markdown file.
+[example-link]: https://www.example.com
+```
+
+There are two workarounds:
+
+1. Do not use reference style links in summary. Use normal links like `[Example](https://www.example.com)`.
+2. Put the reference links before the summary divider.
+
+### Empty Posts Link on Homepage
+After rebuilding the blog with Hugo v0.57+, you may see an single `Posts` link in the classic index. Update to Hugo `0.57.2+` (there is an issue with `0.57.1`) and it should work.
+
+For more information please see:
+
+* https://github.com/gohugoio/hugoThemes/issues/682
+
+## Issues/TODO
 If you discover any issues/bugs or want new features please use the Github issue tracker. Please keep in my mind that development has not been my day job for quite a while and I may be slow in fixing things (don't be surprised if I ask you about details).
 
 **The css is a mess.** The CSS file is taken directly from the classic Octopress theme. I found it easier to just modify the templates to generate HTML code similar to Octopress' output and use the existing CSS file. It's bulky (around 53KBs and 2300 lines) and it probably has code for elements that are never used (also duplicates).
 
-## <a name="attribution"></a>Attribution
+## Attribution
 * [Octopress](octopress-link) is created by [Brandon Mathis](https://github.com/imathis). Octopress source can be found on [https://github.com/imathis/octopress](https://github.com/imathis/octopress).
 * Some code was taken from the [Hyde-x](https://github.com/zyro/hyde-x) Hugo theme by [Andrei Mihu](http://andreimihu.com/).
 * Sidebar icons are from [Font Awesome](https://github.com/FortAwesome/Font-Awesome) by Dave Gandy and [Fork Awesome](https://github.com/ForkAwesome/Fork-Awesome).
 * Special thanks to [contributors](https://github.com/parsiya/Hugo-Octopress/graphs/contributors) and everyone who has helped with issues.
 
-## <a name="Ported by"></a>Ported by
+## Ported by
 Ported by Parsia Hakimian:
 
 * Website: [parsiya.net](https://parsiya.net)
 * Twitter: [@CryptoGangsta](https://twitter.com/cryptogangsta)
 
-## <a name="themelicense"></a>Theme license
+## Theme license
 Open sourced under the [MIT license](https://github.com/parsiya/Hugo-Octopress/blob/master/LICENSE.md).
 
 <!-- Links -->

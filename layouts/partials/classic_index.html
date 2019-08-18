@@ -3,18 +3,18 @@
 <div id="main">
   <div id="content">
     <div class="blog-index">
-      {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+      {{ $paginator := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
       {{ range $paginator.Pages }}
       <article>
-        {{ .Scratch.Set "isHome" true }}
+        <!-- {{ .Scratch.Set "isHome" true }}  -->
         {{ partial "post_header.html" . }}
         {{ if eq .Site.Params.truncate false }}
-        {{ .Content }}
+          {{ .Content }}
         {{ else if .Description }}
-        {{ .Description }}
-          <footer>
-            <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}Read On &rarr;{{ end }}</a>
-          </footer>
+          {{ .Description }}
+            <footer>
+              <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}Read On &rarr;{{ end }}</a>
+            </footer>
         {{ else }}
           <p>{{ .Summary }}</p>
           {{ if .Truncated }}

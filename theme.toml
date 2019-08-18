@@ -5,8 +5,8 @@ licenselink = "https://github.com/parsiya/Hugo-Octopress/blob/master/LICENSE.md"
 description = "Octopress classic theme for Hugo"
 homepage = "https://github.com/parsiya/hugo-octopress/"
 tags = ["Octopress", "Hugo"]
-features = ["blog", ""]
-min_version = 0.14
+features = ["blog"]
+min_version = 0.572
 
 [author]
   name = "Parsia Hakimian"
