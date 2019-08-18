@@ -19,7 +19,7 @@ td.allposts-title {
     <div>
       <article role="article">
           <table class="allposts">
-            {{ range (where .Site.Pages "Type" "post") }}
+            {{ range (where site.RegularPages "Type" "in" site.Params.mainSections) }}
               {{ if .IsPage }}
                 <tr>
                   <td class="allposts-date"><strong>{{ .Date | dateFormat "2006"}} {{ .Date | dateFormat "Jan" }} {{ .Date | dateFormat "2" }}</strong></td>
