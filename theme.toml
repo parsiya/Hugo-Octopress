@@ -6,7 +6,7 @@ description = "Octopress classic theme for Hugo"
 homepage = "https://github.com/parsiya/hugo-octopress/"
 tags = ["Octopress", "Hugo"]
 features = ["blog"]
-min_version = 0.572
+min_version = "0.57.2"
 
 [author]
   name = "Parsia Hakimian"
