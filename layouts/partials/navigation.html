@@ -16,7 +16,7 @@
     {{ if eq .URL "/" }}
       <li><a href="{{ .URL | absURL }}" title="{{ .Name }}">{{ .Name }}</a></li>
     {{ else }}
-      <li><a href="{{ .URL | absURL }}" title="{{ .Name }}" {{ if eq $.Site.Params.navigationNewWindow true }} target="_blank" {{ end }}>{{ .Name }}</a></li>
+      <li><a href="{{ .URL | absURL }}" title="{{ .Name }}" {{ if eq $.Site.Params.navigationNewWindow true }} target="_blank" {{ end }} rel="noopener noreferrer">{{ .Name }}</a></li>
     {{ end }}
   {{ end }}
 </ul>
@@ -24,7 +24,7 @@
 <ul class="subscription">
   {{ if or .Site.Params.rss .Site.Params.textrss }}
     {{ if .Site.Params.rss }}
-        <a href="{{ "/index.xml" | absURL }}" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+        <a href="{{ "/index.xml" | absURL }}" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
     {{ else }}
         <li><a href="/index.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
     {{ end }}
@@ -32,7 +32,7 @@
 </ul>
 
 {{ with .Site.Params.searchEngineURL }}
-  <form action="{{ . }}" method="get" target="_blank">
+  <form action="{{ . }}" method="get" target="_blank" rel="noopener noreferrer">
     <fieldset role="search">
       <input class="search" type="text" name="q" results="0" placeholder="Search"/>
       <input type="hidden" name="q" value="site:{{ "/" | absURL }}" />
