@@ -4,8 +4,11 @@ Hugo-Octopress is a port of the classic [Octopress][octopress-link] theme to
 
 Live demo using the unmodified theme:
 
-* [http://hugo-octopress-test.s3-website-us-east-1.amazonaws.com/](http://hugo-octopress-test.s3-website-us-east-1.amazonaws.com/).
-* Source: [https://github.com/parsiya/Hugo-Octopress-Test](https://github.com/parsiya/Hugo-Octopress-Test).
+* [http://hugo-octopress-test.s3-website-us-east-1.amazonaws.com/][live-demo].
+* Source: [https://github.com/parsiya/Hugo-Octopress-Test][test-repo].
+
+[live-demo]: http://hugo-octopress-test.s3-website-us-east-1.amazonaws.com/
+[test-repo]: https://github.com/parsiya/Hugo-Octopress-Test
 
 My personal website uses the compact index (see below):
 
@@ -654,8 +657,7 @@ similar to Octopress' output and use the existing CSS file. It's bulky (around
 * [Octopress][octopress-link] is created by [Brandon Mathis][mathis-link].
   Octopress source can be found on
   [https://github.com/imathis/octopress][octopress-github].
-* Some code was taken from the [Hyde-x][hyde-x-theme] Hugo theme by [Andrei
-  Mihu][andrei-mihu-link].
+* Some code was taken from the [Hyde-x][hyde-x-theme] Hugo theme by [Andrei Mihu][andrei-mihu-link].
 * Sidebar icons are from [Font Awesome][font-awesome] by Dave Gandy and [Fork Awesome][fork-awesome].
 * Special thanks to [contributors][theme-contributors] and everyone who has
   helped with issues.
