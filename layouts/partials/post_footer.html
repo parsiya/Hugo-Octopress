@@ -35,7 +35,7 @@
   </p>
   {{ if .Site.DisqusShortname }}
     {{ if not (eq .Params.comments false) }}
-      {{ partial "disqus.html" . }}
+      {{ template "_internal/disqus.html" . }}
     {{ end }}
   {{ end }}
 </footer>

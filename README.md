@@ -527,9 +527,8 @@ not under `params`):
 disqusShortname = "whatever"
 ```
 
-By default, Disqus is not enabled on localhost using `hugo serve`. This can be
-disabled (e.g. if you want to test Disqus locally) by commenting the
-`if and return` lines in the Disqus partial in `layouts/partials/disqus.html`.
+You can disable comments for individual pages by adding `comments: false` to
+the frontmatter.
 
 ## Twitter Card
 Twitter card support can be enabled in the config file under `Params`:
@@ -633,8 +632,8 @@ There are two workarounds:
 2. Put the reference links before the summary divider.
 
 ### Empty Posts Link on Homepage
-After rebuilding the blog with Hugo v0.57+, you may see an single `Posts` link
-in the classic index. Update to Hugo `0.57.2+` (there is an issue with `0.57.1`)
+After rebuilding the blog with Hugo v0.57+, you may see a single `Posts` link in
+the classic index. Update to Hugo `0.57.2+` (there is an issue with `0.57.1`)
 and it should work.
 
 For more information please see:
