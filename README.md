@@ -10,12 +10,13 @@ Live demo using the unmodified theme:
 [live-demo]: http://hugo-octopress-test.s3-website-us-east-1.amazonaws.com/
 [test-repo]: https://github.com/parsiya/Hugo-Octopress-Test
 
-My personal website uses the compact index (see below):
+My personal website with the compact index (see below):
 
 * [https://parsiya.net](https://parsiya.net).
 * Source: [https://github.com/parsiya/parsiya.net](https://github.com/parsiya/parsiya.net)
 
 ## Contents <!-- omit in toc -->
+- [Quick start](#quick-start)
 - [Configuration](#configuration)
 - [Code highlight](#code-highlight)
 - [Blackfriday options](#blackfriday-options)
@@ -53,6 +54,40 @@ My personal website uses the compact index (see below):
 
 ![screenshot](https://raw.githubusercontent.com/parsiya/Hugo-Octopress/master/images/screenshot.png)
 
+## Quick start
+Add the theme to your existing site or [Hugo's quick start][hugo-quickstart].
+All commands are run from the root directory of your website.
+
+[hugo-quickstart]: https://gohugo.io/getting-started/quick-start/
+
+If using git to manage your website, add the theme as a git submodule:
+
+```
+git clone https://github.com/parsiya/Hugo-Octopress themes/Hugo-Octopress
+```
+
+Or you can just clone it:
+
+```
+git clone https://github.com/parsiya/Hugo-Octopress themes/Hugo-Octopress
+```
+
+To view the theme with the example site:
+
+```
+cd themes/Hugo-Octopress/exampleSite
+hugo serve -vw
+```
+
+Now you can view the example website at http://localhost:1313.
+
+Example site created thanks to [https://github.com/nonumeros][nonumeros]. I
+reviewed the [pull request][examplesite-pr] almost two years late and had to
+copy/paste the website instead of resolving merge conflicts.
+
+[nonumeros]: https://github.com/nonumeros
+[examplesite-pr]: https://github.com/parsiya/Hugo-Octopress/pull/57
+
 ## Configuration
 Hugo-Octopress can be configured by modifying the parameters in the
 [configuration file](https://gohugo.io/overview/configuration/). A working
@@ -83,7 +118,7 @@ post = "/blog/:year-:month-:day-:title/"
   truncate = true
 
   # Author's name (appears in meta tags and under posts)
-  author = "Author's name"
+  author = "Author"
 
   # This text appears in site header under website title
   subtitle = "Subtitle appears under website title"
