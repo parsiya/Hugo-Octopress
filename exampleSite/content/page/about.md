@@ -13,3 +13,9 @@ This is a single page. To create a page similar to this:
 3. Now you can access the website at `baseurl/about` and you can link to it from the main menu or sidebar using the relative path.
 
 [page-bundle-link]: https://gohugo.io/content-management/page-bundles/
+
+Linkify URL: https://example.net. It opens in a new tab only if using
+Blackfriday and not Goldmark (at the time of writing).
+
+markdown URL: [example.net](https://example.net). It should open in a new tab
+with both Blackfriday and Goldmark.

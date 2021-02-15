@@ -13,22 +13,22 @@ theme = "hugo-octopress"
 # Number of blog posts in each pagination page
 paginate = 6
 
-# Code highlighting options
-# Hugo uses Chroma but names are the same as the old pygments highlighter
-
-# Highlight shortcode and code fences (```) will be treated similarly
-pygmentscodefences = true
-
-# Change highlight style here.
-# For a full list see: https://xyproto.github.io/splash/docs/all.html
-pygmentsStyle = "solarized-dark"
-
-# Other Chroma options can be added here (and in the highlight shortcode in the markdown file)
-# See list of supported options: https://gohugo.io/content-management/syntax-highlighting/#options
-# for example: pygmentsoptions = "linenos=true"
-
 [permalinks]
 post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the old ones
+
+[markup]
+  # Default is startLevel 2 and endLevel 3, we want to render every heading
+  [markup.tableOfContents]
+    endLevel = 8
+    startLevel = 1
+  # set the Chroma highlighting options
+  # https://gohugo.io/getting-started/configuration-markup/#highlight
+  [markup.highlight]
+    style = "solarized-dark"
+  # if you want to keep using Blackfriday
+  # defaultMarkdownHandler = "blackfriday"
+  #   [markup.blackFriday]
+  #     hrefTargetBlank = true # open links in a new tab
 
 [params]
 
@@ -185,8 +185,3 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   Name = "About page"
   URL = "/about"
   weight = 2
-
-# # Blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/#configure-blackfriday-rendering
-# [blackfriday]
-#   hrefTargetBlank = true # open the external links in a new window
-#   fractions = false

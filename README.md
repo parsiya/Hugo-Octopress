@@ -19,7 +19,7 @@ My personal website with the compact index (see below):
 - [Quick start](#quick-start)
 - [Configuration](#configuration)
 - [Code highlight](#code-highlight)
-- [Blackfriday options](#blackfriday-options)
+- [Goldmark vs. Blackfriday](#goldmark-vs-blackfriday)
 - [CSS override](#css-override)
 - [Navigation menu](#navigation-menu)
 - [Sidebar](#sidebar)
@@ -37,6 +37,7 @@ My personal website with the compact index (see below):
   - [Taxonomy pages](#taxonomy-pages)
   - [Individual pages](#individual-pages)
 - [Table of contents](#table-of-contents-1)
+  - [toc configuration](#toc-configuration)
   - [Use toc in Frontmatter](#use-toc-in-frontmatter)
   - [Use the toc Shortcode](#use-the-toc-shortcode)
   - [Editor Plugins](#editor-plugins)
@@ -66,7 +67,7 @@ If using git to manage your website, add the theme as a git submodule:
 git clone https://github.com/parsiya/Hugo-Octopress themes/Hugo-Octopress
 ```
 
-Or you can just clone it:
+Or you can clone it:
 
 ```
 git clone https://github.com/parsiya/Hugo-Octopress themes/Hugo-Octopress
@@ -79,11 +80,13 @@ cd themes/Hugo-Octopress/exampleSite
 hugo serve -vw
 ```
 
-Now you can view the example website at http://localhost:1313.
+And view the example website at http://localhost:1313.
 
-Example site created thanks to [https://github.com/nonumeros][nonumeros]. I
-reviewed the [pull request][examplesite-pr] almost two years late and had to
-copy/paste the website instead of resolving merge conflicts.
+Example site was originally created by
+[https://github.com/nonumeros][nonumeros]. I reviewed the
+[pull request][examplesite-pr] almost two years late and had to copy/paste the
+website instead of resolving merge conflicts. The example website also has a
+page with the theme's shortcodes.
 
 [nonumeros]: https://github.com/nonumeros
 [examplesite-pr]: https://github.com/parsiya/Hugo-Octopress/pull/57
@@ -168,41 +171,53 @@ post = "/blog/:year-:month-:day-:title/"
 This theme uses the built-in [Chroma][chroma-link] highlighter with the
 `solarized-dark` theme. See all supported styles at
 [https://xyproto.github.io/splash/docs/all.html](https://xyproto.github.io/splash/docs/all.html).
+To change the style, change it in the config file like below to one of the
+supported styles.
 
 [chroma-link]: https://github.com/alecthomas/chroma
 
-Some options to control code highlighting:
+Some options to control code highlighting post version `0.60`.
 
 ``` toml
-# Highlight shortcode and code fences (```) will be treated similarly
-pygmentscodefences = true
-
-# Change highlight style here.
-# Full list: https://xyproto.github.io/splash/docs/all.html
-pygmentsStyle = "solarized-dark"
-
-# Add other Chroma options here (override them in the highlight shortcode inside markdown)
-# List of supported options: https://gohugo.io/content-management/syntax-highlighting/#options
-# For example: pygmentsoptions = "linenos=true"
+[markup]
+  [markup.tableOfContents]
+    endLevel = 8
+    startLevel = 1
+  [markup.highlight]
+    style = "solarized-dark"
 ```
 
-For more information see [Syntax Highlighting][hugo-syntax-highlighting] in
-Hugo's documentation.
+For more configuration options please see
+[https://gohugo.io/getting-started/configuration-markup/#highlight][hugo-configuration-markup]
+and [https://gohugo.io/extras/highlighting/][hugo-syntax-highlighting] in Hugo's
+documentation.
 
 [hugo-syntax-highlighting]: https://gohugo.io/extras/highlighting/
+[hugo-configuration-markup]: https://gohugo.io/getting-started/configuration-markup/#highlight
 
-## Blackfriday options
-Blackfriday was Hugo's markdown engine. For a complete list of options see
-[Configure Blackfriday rendering][blackfriday-config]. Blackfriday options can
-be set as follows:
+## Goldmark vs. Blackfriday
+Prior to version `0.60`, Hugo used Blackfriday. Now it uses Goldmark by default.
+See https://gohugo.io/getting-started/configuration-markup#highlight for
+information about setting it up.
+
+There are trade-offs. Mainly, the `hrefTargetBlank` Blackfriday extension. It
+was set to true to open external links in a new browser tab. Unfortunately,
+Goldmark does not have this built-in. To make it happen, we need to use a render
+hook. I used the one in Hugo docs at
+
+https://gohugo.io/getting-started/configuration-markup#link-with-title-markdown-example.
+
+This works for markdown links but not linkify or image links. Linkify links are
+straight URLs pasted into the document.
+
+So, I keep using Blackfriday like this:
 
 ``` toml
-[blackfriday]
-  hrefTargetBlank = true # open external links in a new window
-  fractions = false
+[markup]
+  defaultMarkdownHandler = "blackfriday"
+  [markup.blackFriday]
+    hrefTargetBlank = true
 ```
-
-[blackfriday-config]: https://gohugo.io/getting-started/configuration-markup#blackfriday
 
 ## CSS override
 You can override the built-in CSS and add your own. Put your CSS files in the
@@ -281,23 +296,34 @@ The sidebar text has two parts and both can be configured. Both are passed to
   `sidebarHeader`.
 * Sidebar text appears under the header and is in `sidebarText`.
 
-Add new lines with `</br>` or using markdown (two spaces at the end of a line or
-one empty line in between two paragraphs). When adding two spaces, remember to
-remove the indentation at the start of the new line otherwise the it will be
-treated as a codeblock.
+You can add new lines can be added with two spaces at the end of line. New
+paragraphs can be added with two an empty line. when adding two new lines,
+remember to remove the indentation otherwise the new line will be treated as a
+codeblock.
 
 ``` toml
 sidebarHeader = "Sidebar Header"
 
 sidebarText = """Here's a [link to google](https://www.google.com)
-</br>
-Second line
-</br>
-Third line
-This line has two spaces in the end to create a new line using markdown[two spaces here]  
-Forth line
+
+New paragraph
+
+Another paragraph which has two spaces in the end to create a new line using markdown  
+New line but not a new paragraph
 """
 ```
+  
+If you want to use `</br>` here and not just markdown, you need to enable unsafe
+rendering of HTML in Goldmark. You can do this like this.
+
+``` toml
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+```
+
+Blackfriday renders the `</br>` tags and does not need extra configuration.
 
 ### Social network icons
 Sidebar social network icons are configured as follows:
@@ -437,7 +463,7 @@ Results in:
 
 ### Table of Contents
 This shortcode adds table of contents to the theme. You can use it to add the
-toc to anywhere inthe page with `{{< toc >}}`.
+toc to anywhere in the page with `{{< toc >}}`.
 
 ## Pages
 This section discusses the different kind of pages that are supported by the
@@ -506,6 +532,23 @@ website's `layouts/page/single.html`. For more information see
 ## Table of contents
 There are three ways to add `Table of Contents (ToC)` to pages.
 
+### toc configuration
+With Goldmark, you need to change the defaults for the table of contents
+renderer in your site's config. The defaults only render markdown headings level
+2 and 3.
+
+``` toml
+[markup]
+  [markup.tableOfContents]
+    endLevel = 8
+    startLevel = 1
+```
+
+Please see more at
+[https://gohugo.io/getting-started/configuration-markup/#table-of-contents][toc-config].
+
+[toc-config]: https://gohugo.io/getting-started/configuration-markup/#table-of-contents
+
 ### Use toc in Frontmatter
 This ToC is on top of the page and does not appear in the summary. You customize
 the ToC for each page or globally:
@@ -527,7 +570,7 @@ the ToC for each page or globally:
     ```
 
 The `toc` variable in the frontmatter has priority. If it is set to `false` the
-global setting is ignored.
+global setting is ignored for that page.
 
 ### Use the toc Shortcode
 If you want the table to appear in a different location use the shortcode. For
@@ -547,9 +590,10 @@ summary or whatever.
 [website-cheatsheet]: https://raw.githubusercontent.com/parsiya/parsiya.net/master/content/page/CheatSheet.markdown
 
 ### Editor Plugins
-There are various editor plugins that create a table in markdown in the files.
-This self-contained and not reliant on the theme or the shortcode. I use the VS
-Code plugin [Markdown All in One][markdown-vscode-toc].
+There are various editor plugins that create a table of contents in markdown
+using markdown links. This approach is self-contained and not reliant on the
+theme or the shortcode. There are varioud plugins that do this, I used the VS
+Code plugins [Markdown All in One][markdown-vscode-toc].
 
 [markdown-vscode-toc]: https://github.com/yzhang-gh/vscode-markdown#table-of-contents
 
@@ -595,7 +639,9 @@ If the image is in a subdirectory of page bundle, it can be added like this:
 twitterImage: images/02-fuzzer-crash.png
 ```
 
-The template can be modified at `Hugo-Octopress/partials/custom_twitter_card.html`.
+To modify this template, copy
+`your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html`
+to `your-website/layouts/partials/custom-twitter-card.html` and make changes.
 
 ## Compact Index
 The original theme renders each post's summary in the main page. I prefer a more
@@ -666,13 +712,16 @@ There are two workarounds:
 2. Put the reference links before the summary divider.
 
 ### Empty Posts Link on Homepage
-After rebuilding the blog with Hugo v0.57+, you may see a single `Posts` link in
+After rebuilding the blog with Hugo `0.57`, you may see a single `Posts` link in
 the classic index. Update to Hugo `0.57.2+` (there is an issue with `0.57.1`)
 and it should work.
 
 For more information please see:
 
 * https://github.com/gohugoio/hugoThemes/issues/682
+
+This should not be an issue anymore because the theme's minimum version of Hugo
+has been bumped.
 
 ## Issues/TODO
 If you discover any issues/bugs or want new features please use the Github issue
