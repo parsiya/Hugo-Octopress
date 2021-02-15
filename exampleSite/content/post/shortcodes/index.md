@@ -11,6 +11,32 @@ https://github.com/parsiya/Hugo-Shortcodes for more.
 
 <!--more-->
 
+# Table of Content
+Use the short code to put it anywhere in the page like this:
+
+```
+{{ < toc > }}
+```
+
+If you are using Goldmark, you need to change the start and end level headings
+in the config file. The defaults are level 2 and 3 respectively.
+
+``` toml
+[markup]
+  [markup.tableOfContents]
+    endLevel = 8
+    startLevel = 1
+```
+
+Please see more at
+[https://gohugo.io/getting-started/configuration-markup/#table-of-contents][toc-config].
+
+[toc-config]: https://gohugo.io/getting-started/configuration-markup/#table-of-contents
+
+The table of contents for this page:
+
+{{< toc >}}
+
 # Codecaption
 
 **Python**
@@ -23,44 +49,17 @@ print b64encode(unhexlify("0a0b0c0d"))
 CgsMDQ==
 {{< /codecaption >}}
 
-**Go**
+Using a codefence (` ``` `):
 
-{{< codecaption title="Go highlight" lang="go" >}}
-// zlib inflate (decompress).
+```python
+from base64 import b64encode
+from binascii import unhexlify
 
-package main
+print b64encode(unhexlify("0a0b0c0d"))
+CgsMDQ==
+```
 
-import (
-	"compress/zlib"
-	"io"
-	"os"
-)
-
-func main() {
-	zlibFile, err := os.Open("test.zlib")
-	if err != nil {
-		panic(err)
-	}
-	defer zlibFile.Close()
-
-	r, err := zlib.NewReader(zlibFile)
-	if err != nil {
-		panic(err)
-	}
-	defer r.Close()
-
-	outFile, err := os.Create("out-zlib")
-	if err != nil {
-		panic(err)
-	}
-	defer outFile.Close()
-
-	io.Copy(outFile, r)
-}
-{{< /codecaption >}}
-
-
-Python code highlight using the Hugo internal `highlight` shortcode:
+Using the Hugo internal `highlight` shortcode:
 
 {{< highlight python >}}
 from base64 import b64encode
@@ -70,13 +69,31 @@ print b64encode(unhexlify("0a0b0c0d"))
 CgsMDQ==
 {{</highlight >}}
 
-**Test gist1**
+Using an indented code block (no highlighting):
+
+	from base64 import b64encode
+	from binascii import unhexlify
+
+	print b64encode(unhexlify("0a0b0c0d"))
+	CgsMDQ==
+
+In a Github gist:
 
 {{< gist parsiya 3c18b044bda63d34bdb83eddb66bee4c >}}
 
-**Test gist2**
+**Go**
 
-{{< gist parsiya 423b289016de056671ed6af58e364b99 >}}
+{{< codecaption title="Go highlight" lang="go" >}}
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println("Hello World")
+}
+{{< /codecaption >}}
 
 **Powershell**
 
@@ -88,15 +105,6 @@ False
 $ Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe"
 True
 {{< /codecaption >}}
-
-**Indented code block**
-
-    # notepad does not have an entry
-    $ Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\notepad.exe"
-    False
-    # chrome does
-    $ Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe"
-    True
 
 # imgcap
 {{< imgcap title="The national parks preserve wild life" src="01.jpg" >}}
