@@ -5,6 +5,9 @@ languageCode = "en-us"
 title = "Site title"
 theme = "hugo-octopress"
 
+# Needed so we can serve the example website without extra switches
+themesDir = "../.."
+
 # Disqus shortcode
 # Disable comments for any individual post by adding "comments: false" in its frontmatter
 # Note it's not under [params] anymore
@@ -42,7 +45,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   # Sidebar text also supports markdown
   # New lines can be added with two spaces at the end of line. New paragraphs can be added with two an empty line.
   # when adding two new lines, remember to remove the indentation otherwise the new line will be treated as a codeblock
-  sidebarText = """Here's a [link to google](https://www.google.com)
+  sidebarText = """Here's a [link to example.net](https://www.example.net)
 
   New paragraph
 
@@ -57,13 +60,6 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   github = "https://github.com/parsiya/Hugo-Octopress"
   bitbucket = "https://bitbucket.org/parsiya/"
   twitter = "https://twitter.com/cryptogangsta/"
-  keybase = ""
-  stackoverflow = ""
-  linkedin = ""
-  googleplus = ""
-  youtube = ""
-  facebook = ""
-  instagram = ""
 
   # --- End sidebar options ---
 
@@ -87,14 +83,6 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   # For example, &rarr; == right arrow.
   continueReadingText = "Would you like to know more? &rarr;"
 
-  # Google analytics code - remove if you do not have/want Google Analytics - needs JavaScript
-  # googleAnalytics = "UA-XXXXX-X"
-
-  # Optional piwik tracking
-  # [params.analytics.piwik]
-  #  URL = "https://stats.example.com"
-  #  ID = "42"
-
   # Switch to true to enable RSS icon link
   rss = true
 
@@ -104,13 +92,6 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
   # Website's default description
   description = ""
-
-  # Populate this with your own search keywords - these will appear in the meta tags
-  # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
-
-  # CSS override files
-  # Paths should be relative to the `static` directory
-  # customCSS = ["css/custom.css","css/custom2.css"]
 
   # 404.html header and text - both support markdown
   notFoundHeader = "There's nothing here"
@@ -122,34 +103,10 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   disableReadingTime = false
 
   # Set to true to disable downloading of remote Google fonts
-  disableGoogleFonts = false
-
-  # Remove or Set to false to use local fonts
-  # remoteFonts = false
-  
-  # Remove or set to false to use FontAwesome CDN, otherwise the theme uses ForkAwesome local fonts.
-  # fontAwesome = false
+  disableGoogleFonts = true
 
   # Generate taxonomy pages
   generateTaxonomyList = true
-
-  # This is not needed unless alphabetical sort is needed
-  # sortTaxonomyAlphabetical = true
-
-  # Twitter card config
-  # Enable with this.
-  # twitterCardEnabled = true
-  # Don't include the @.
-  # twitterCardSite = 
-  # twitterCardDomain = "parsiya.net"
-  # Don't include the @.
-  # twitterCardAuthor = "CryptoGangsta"
-
-  # Set to true to enable compact index. Set to false or remove to go back to classic view.
-  # compactIndex = true
-
-  # Set mainSections.
-  # mainSections = ["post", "blog"]
 
 # Menu
 # If navigationNewWindow (under [params]) is set to true then all links except root ("/") will open in a new window
@@ -160,21 +117,24 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   weight = -5
 
 [[menu.main]]
-  Name = "Google"
-  URL = "https://www.google.com/"
+  Name = "example.net"
+  URL = "https://www.example.net/"
   weight = -5
 
 [[menu.main]]
   Name = "This theme on Github"
   URL = "https://www.github.com/parsiya/hugo-octopress"
 
+[[menu.main]]
+  Name = "The About page"
+  URL = "/about"
 
 # Sidebar menus
 # Enable with "sidebarMenuEnabled = true" under [params]
 # Header text is "sidebarMenuHeader" under [params]
 [[menu.sidebar]]
-  Name = "Google"
-  URL = "https://www.google.com"
+  Name = "example.net"
+  URL = "https://www.example.net"
   weight = 0
 
 [[menu.sidebar]]
@@ -186,8 +146,3 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   Name = "About page"
   URL = "/about"
   weight = 2
-
-# # Blackfriday is Hugo's markdown engine. Options are at: https://gohugo.io/overview/configuration/#configure-blackfriday-rendering
-# [blackfriday]
-#   hrefTargetBlank = true # open the external links in a new window
-#   fractions = false
