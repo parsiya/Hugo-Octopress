@@ -60,7 +60,6 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   keybase = ""
   stackoverflow = ""
   linkedin = ""
-  googleplus = ""
   youtube = ""
   facebook = ""
   instagram = ""

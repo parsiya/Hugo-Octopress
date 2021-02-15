@@ -311,7 +311,6 @@ Sidebar social network icons are configured as follows:
   keybase = "https://keybase.io/parsiya/"
   linkedin = "https://www.linkedin.com/in/parsiya/"
   stackoverflow = ""
-  googleplus = ""
   youtube = ""
   facebook = ""
   instagram = ""
