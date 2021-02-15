@@ -37,7 +37,7 @@ My personal website with the compact index (see below):
   - [Taxonomy pages](#taxonomy-pages)
   - [Individual pages](#individual-pages)
 - [Table of contents](#table-of-contents-1)
-  - [Configuration](#configuration-1)
+  - [toc configuration](#toc-configuration)
   - [Use toc in Frontmatter](#use-toc-in-frontmatter)
   - [Use the toc Shortcode](#use-the-toc-shortcode)
   - [Editor Plugins](#editor-plugins)
@@ -67,7 +67,7 @@ If using git to manage your website, add the theme as a git submodule:
 git clone https://github.com/parsiya/Hugo-Octopress themes/Hugo-Octopress
 ```
 
-Or you can just clone it:
+Or you can clone it:
 
 ```
 git clone https://github.com/parsiya/Hugo-Octopress themes/Hugo-Octopress
@@ -80,11 +80,13 @@ cd themes/Hugo-Octopress/exampleSite
 hugo serve -vw
 ```
 
-Now you can view the example website at http://localhost:1313.
+And view the example website at http://localhost:1313.
 
-Example site created thanks to [https://github.com/nonumeros][nonumeros]. I
-reviewed the [pull request][examplesite-pr] almost two years late and had to
-copy/paste the website instead of resolving merge conflicts.
+Example site was originally created by
+[https://github.com/nonumeros][nonumeros]. I reviewed the
+[pull request][examplesite-pr] almost two years late and had to copy/paste the
+website instead of resolving merge conflicts. The example website also has a
+page with the theme's shortcodes.
 
 [nonumeros]: https://github.com/nonumeros
 [examplesite-pr]: https://github.com/parsiya/Hugo-Octopress/pull/57
@@ -530,7 +532,7 @@ website's `layouts/page/single.html`. For more information see
 ## Table of contents
 There are three ways to add `Table of Contents (ToC)` to pages.
 
-### Configuration
+### toc configuration
 With Goldmark, you need to change the defaults for the table of contents
 renderer in your site's config. The defaults only render markdown headings level
 2 and 3.
@@ -568,7 +570,7 @@ the ToC for each page or globally:
     ```
 
 The `toc` variable in the frontmatter has priority. If it is set to `false` the
-global setting is ignored.
+global setting is ignored for that page.
 
 ### Use the toc Shortcode
 If you want the table to appear in a different location use the shortcode. For
@@ -637,7 +639,9 @@ If the image is in a subdirectory of page bundle, it can be added like this:
 twitterImage: images/02-fuzzer-crash.png
 ```
 
-The template can be modified at `Hugo-Octopress/partials/custom_twitter_card.html`.
+To modify this template, copy
+`your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html`
+to `your-website/layouts/partials/custom-twitter-card.html` and make changes.
 
 ## Compact Index
 The original theme renders each post's summary in the main page. I prefer a more
@@ -708,13 +712,16 @@ There are two workarounds:
 2. Put the reference links before the summary divider.
 
 ### Empty Posts Link on Homepage
-After rebuilding the blog with Hugo v0.57+, you may see a single `Posts` link in
+After rebuilding the blog with Hugo `0.57`, you may see a single `Posts` link in
 the classic index. Update to Hugo `0.57.2+` (there is an issue with `0.57.1`)
 and it should work.
 
 For more information please see:
 
 * https://github.com/gohugoio/hugoThemes/issues/682
+
+This should not be an issue anymore because the theme's minimum version of Hugo
+has been bumped.
 
 ## Issues/TODO
 If you discover any issues/bugs or want new features please use the Github issue
