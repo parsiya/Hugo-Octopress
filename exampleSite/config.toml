@@ -98,11 +98,6 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 # If navigationNewWindow (under [params]) is set to true then all links except root ("/") will open in a new window
 # If it does not exist or is set to false then links will open in the same window
 [[menu.main]]
-  Name = "Site's Home Page"
-  URL = "/"
-  weight = -5
-
-[[menu.main]]
   Name = "example.net"
   URL = "https://www.example.net/"
   weight = -5
@@ -111,9 +106,6 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   Name = "This theme on Github"
   URL = "https://www.github.com/parsiya/hugo-octopress"
 
-[[menu.main]]
-  Name = "The About page"
-  URL = "/about"
 
 # Sidebar menus
 # Enable with "sidebarMenuEnabled = true" under [params]
@@ -124,14 +116,9 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   weight = 0
 
 [[menu.sidebar]]
-  Name = "Hugo category"
-  URL = "/categories/golang/"
+  Name = "This theme on Github"
+  URL = "https://www.github.com/parsiya/hugo-octopress"
   weight = 1
-
-[[menu.sidebar]]
-  Name = "About page"
-  URL = "/about"
-  weight = 2
 
 [markup]
   [markup.tableOfContents]

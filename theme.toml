@@ -10,7 +10,7 @@ min_version = "0.63.0"
 
 [author]
   name = "Parsia Hakimian"
-  homepage = "http://parsiya.net"
+  homepage = "https://parsiya.net"
 
 # If porting an existing theme
 [original]
