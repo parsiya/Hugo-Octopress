@@ -4,6 +4,9 @@
       </p>
     </footer>
 
+    <!-- Add extend_footer.html -->
+    {{ partial "extend_footer.html" . }}
+
     <!-- Piwik -->
     {{ with .Site.Params.analytics.piwik.ID }}
       <script type="text/javascript">

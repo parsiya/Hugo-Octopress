@@ -22,6 +22,7 @@ My personal website with the compact index (see below):
 - [Goldmark vs. Blackfriday](#goldmark-vs-blackfriday)
 - [CSS override](#css-override)
 - [Navigation menu](#navigation-menu)
+- [Extending Headers and Footers](#extending-headers-and-footers)
 - [Sidebar](#sidebar)
   - [Sidebar text](#sidebar-text)
   - [Social network icons](#social-network-icons)
@@ -278,6 +279,15 @@ Search engine customization:
   searchEngineURL = "https://www.google.com/search"
 ```
 
+## Extending Headers and Footers
+You can copy these files from `theme/Hugo-Octopress/layouts/partials/` into
+`your-site/layouts/partials` and modify them:
+
+* `extend_header.html`: Everything will be added to the end of the `head` tag on
+  every page.
+* `extend_footer.html`: Everything will be added after the `footer` tag on every
+  page.
+
 ## Sidebar
 The sidebar has four sections, from top to bottom:
 
@@ -346,7 +356,7 @@ Sidebar social network icons are configured as follows:
 Icon sequence is unfortunately hardcoded. To modify, copy
 `your-website/themes/Hugo-Octopress/layouts/partials/sidebar.html` to
 `your-website/layouts/partials/sidebar.html` and modify the sequence. Look for
-`<li class="sidebar-nav-item">` tags. Add a `</br>` tag to create a new line.
+`<li class="sidebar-nav-item">` tags. Use `</br>` to create a new line.
 
 Code to display links (and the idea to use these icons) is from
 [Hyde-x][hyde-x-theme].
@@ -367,7 +377,7 @@ sections:
 
 * A header that appears inside the `<h1>` tag on top. It can be set by
   `sidebarMenuHeader`. This part only supports text.
-* A series of links. They can be configured similar to navigation menu items by
+* A set of links. They can be configured similar to the navigation menu items by
   using the `[[menu.sidebar]]` tag. Set `sidebarNewWindow` to `true` to open
   these links in a new window
 
@@ -517,10 +527,11 @@ not rendered, please update to the latest version of Hugo. Templates are now at:
 * `/layouts/tag/tag.html`
 
 ### Individual pages
-Individual pages can be created in two ways:
+You can create individual pages in two ways:
 
 * Create a new content file in `content/page`.
-* Create a page anywhere inside `content` and set the type `page` in frontmatter. E.g. `type: page`.
+* Create a page anywhere inside `content` and set the type to `page` in
+  frontmatter. E.g. `type: page`.
 
 The template for individual pages is at
 `Hugo-Octopress/layouts/page/single.html`. It can be overridden by a file in the
@@ -592,8 +603,8 @@ summary or whatever.
 ### Editor Plugins
 There are various editor plugins that create a table of contents in markdown
 using markdown links. This approach is self-contained and not reliant on the
-theme or the shortcode. There are varioud plugins that do this, I used the VS
-Code plugins [Markdown All in One][markdown-vscode-toc].
+theme or the shortcode. I used the VS Code plugins [Markdown All in
+One][markdown-vscode-toc].
 
 [markdown-vscode-toc]: https://github.com/yzhang-gh/vscode-markdown#table-of-contents
 
@@ -645,8 +656,8 @@ to `your-website/layouts/partials/custom-twitter-card.html` and make changes.
 
 ## Compact Index
 The original theme renders each post's summary in the main page. I prefer a more
-compact index and have been using it for my own website for quite a while. You
-can enable it by adding the following to the config file:
+compact index and have been use it for my own website. You can enable it by
+adding this to the config file:
 
 ``` toml
 [params]
@@ -662,8 +673,8 @@ Compare the views (classic - compact) - click for full-size image:
 Hugo-Octopress supports using the [mainSections][hugo-mainsections] property in
 the config file to display different kinds of posts on the main page. If not
 defined, `mainSection` will default to the section with the most number of
-pages. In a vanilla Hugo-Octopress setup, it will be under `post`. However, you
-can add your own in the config file as follows:
+pages. In a vanilla Hugo-Octopress setup, it will be under `post`. But, you can
+add your own sections in the config file:
 
 ```toml
 [params]
@@ -692,7 +703,7 @@ summary divider `<!--more-->` in your posts. This does not matter if you
 use the compact index because it does not use the summary.
 
 Hugo does not display render style links in the page summary if the link is also
-not before the summary divider. You can read more it
+not before the summary divider. You can read more
 [here](https://discuss.gohugo.io/t/markdown-content-renders-as-regular-text-in-summary/1396/12).
 
 Reference style links look like this:
