@@ -38,4 +38,9 @@
       {{ template "_internal/disqus.html" . }}
     {{ end }}
   {{ end }}
+  {{ if .Site.issoURL }}
+    {{ if not (eq .Params.comments false) }}
+      {{ partial "isso.html" . }}
+    {{ end }}
+  {{ end }}
 </footer>
