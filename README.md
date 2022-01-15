@@ -209,9 +209,12 @@ hook. I used the one in Hugo docs at
 https://gohugo.io/getting-started/configuration-markup#link-with-title-markdown-example.
 
 This works for markdown links but not linkify or image links. Linkify links are
-straight URLs pasted into the document.
+straight URLs pasted into the document (e.g., `https://example.net`). A
+workaround is not having links similar to this (which is not in the markdown
+standard anyways) and use normal links. For example,
+`[example.net](https://example.net)` or reference links.
 
-So, I keep using Blackfriday like this:
+You can keep using Blackfriday like this:
 
 ``` toml
 [markup]
@@ -527,7 +530,7 @@ not rendered, please update to the latest version of Hugo. Templates are now at:
 * `/layouts/tag/tag.html`
 
 ### Individual pages
-You can create individual pages in two ways:
+You can create individual pages in at least two ways:
 
 * Create a new content file in `content/page`.
 * Create a page anywhere inside `content` and set the type to `page` in
@@ -603,8 +606,8 @@ summary or whatever.
 ### Editor Plugins
 There are various editor plugins that create a table of contents in markdown
 using markdown links. This approach is self-contained and not reliant on the
-theme or the shortcode. I used the VS Code plugins [Markdown All in
-One][markdown-vscode-toc].
+theme or the shortcode. I used the VS Code plugins
+[Markdown All in One][markdown-vscode-toc].
 
 [markdown-vscode-toc]: https://github.com/yzhang-gh/vscode-markdown#table-of-contents
 
@@ -711,9 +714,6 @@ Reference style links look like this:
 ``` markdown
 This is a link to [Example][example-link].
 
-More stuff here.
-
-Usually at the end of the markdown file.
 [example-link]: https://www.example.com
 ```
 
