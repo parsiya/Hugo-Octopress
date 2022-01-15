@@ -4,26 +4,28 @@
   <div id="content">
     <div class="blog-index">
       {{ $paginator := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
-      {{ range $paginator.Pages }}
-      <article>
-        <!-- {{ .Scratch.Set "isHome" true }}  -->
-        {{ partial "post_header.html" . }}
-        {{ if eq .Site.Params.truncate false }}
-          {{ .Content }}
-        {{ else if .Description }}
-          {{ .Description }}
-            <footer>
-              <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}Read On &rarr;{{ end }}</a>
-            </footer>
-        {{ else }}
-          <p>{{ .Summary }}</p>
-          {{ if .Truncated }}
-            <footer>
-              <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}Read On &rarr;{{ end }}</a>
-            </footer>
+      {{ if $paginator }}
+        {{ range $paginator.Pages }}
+        <article>
+          <!-- {{ .Scratch.Set "isHome" true }}  -->
+          {{ partial "post_header.html" . }}
+          {{ if eq .Site.Params.truncate false }}
+            {{ .Content }}
+          {{ else if .Description }}
+            {{ .Description }}
+              <footer>
+                <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}Read On &rarr;{{ end }}</a>
+              </footer>
+          {{ else }}
+            <p>{{ .Summary }}</p>
+            {{ if .Truncated }}
+              <footer>
+                <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}Read On &rarr;{{ end }}</a>
+              </footer>
+            {{ end }}
           {{ end }}
+        </article>
         {{ end }}
-      </article>
       {{ end }}
       <!-- {{ template "_internal/pagination.html" . }} default pagination -->
       {{ partial "pagination.html" . }}  <!-- use custom pagination -->
