@@ -65,7 +65,7 @@ All commands are run from the root directory of your website.
 If using git to manage your website, add the theme as a git submodule:
 
 ```
-git clone https://github.com/parsiya/Hugo-Octopress themes/Hugo-Octopress
+git submodule add https://github.com/parsiya/Hugo-Octopress themes/Hugo-Octopress
 ```
 
 Or you can clone it:
