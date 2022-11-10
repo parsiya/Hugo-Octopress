@@ -57,6 +57,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   github = "https://github.com/parsiya/Hugo-Octopress"
   bitbucket = "https://bitbucket.org/parsiya/"
   twitter = "https://twitter.com/cryptogangsta/"
+  mastodon = ""
   keybase = ""
   stackoverflow = ""
   linkedin = ""

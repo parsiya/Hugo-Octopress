@@ -27,6 +27,7 @@
       {{ with .Site.Params.bitbucket }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-bitbucket fa-3x"></i></a>{{ end }}
       {{ with .Site.Params.gitlab }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-gitlab fa-3x"></i></a>{{ end }}
       {{ with .Site.Params.twitter }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-twitter fa-3x"></i></a>{{ end }}
+      {{ with .Site.Params.mastodon }}<a target="_blank" rel="me noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-mastodon fa-3x"></i></a>{{ end }}
       {{ if not .Site.Params.fontAwesome }}
         {{ with .Site.Params.keybase }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-keybase fa-3x"></i></a>{{ end }} <!-- added keybase -->
       {{ else }}
