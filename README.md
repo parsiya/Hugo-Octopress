@@ -358,9 +358,9 @@ Sidebar social network icons are configured as follows:
 ```
 
 Icon sequence is unfortunately hardcoded. To modify, copy
-`your-website/themes/Hugo-Octopress/layouts/partials/sidebar.html` to
-`your-website/layouts/partials/sidebar.html` and modify the sequence. Look for
-`<li class="sidebar-nav-item">` tags. Use `</br>` to create a new line.
+`your-website/themes/Hugo-Octopress/layouts/partials/social.html` to
+`your-website/layouts/partials/social.html` and modify the sequence. Use `</br>`
+to create a new line.
 
 Code to display links (and the idea to use these icons) is from
 [Hyde-x][hyde-x-theme].

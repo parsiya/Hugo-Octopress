@@ -1,0 +1,39 @@
+<!-- Sidebar social network icons 
+  To override the order, copy this file to your theme at
+  your-website/layouts/partials/social.html
+  and modify the order.
+-->
+
+<!-- Font awesome icons - code taken from the Hyde-x theme -
+  "Font Awesome by Dave Gandy - http://fontawesome.io"
+  Icons: https://fontawesome.com/icons.
+
+  Fork Awesome is A fork of Font Awesome, originally created by Dave Gandy, now
+  maintained by a community. Fork Awesome is licensed under SIL OFL 1.1 · Code
+  is licensed under MIT License · Documentation is licensed under CC BY 3.0
+
+  Fork awesome Icons are at https://forkaweso.me/Fork-Awesome/icons/.
+
+  Give the icons square dark backgrounds like this: fa fa-key-square
+  Size in this theme is fa-3x, size options are 1-5.
+ -->
+
+<ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    {{ with .Site.Params.github }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-github fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.bitbucket }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-bitbucket fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.gitlab }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-gitlab fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.twitter }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-twitter fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.mastodon }}<a target="_blank" rel="me noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-mastodon fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.keybase }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-keybase fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.linkedin }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-linkedin fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.stackOverflow }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-stack-overflow fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.facebook }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-facebook fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.youtube }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-youtube fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.instagram }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-instagram fa-3x"></i></a>{{ end }}
+    {{ with .Site.Params.bitcoin }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-bitcoin fa-3x"></i></a>{{ end }}
+
+  <!-- Uncomment to add the RSS icon -->
+  <!-- {{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-3x"></i></a>{{ end }} -->
+  </li>
+</ul>
