@@ -343,12 +343,13 @@ Sidebar social network icons are configured as follows:
 
 ``` toml
 [params]
-  github = "https://github.com/parsiya/"
-  bitbucket = "https://bitbucket.org/parsiya/"
-  gitlab = "https://gitlab.com/parsiya"
-  twitter = "https://twitter.com/cryptogangsta/"
-  keybase = "https://keybase.io/parsiya/"
-  linkedin = "https://www.linkedin.com/in/parsiya/"
+  github = "https://github.com/parsiya/Hugo-Octopress/"
+  bitbucket = ""
+  gitlab = ""
+  twitter = ""
+  keybase = ""
+  linkedin = ""
+  mastodon = ""
   stackoverflow = ""
   youtube = ""
   facebook = ""

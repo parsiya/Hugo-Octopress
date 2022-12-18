@@ -55,8 +55,8 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
   # sidebar links
   github = "https://github.com/parsiya/Hugo-Octopress"
-  bitbucket = "https://bitbucket.org/parsiya/"
-  twitter = "https://twitter.com/cryptogangsta/"
+  bitbucket = ""
+  twitter = ""
   mastodon = ""
   keybase = ""
   stackoverflow = ""
