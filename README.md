@@ -295,7 +295,7 @@ You can copy these files from `theme/Hugo-Octopress/layouts/partials/` into
 The sidebar has four sections, from top to bottom:
 
 * Sidebar header and text (optional).
-* Social network icons (optional): Icons and links to Github, Bitbucket, and more.
+* Social network icons (optional): Icons and links to GitHub, Mastodon, and more.
 * Sidebar menu (optional): Links in sidebar.
 * Recent posts: Displays last X posts (default is 5).
 
@@ -660,8 +660,8 @@ to `your-website/layouts/partials/custom-twitter-card.html` and make changes.
 
 ## Compact Index
 The original theme renders each post's summary in the main page. I prefer a more
-compact index and have been use it for my own website. You can enable it by
-adding this to the config file:
+compact index and use it for my own website. You can enable it by adding this to
+the config file:
 
 ``` toml
 [params]
@@ -736,7 +736,7 @@ This should not be an issue anymore because the theme's minimum version of Hugo
 has been bumped.
 
 ## Issues/TODO
-If you discover any issues/bugs or want new features please use the Github issue
+If you discover any issues/bugs or want new features please use the GitHub issue
 tracker. Please keep in my mind that development has not been my day job for
 quite a while and I may be slow in fixing things (don't be surprised if I ask
 you about details).
@@ -762,13 +762,10 @@ similar to Octopress' output and use the existing CSS file. It's bulky (around
 [andrei-mihu-link]: http://andreimihu.com/
 
 ## Ported by
-Ported by Parsia:
-
-* Website: [parsiya.net](https://parsiya.net)
-* Twitter: [@CryptoGangsta](https://twitter.com/cryptogangsta)
+Ported by [Parsia](https://parsiya.net).
 
 ## Theme license
-Open sourced under the [MIT license](https://github.com/parsiya/Hugo-Octopress/blob/master/LICENSE.md).
+Open sourced under the [MIT license](LICENSE.md).
 
 <!-- Links -->
 [octopress-link]: http://octopress.org
