@@ -19,7 +19,7 @@ My personal website with the compact index (see below):
 - [Quick start](#quick-start)
 - [Configuration](#configuration)
 - [Code highlight](#code-highlight)
-- [Goldmark vs. Blackfriday](#goldmark-vs-blackfriday)
+- [Goldmark vs. Blackfriday Markdown Engines](#goldmark-vs-blackfriday-markdown-engines)
 - [CSS override](#css-override)
 - [Navigation menu](#navigation-menu)
 - [Extending Headers and Footers](#extending-headers-and-footers)
@@ -46,6 +46,7 @@ My personal website with the compact index (see below):
 - [Twitter Card](#twitter-card)
 - [Compact Index](#compact-index)
 - [mainSections](#mainsections)
+- [Custom favicon](#custom-favicon)
 - [Troubleshooting](#troubleshooting)
   - [Hugo page summary bug](#hugo-page-summary-bug)
   - [Empty Posts Link on Homepage](#empty-posts-link-on-homepage)
@@ -77,8 +78,8 @@ git clone https://github.com/parsiya/Hugo-Octopress themes/Hugo-Octopress
 To view the theme with the example site:
 
 ```
-cd themes/Hugo-Octopress/exampleSite
-hugo serve -vw
+cd themes/Hugo-Octopress/
+hugo serve -vw --source=exampleSite
 ```
 
 And view the example website at http://localhost:1313.
@@ -94,79 +95,9 @@ page with the theme's shortcodes.
 
 ## Configuration
 Hugo-Octopress can be configured by modifying the parameters in the
-[configuration file](https://gohugo.io/overview/configuration/). A working
-config file `sample-config.toml` is provided. Some miscellaneous parameters are
-explained below:
-
-``` toml
-baseurl = "http://example.com"
-disablePathToLower = false
-languageCode = "en-us"
-title = "Site title"
-theme = "hugo-octopress"
-
-# Disqus shortcode
-# Disable comments for any individual post by adding "comments: false" in its frontmatter
-disqusShortname = "Your disqus shortname"
-
-# Number of blog posts in each pagination page
-paginate = 6
-
-[permalinks]
-# Configures post URLs
-post = "/blog/:year-:month-:day-:title/"
-
-[params]
-
-  # If false, all contents of posts will appear on the front page and in pagination
-  truncate = true
-
-  # Author's name (appears in meta tags and under posts)
-  author = "Author"
-
-  # This text appears in site header under website title
-  subtitle = "Subtitle appears under website title"
-
-  # Search engine URL
-  searchEngineURL = "https://www.google.com/search"
-
-  # Text of the "Continue Reading" label. Supports markdown and inline HTML.
-  # For example, &rarr; == right arrow.
-  continueReadingText = "Would you like to know more? &rarr;"
-
-  # Google analytics code - remove if you do not have/want Google Analytics - needs JavaScript
-  googleAnalytics = "UA-XXXXX-X"
-
-  # Optional piwik tracking
-  #[params.analytics.piwik]
-  #  URL = "https://stats.example.com"
-  #  ID = "42"
-
-  # Switch to true to enable RSS icon link
-  rss = true
-
-  # Set to true to use a text label for RSS instead of an icon
-  # This is overwritten by the "rss" setting
-  textrss = false
-
-  # Website's default description
-  description = ""
-
-  # Populate with your search keywords - these will appear in meta tags
-  # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
-
-  # Set to true to hide ReadingTime on posts
-  disableReadingTime = false
-
-  # Set to true to disable downloading of remote Google fonts
-  disableGoogleFonts = false
-
-  # Remove or set to false to use local fonts
-  remoteFonts = false
-
-  # Remove or set to false to use FontAwesome CDN, otherwise, the theme uses ForkAwesome local fonts.
-  # fontAwesome = false
-```
+[configuration file](https://gohugo.io/overview/configuration/). 
+[sample-config.toml](sample-config.toml) and
+[exampleSite/config.toml](exampleSite/config.toml) are both working examples.
 
 ## Code highlight
 This theme uses the built-in [Chroma][chroma-link] highlighter with the
@@ -196,7 +127,7 @@ documentation.
 [hugo-syntax-highlighting]: https://gohugo.io/extras/highlighting/
 [hugo-configuration-markup]: https://gohugo.io/getting-started/configuration-markup/#highlight
 
-## Goldmark vs. Blackfriday
+## Goldmark vs. Blackfriday Markdown Engines
 Prior to version `0.60`, Hugo used Blackfriday. Now it uses Goldmark by default.
 See https://gohugo.io/getting-started/configuration-markup#highlight for
 information about setting it up.
@@ -283,7 +214,7 @@ Search engine customization:
 ```
 
 ## Extending Headers and Footers
-You can copy these files from `theme/Hugo-Octopress/layouts/partials/` into
+Copy these files from `theme/Hugo-Octopress/layouts/partials/` into
 `your-site/layouts/partials` and modify them:
 
 * `extend_header.html`: Everything will be added to the end of the `head` tag on
@@ -565,8 +496,8 @@ Please see more at
 [toc-config]: https://gohugo.io/getting-started/configuration-markup/#table-of-contents
 
 ### Use toc in Frontmatter
-This ToC is on top of the page and does not appear in the summary. You customize
-the ToC for each page or globally:
+This ToC is on top of the page and does not appear in the summary. You can
+customize the ToC for each page or globally:
 
 1. Add a variable named  `toc` to the frontmatter of the post/page and set it to `true`.
 
@@ -697,10 +628,23 @@ See the code in `layouts/partials/classic_index.html`:
   ...
 ```
 
-## Troubleshooting
+## Custom Favicon
+The theme uses the [default Octopress favicon](static/favicon.png). You can
+modify it:
+
+1. Add `favicon` to the config file under `params`. This path is relative to the
+   `static` directory.  
+   ```toml
+   [params]
+     favicon = "myicon.png"
+   ```
+2. Store the file in **your site's** static directory:
+   `your-site/static/myicon.png`.
+
+# Troubleshooting
 Common issues when dealing with the theme.
 
-### Hugo page summary bug
+## Hugo page summary bug
 Without a summary divider `<!--more-->`, Hugo uses the first 70 words of the
 post. The result is usually not pretty and contains raw HTML. Always use the
 summary divider `<!--more-->` in your posts. This does not matter if you

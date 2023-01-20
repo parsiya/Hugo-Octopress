@@ -34,8 +34,12 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   {{ end }}
 
-  <!-- Icons -->
-  <link href="{{ "/favicon.png" | absURL }}" rel="icon">
+  <!-- favicon -->
+  {{ if not .Site.Params.favicon }}
+    <link href="{{ "/favicon.png" | absURL }}" rel="icon">
+  {{ else }}
+    <link href="{{ .Site.Params.favicon | absURL }}" rel="icon">
+  {{ end }}
 
   <!-- RSS -->
   {{ with .OutputFormats.Get "RSS" }}<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />{{ end }}

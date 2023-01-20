@@ -3,7 +3,7 @@ baseurl = "https://example.com"
 disablePathToLower = false
 languageCode = "en-us"
 title = "Site title"
-theme = "hugo-octopress"
+theme = "Hugo-Octopress"
 
 # Disqus shortcode
 # Disable comments for any individual post by adding "comments: false" in its frontmatter
@@ -133,7 +133,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   # Generate taxonomy pages
   generateTaxonomyList = true
 
-  # This is not needed unless alphabetical sort is needed
+  # Sort the taxonomy alphabetically.
   # sortTaxonomyAlphabetical = true
 
   # Twitter card config
@@ -150,6 +150,9 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
   # Set mainSections.
   # mainSections = ["post", "blog"]
+
+  # Site's custom favicon, this is a relative path to the `/static` directory
+  # favicon = "newfav.png"
 
 # Menu
 # If navigationNewWindow (under [params]) is set to true then all links except root ("/") will open in a new window

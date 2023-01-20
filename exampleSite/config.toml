@@ -3,7 +3,7 @@ baseurl = "https://example.com"
 disablePathToLower = false
 languageCode = "en-us"
 title = "Site title"
-theme = "hugo-octopress"
+theme = "Hugo-Octopress"
 
 # Needed so we can serve the example website without extra switches
 themesDir = "../.."
@@ -93,6 +93,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
   # Generate taxonomy pages
   generateTaxonomyList = true
+
 
 # Menu
 # If navigationNewWindow (under [params]) is set to true then all links except root ("/") will open in a new window
