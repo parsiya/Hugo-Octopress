@@ -87,9 +87,6 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   # For example, &rarr; == right arrow.
   continueReadingText = "Would you like to know more? &rarr;"
 
-  # Google analytics code - remove if you do not have/want Google Analytics - needs JavaScript
-  # googleAnalytics = "UA-XXXXX-X"
-
   # Optional piwik tracking
   # [params.analytics.piwik]
   #  URL = "https://stats.example.com"
@@ -153,6 +150,11 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
   # Site's custom favicon, this is a relative path to the `/static` directory
   # favicon = "newfav.png"
+
+# Google analytics code - remove if you do not have/want Google
+# Analytics - needs JavaScript.
+# googleAnalytics = "G-MEASUREMENT_ID"
+
 
 # Menu
 # If navigationNewWindow (under [params]) is set to true then all links except root ("/") will open in a new window
