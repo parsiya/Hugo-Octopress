@@ -51,9 +51,6 @@
   <!-- Generator version for usage tracking -->
   {{ hugo.Generator }}
 
-  <!-- Google Analytics -->
-  {{ template "_internal/google_analytics_async.html" . }}
-
   <!-- Enable Twitter card -->
   {{ with .Site.Params.twitterCardEnabled }}
     {{ partial "custom_twitter_card.html" $ }}
