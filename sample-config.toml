@@ -10,6 +10,11 @@ theme = "Hugo-Octopress"
 # Note it's not under [params] anymore
 # disqusShortname = "Your disqus shortname"
 
+# Isso URL
+# Disable comments for any individual post by adding "comments: false" in its frontmatter
+# Should be mutual exclusive with disqusShortname, since it will look weird, then.
+# issoURL = "https://comments.example.tld
+
 # Number of blog posts in each pagination page
 paginate = 6
 
