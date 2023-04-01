@@ -5,7 +5,7 @@
   <p class="meta">
     <span class="byline author vcard">Posted by <span class="fn">{{ with .Site.Params.author }}{{ . }}{{ end }}</span></span>
     <!-- can't put the .Date.Format inside the datetime attribute because of double quotes, so it's outside -->
-    <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+    <time>{{ .Date.Format (or .Site.Params.dateFormat "Jan 2, 2006") }}</time>
     {{ if isset .Params "tags" }}
       <span class="categories">
         Tags:
