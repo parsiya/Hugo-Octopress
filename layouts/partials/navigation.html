@@ -22,10 +22,7 @@
 </ul>
 
 <ul class="subscription">
-  {{ $rssLink := "/index.xml" | absURL }}
-  {{ with .OutputFormats.Get "RSS" }}
-  {{ $rssLink = .RelPermalink }}
-  {{ end }}
+  {{ $rssLink := "/atom.xml" | absURL }}
   {{ if or .Site.Params.rss .Site.Params.textrss }}
     {{ if .Site.Params.rss }}
         <a href="{{ $rssLink }}" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
