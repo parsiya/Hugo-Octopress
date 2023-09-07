@@ -35,7 +35,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
   New paragraph
 
-  Another paragraph which has two spaces in the end to create a new line using markdown  
+  Another paragraph which has two spaces in the end to create a new line using markdown
   New line but not a new paragraph
   """
   # Sidebar menu - if true will add a sidebar menu between sidebar text and recent posts
@@ -93,6 +93,8 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 
   # Generate taxonomy pages
   generateTaxonomyList = true
+
+  dateFormat = "2006-01-02"
 
 
 # Menu
