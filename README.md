@@ -544,10 +544,21 @@ theme or the shortcode. I used the VS Code plugins
 [markdown-vscode-toc]: https://github.com/yzhang-gh/vscode-markdown#table-of-contents
 
 ## Disqus
-Hugo supports Disqus. Note Disqus shortname is directly in the config file (and
-not under `params`):
+Hugo supports Disqus. Note Disqus shortname is directly in the config file. As
+of at least v0.134.0, the location has changed and this old one will be
+deprecated in a bit. For now, (before v0.135.0), the theme still supports this
+location, but you should switch it if you want to keep using the latest Hugo
+versions.
+
+Reference: https://gohugo.io/content-management/comments/#configure-disqus.
 
 ``` toml
+# new location
+# [services]
+#  [services.disqus]
+#    shortname = "Your disqus shortname"
+
+# old one.
 disqusShortname = "whatever"
 ```
 

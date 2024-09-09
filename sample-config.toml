@@ -7,7 +7,12 @@ theme = "Hugo-Octopress"
 
 # Disqus shortcode
 # Disable comments for any individual post by adding "comments: false" in its frontmatter
-# Note it's not under [params] anymore
+# Note it's been moved from `.site.disqusShortname` to `.Site.Config.Services.Disqus.Shortname`
+# and will be deprecated in 0.135.0. See https://gohugo.io/content-management/comments/#configure-disqus.
+# [services]
+#  [services.disqus]
+#    shortname = "Your disqus shortname"
+# the theme still supports the old usage but Hugo will complain after 0.135.0.
 # disqusShortname = "Your disqus shortname"
 
 # Number of blog posts in each pagination page
