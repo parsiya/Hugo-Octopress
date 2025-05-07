@@ -1,6 +1,6 @@
-<!-- mobile navigation -->
+{{- /* mobile navigation */ -}}
 <fieldset class="mobile-nav">
-  <!-- apart from Disqus and analytics, this is the only place where we need JavaScript -->
+  {{- /* apart from Disqus and analytics, this is the only place where we need JavaScript */ -}}
   <select onchange="location = this.value;">
     <option value="">Navigate…</option>
       {{ range .Site.Menus.main }}
@@ -9,9 +9,9 @@
   </select>
 </fieldset>
 
-<!-- reading menu items from config file -->
+{{- /* reading menu items from config file */ -}}
 <ul class="main-navigation">
-  <!-- links to root open in the same window - other links will be opened in a new window if navigationNewWindow is set to true in the config file -->
+  {{- /* links to root open in the same window - other links will be opened in a new window if navigationNewWindow is set to true in the config file */ -}}
   {{ range .Site.Menus.main }}
     {{ if eq .URL "/" }}
       <li><a href="{{ .URL | absURL }}" title="{{ .Name }}">{{ .Name }}</a></li>

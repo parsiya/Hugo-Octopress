@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 
-<!-- use compact index if it is set in the config file -->
+{{- /* use compact index if it is set in the config file */ -}}
 {{ if .Site.Params.compactIndex }}
   {{ partial "compact_index.html" . }}
 {{ else }}

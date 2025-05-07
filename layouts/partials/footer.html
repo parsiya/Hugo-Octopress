@@ -4,10 +4,10 @@
       </p>
     </footer>
 
-    <!-- Add extend_footer.html -->
+    {{- /* Add extend_footer.html */ -}}
     {{ partial "extend_footer.html" . }}
 
-    <!-- Piwik -->
+    {{- /* Piwik */ -}}
     {{ with .Site.Params.analytics.piwik.ID }}
       <script type="text/javascript">
         var _paq = _paq || [];
@@ -24,7 +24,7 @@
         })();
       </script>
     {{ end }}
-    <!-- End Piwik Code -->
+    {{- /* End Piwik Code */ -}}
 
     {{ template "_internal/google_analytics.html" . }}
   </body>

@@ -1,10 +1,10 @@
-<!-- Sidebar social network icons 
+{{- /* Sidebar social network icons 
   To override the order, copy this file to your theme at
   your-website/layouts/partials/social.html
   and modify the order.
--->
+*/ -}}
 
-<!-- Font awesome icons - code taken from the Hyde-x theme -
+{{- /* Font awesome icons - code taken from the Hyde-x theme -
   "Font Awesome by Dave Gandy - http://fontawesome.io"
   Icons: https://fontawesome.com/icons.
 
@@ -16,7 +16,7 @@
 
   Give the icons square dark backgrounds like this: fa fa-key-square
   Size in this theme is fa-3x, size options are 1-5.
- -->
+ */ -}}
 
 <ul class="sidebar-nav">
   <li class="sidebar-nav-item">
@@ -33,7 +33,7 @@
     {{ with .Site.Params.instagram }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-instagram fa-3x"></i></a>{{ end }}
     {{ with .Site.Params.bitcoin }}<a target="_blank" rel="noopener noreferrer" href="{{ . }}" title="{{ . }}"><i class="fa fa-bitcoin fa-3x"></i></a>{{ end }}
 
-  <!-- Uncomment to add the RSS icon -->
-  <!-- {{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-3x"></i></a>{{ end }} -->
+  {{- /* Uncomment to add the RSS icon */ -}}
+  {{- /* {{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-3x"></i></a>{{ end }} */ -}}
   </li>
 </ul>

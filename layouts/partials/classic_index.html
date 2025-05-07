@@ -1,4 +1,4 @@
-<!-- Partial for classic index page -->
+{{- /* Partial for classic index page */ -}}
 
 <div id="main">
   <div id="content">
@@ -7,7 +7,7 @@
       {{ if $paginator }}
         {{ range $paginator.Pages }}
         <article>
-          <!-- {{ .Scratch.Set "isHome" true }}  -->
+          {{- /* {{ .Scratch.Set "isHome" true }} */ -}}
           {{ partial "post_header.html" . }}
           {{ if eq .Site.Params.truncate false }}
             {{ .Content }}
@@ -27,10 +27,9 @@
         </article>
         {{ end }}
       {{ end }}
-      <!-- {{ template "_internal/pagination.html" . }} default pagination -->
-      {{ partial "pagination.html" . }}  <!-- use custom pagination -->
+      {{ partial "pagination.html" . }} {{- /* use custom pagination */ -}}
     </div>
-    {{ partial "sidebar.html" . }}    <!-- sidebar -->
+    {{ partial "sidebar.html" . }}     {{- /* sidebar */ -}}
   </div>
 </div>
-{{ partial "footer.html" . }}   <!-- footer -->
+{{ partial "footer.html" . }}  {{- /* footer */ -}}

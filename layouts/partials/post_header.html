@@ -1,4 +1,4 @@
-<!-- Partial that generates the header/title for each post -->
+{{- /* Partial that generates the header/title for each post */ -}}
 
 <header>
   <p class="meta">{{ .Date.Format "Jan 2, 2006" }}
@@ -6,9 +6,9 @@
     {{ if or .Site.Config.Services.Disqus.Shortname .Site.DisqusShortname }} - <a href="{{ .Permalink }}#disqus_thread">Comments</a>{{ end }}
 
     {{ if isset .Params "categories" }}
-    <!-- in order to make category URLs work, we need to urlize them and
+    {{- /* in order to make category URLs work, we need to urlize them and
         convert them to lowercase 
-        e.g. .NET Remoting -urlize-> .NET-Remoting -lowercase-> .net-remoting -->
+        e.g. .NET Remoting -urlize-> .NET-Remoting -lowercase-> .net-remoting */ -}}
       - {{ range .Params.categories }}<a class="label" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}/">{{ . }} </a>{{ end }}
     {{ end }}
   </p>

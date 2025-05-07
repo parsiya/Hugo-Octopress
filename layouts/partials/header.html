@@ -3,11 +3,11 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-  <!-- added from octo -->
+  {{- /* added from octo */ -}}
   <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
   {{ if not .Site.Params.disableGoogleFonts }}
-    <!-- if local Google fonts are enabled -->
+    {{- /* if local Google fonts are enabled */ -}}
     {{ if not .Site.Params.remoteFonts }}
       <link href="/css/fonts.css" rel="stylesheet" type="text/css">
     {{ else }}
@@ -16,14 +16,14 @@
     {{ end }}
   {{ end }}
 
-  <!-- goes into the title bar -->
+  {{- /* goes into the title bar */ -}}
   <title>{{ .Title }}</title>
 
-  <!-- css -->
-  <!-- original css -->
+  {{- /* css */ -}}
+  {{- /* original css */ -}}
   <link rel="stylesheet" href="/css/hugo-octopress.css">
 
-  <!-- css overrides -->
+  {{- /* css overrides */ -}}
   {{ range .Site.Params.customCSS }}
     <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
   {{ end }}
@@ -34,36 +34,36 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   {{ end }}
 
-  <!-- favicon -->
+  {{- /* favicon */ -}}
   {{ if not .Site.Params.favicon }}
     <link href="{{ "/favicon.png" | absURL }}" rel="icon">
   {{ else }}
     <link href="{{ .Site.Params.favicon | absURL }}" rel="icon">
   {{ end }}
 
-  <!-- RSS -->
+  {{- /* RSS */ -}}
   {{ with .OutputFormats.Get "RSS" }}<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />{{ end }}
 
   <meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
   <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
   <meta name="author" content="{{ .Site.Params.author }}">
 
-  <!-- Generator version for usage tracking -->
+  {{- /* Generator version for usage tracking */ -}}
   {{ hugo.Generator }}
 
-  <!-- Enable Twitter card -->
+  {{- /* Enable Twitter card */ -}}
   {{ with .Site.Params.twitterCardEnabled }}
     {{ partial "custom_twitter_card.html" $ }}
   {{ end }}
 
-  <!-- Add extend_header.html -->
+  {{- /* Add extend_header.html */ -}}
   {{ partial "extend_header.html" . }}
 
 </head>
 <body>
 
-<!-- top header for octopress -->
+{{- /* top header for octopress */ -}}
 <header role="banner">{{ partial "octo_header.html" . }}</header>
 
-<!-- navigation -->
+{{- /* navigation */ -}}
 <nav role="navigation">{{ partial "navigation.html" . }}</nav>
