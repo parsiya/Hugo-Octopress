@@ -33,7 +33,7 @@
       <a class="basic-alignment right" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
     {{ end }}
   </p>
-  {{ if or .Site.Config.Services.Disqus.Shortname .Site.DisqusShortname }}
+  {{ if or (isset .Site.Config.Services.Disqus "shortname") (isset .Site "disqusshortname") }}
     {{ if not (eq .Params.comments false) }}
       {{ template "_internal/disqus.html" . }}
     {{ end }}
