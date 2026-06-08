@@ -1,0 +1,185 @@
+article {
+    padding-top: 1em
+}
+article header {
+    position: relative;
+    /*padding-top: 2em;*/
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+article header h1 {
+    margin: 0;
+    margin-top: 0.15em;
+}
+article header h1 a {
+    text-decoration: none
+}
+article header h1 a:hover {
+    text-decoration: underline
+}
+article header p {
+    font-size: .9em;
+    color: #aaa;
+    margin: 0
+}
+article header p.meta {
+    text-transform: uppercase;
+    /*position: absolute;*/
+    top: 0;
+}
+@media only screen and (min-width: 768px) {
+    article header {
+        margin-bottom: 1.5em;
+        padding-bottom: 1em;
+    }
+}
+
+.entry-content article h2:first-child,
+article header+h2 {
+    padding-top: 0
+}
+article h2:first-child,
+article header+h2 {
+    background: none
+}
+article .feature {
+    padding-top: .5em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    font-size: 2.0em;
+    font-style: italic;
+    line-height: 1.3em
+}
+article img,
+article video,
+article .flash-video,
+article .caption-wrapper {
+    border-radius: 0.3em;
+    box-shadow: rgba(0, 0, 0, 0.15) 0 1px 4px;
+    border: #fff 0.5em solid
+}
+article img.caption,
+article video.caption,
+article .flash-video.caption,
+article .caption-wrapper.caption {
+    border-radius: 0;
+    border: 0
+}
+article .caption-wrapper {
+    display: inline-block;
+    margin-bottom: 1em;
+}
+article .caption-wrapper .caption-text {
+    background: #fff;
+    text-align: center;
+    font-size: .8em;
+    color: #666;
+    display: block
+}
+article video,
+article .flash-video {
+    margin: 0 auto 1.5em
+}
+article video {
+    display: block;
+    width: 100%
+}
+article .flash-video>div {
+    position: relative;
+    display: block;
+    padding-bottom: 56.25%;
+    padding-top: 1px;
+    height: 0;
+    overflow: hidden
+}
+article .flash-video>div iframe,
+article .flash-video>div object,
+article .flash-video>div embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+article>footer {
+    padding-bottom: 0.3em;  /* decrease footer padding */
+    margin-top: 0.3em;
+}
+article>footer p.meta {
+    margin-bottom: .8em;
+    font-size: .85em;
+    clear: both;
+    overflow: hidden
+}
+#content .blog-index {
+    padding-top: 0;
+    padding-bottom: 0
+}
+#content .blog-index article {
+    padding-top: 2em;
+    font-family: var(--font-serif);
+}
+#content .blog-index article header {
+    background: none;
+    padding-bottom: 0
+}
+#content .blog-index article h1 {
+    font-size: 2.2em
+}
+#content .blog-index article h1 a {
+    color: inherit
+}
+#content .blog-index article h1 a:hover {
+    color: var(--link-hover)
+}
+#content .blog-index a[rel=full-article] {
+    background: #ebebeb;
+    display: inline-block;
+    padding: .4em .8em;
+    margin-right: .5em;
+    text-decoration: none;
+    color: #666;
+    transition: background-color 0.5s
+}
+#content .blog-index a[rel=full-article]:hover {
+    background: var(--link-hover);
+    text-shadow: none;
+    color: #f8f8f8
+}
+#content .blog-index footer {
+    margin-top: 1em
+}
+.separator,
+article>footer .byline+time:before,
+article>footer time+time:before,
+article>footer .comments:before,
+article>footer .byline ~ .categories:before {
+    content: "\2022 ";
+    padding: 0 .4em 0 .2em;
+    display: inline-block
+}
+/* pagination stuff */
+#content div.pagination {
+    text-align: center;
+    font-size: .95em;
+    position: relative;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em
+}
+#content div.pagination a {
+    text-decoration: none;
+    color: #000;
+    padding-left: 0.4em; /* horizontal space between pagination links */
+}
+#content div.pagination a:hover {   /* hover color for pagination links/icons */
+    color: var(--link-hover)
+}
+
+p.meta+.sharing {
+    padding-top: 1em;
+    padding-left: 0;
+}
+#fb-root {
+    display: none
+}
+

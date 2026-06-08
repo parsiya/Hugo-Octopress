@@ -1,0 +1,110 @@
+pre {
+    background: var(--code-bg);
+    line-height: 1.45em;
+    margin-bottom: 0.8em;
+    padding: 16px;
+    color: var(--code-fg);
+    font-size: 80%;  /* change the code font size */
+}
+p code,
+li code {
+    display: inline-block;
+    background: #fff;
+    font-size: .8em;
+    line-height: 1.5em;
+    color: #555;
+    border: 1px solid #ddd;
+    border-radius: 0.4em;
+    padding: 0 .3em;
+    margin: -1px 0
+}
+p pre code,
+li pre code {
+    font-size: 1em !important;
+    background: none;
+    border: none;
+    color: var(--code-fg);
+}
+
+/* Fix codecaption and the new Chroma highlighter */
+
+div.highlight > pre > code,
+pre > code
+{
+    overflow-y: hidden;
+    display: block;
+}
+
+td > div.highlight > pre > code,
+div.linenodiv > pre > code
+{
+    overflow: scroll;
+    overflow-y: hidden;
+    display: inline;
+}
+
+/* End fix codecaption and the new Chroma highlighter */
+
+pre::-webkit-scrollbar,
+.highlighttable::-webkit-scrollbar,
+.gist-highlighttable::-webkit-scrollbar {
+    height: .5em;
+    background: rgba(255, 255, 255, 0.15)
+}
+pre::-webkit-scrollbar-thumb:horizontal,
+.highlighttable::-webkit-scrollbar-thumb:horizontal,
+.gist-highlighttable::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px
+}
+figure.code {
+    background: none;
+    padding: 0;
+    border: 0;
+    margin-bottom: 0.8em
+}
+figure.code pre {
+    margin-bottom: 0
+}
+figure.code figcaption {
+    position: relative
+}
+figure.code .highlighttable {
+    margin-bottom: 0;
+    table-layout: fixed;
+    width: 100%;
+}
+.code-title,
+h3.filename,
+figure.code figcaption { /* figcaption changes */
+    text-align: center;
+    line-height: 2em;
+    text-shadow: #cbcccc 0 1px 0;
+    color: #474747;
+    font-weight: normal;
+    margin-bottom: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #aaa;
+    border: 1px solid #565656;
+    border-top-color: #cbcbcb;
+    border-left-color: #a5a5a5;
+    border-right-color: #a5a5a5;
+    border-bottom: 0;
+    font-size: 90%; /* change size of font in figcaption */
+}
+.download-source,
+figure.code figcaption a {
+    position: absolute;
+    right: .8em;
+    text-decoration: none;
+    color: #666 !important;
+    z-index: 1;
+    font-size: 13px;
+    text-shadow: #cbcccc 0 1px 0;
+    padding-left: 3em
+}
+.download-source:hover,
+figure.code figcaption a:hover {
+    text-decoration: underline
+}

@@ -20,8 +20,18 @@
   <title>{{ .Title }}</title>
 
   {{- /* css */ -}}
-  {{- /* original css */ -}}
-  <link rel="stylesheet" href="/css/hugo-octopress.css">
+  {{- $styles := slice
+    (resources.Get "css/parts/01-base.css")
+    (resources.Get "css/parts/02-layout.css")
+    (resources.Get "css/parts/03-navigation.css")
+    (resources.Get "css/parts/04-article.css")
+    (resources.Get "css/parts/05-code.css")
+    (resources.Get "css/parts/06-archive.css")
+    (resources.Get "css/parts/07-sidebar-footer.css")
+    (resources.Get "css/parts/08-custom.css")
+  -}}
+  {{- $style := $styles | resources.Concat "css/hugo-octopress.css" | minify | fingerprint -}}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
   {{- /* css overrides */ -}}
   {{ range .Site.Params.customCSS }}
