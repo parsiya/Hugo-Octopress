@@ -1756,6 +1756,10 @@ div.entry-content > div.highlight {
     margin-bottom: 0.4em;
 }
 
+div.entry-content > table {
+    margin-bottom: 1em;
+}
+
 /* decrease h1 size in article body so we can use it in the article as heading */
 div.entry-content > h1 {
     font-size:1.7em;
