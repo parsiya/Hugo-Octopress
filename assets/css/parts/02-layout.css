@@ -1,0 +1,235 @@
+.group:after,
+body>header:after,
+body>nav:after,
+body>footer:after,
+body #content>article:after,
+body #content>div>section:after,
+body div.pagination:after,
+.sidebar:after {
+    content: "";
+    display: table;
+    clear: both
+}
+body {
+    -webkit-text-size-adjust: none;
+    max-width: 1200px; /* original is 1200px but for some reason it is smaller in my screen */
+    position: relative;
+    margin: 0 auto;
+    font-size: 110%;
+}
+:root {
+    --gutter: 18px;
+    --pagination-gutter: 18px
+}
+@media only screen and (min-width: 480px) {
+    :root {
+        --gutter: 25px;
+        --pagination-gutter: 25px
+    }
+}
+@media only screen and (min-width: 768px) {
+    :root {
+        --gutter: 35px;
+        --pagination-gutter: 35px
+    }
+}
+@media only screen and (min-width: 992px) {
+    :root {
+        --gutter: 40px;
+        --pagination-gutter: 55px
+    }
+}
+body>header,
+body>nav,
+body>footer,
+body #content>article,
+body #content>div>article,
+body #content>div>section {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter)
+}
+body div.pagination {
+    margin-left: var(--pagination-gutter);
+    margin-right: var(--pagination-gutter)
+}
+body>header {
+    font-size: 1em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em
+}
+#content {
+    overflow: hidden
+}
+#content>div,
+#content>article {
+    width: 100%
+}
+aside.sidebar {
+    float: none;
+    padding: 0 18px 1px;
+    background-color: #f7f7f7;
+    border-top: 1px solid #e0e0e0
+}
+.flex-content,
+article img,
+article video,
+article .flash-video,
+article .caption-wrapper,
+aside.sidebar img {
+    max-width: 100%;
+    height: auto
+}
+.basic-alignment.left,
+article img.left,
+article video.left,
+article .left.flash-video,
+article .left.caption-wrapper,
+aside.sidebar img.left {
+    float: left;
+    margin-right: 1.5em
+}
+.basic-alignment.right,
+article img.right,
+article video.right,
+article .right.flash-video,
+article .right.caption-wrapper,
+aside.sidebar img.right {
+    float: right;
+    margin-left: 1.5em
+}
+.basic-alignment.center,
+article img.center,
+article video.center,
+article .center.flash-video,
+article .center.caption-wrapper,
+aside.sidebar img.center {
+    display: block;
+    margin: 0 auto 1.5em
+}
+.basic-alignment.left,
+article img.left,
+article video.left,
+article .left.flash-video,
+article .left.caption-wrapper,
+aside.sidebar img.left,
+.basic-alignment.right,
+article img.right,
+article video.right,
+article .right.flash-video,
+article .right.caption-wrapper,
+aside.sidebar img.right {
+    margin-bottom: .8em
+}
+@media only screen and (min-width: 750px) {
+    aside.sidebar {
+        float: none;
+        width: auto;
+        clear: left;
+        margin: 0;
+        padding: 0 35px 1px;
+        background-color: #f7f7f7;
+        border-top: 1px solid #eaeaea
+    }
+    aside.sidebar section.odd,
+    aside.sidebar section.even {
+        float: left;
+        width: 48%
+    }
+    aside.sidebar section.odd {
+        margin-left: 0
+    }
+    aside.sidebar section.even {
+        margin-left: 4%
+    }
+    aside.sidebar.thirds section {
+        width: 30%;
+        margin-left: 5%
+    }
+    aside.sidebar.thirds section.first {
+        margin-left: 0;
+        clear: both
+    }
+}
+@media only screen and (min-width: 768px) {
+    body {
+        -webkit-text-size-adjust: auto
+    }
+    body>header {
+        font-size: 1.2em
+    }
+    #main {
+        padding: 0;
+        margin: 0 auto
+    }
+    #content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 240px;
+        align-items: stretch;
+        overflow: visible;
+        position: relative;
+        background: none;
+        border-right: 0
+    }
+    #content>div,
+    #content>article {
+        min-width: 0;
+        width: auto;
+        padding-top: 17.5px;
+        padding-bottom: 17.5px;
+        background: #f8f8f8;
+        border-right: 1px solid #e0e0e0
+    }
+    aside.sidebar {
+        width: auto;
+        padding: 0 15px 15px;
+        background: none;
+        clear: none;
+        float: none;
+        margin: 0;
+    }
+    aside.sidebar section {
+        width: auto;
+        margin-left: 0
+    }
+    aside.sidebar section.odd,
+    aside.sidebar section.even {
+        float: none;
+        width: auto;
+        margin-left: 0
+    }
+}
+@media only screen and (min-width: 992px) {
+    body>header {
+        font-size: 1.3em
+    }
+    #content {
+        grid-template-columns: minmax(0, 1fr) 320px;
+    }
+    #content>div,
+    #content>article {
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+    aside.sidebar {
+        padding: 0em 20px 20px
+    }
+}
+body>header {
+    background: #333
+}
+body>header h1 {
+    display: inline-block;
+    margin: 0
+}
+body>header h1 a,
+body>header h1 a:visited,
+body>header h1 a:hover {
+    color: #f2f2f2;
+    text-decoration: none
+}
+body>header h2 {
+    margin: .2em 0 0;
+    font-size: 1em;
+    color: #aaa;
+    font-weight: normal
+}
