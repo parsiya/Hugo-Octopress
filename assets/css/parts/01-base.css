@@ -1,0 +1,353 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dd,
+ol,
+ul,
+figure,
+fieldset {
+    margin: 0;
+    padding: 0
+}
+html {
+    line-height: 1
+}
+body {
+    font-family: "PT Serif", Georgia, Times, "Times New Roman", serif
+}
+fieldset,
+img {
+    border: 0
+}
+button,
+input,
+select,
+textarea {
+    font: inherit
+}
+ol,
+ul {
+    list-style: none
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+caption,
+th,
+td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+}
+q,
+blockquote {
+    quotes: none
+}
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+    content: "";
+    content: none
+}
+a img {
+    border: none
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary {
+    display: block
+}
+a {
+    color: #1863a1
+}
+a:visited {
+    color: #751590
+}
+a:focus {
+    color: #0181eb
+}
+a:hover {
+    color: #0181eb
+}
+a:active {
+    color: #01579f
+}
+aside.sidebar a {
+    color: #222
+}
+aside.sidebar a:focus {
+    color: #0181eb
+}
+aside.sidebar a:hover {
+    color: #0181eb
+}
+aside.sidebar a:active {
+    color: #01579f
+}
+a {
+    transition: color 0.3s
+}
+html {
+    background: #252525 top left
+}
+body>div {
+    background: #f2f2f2  top left;
+    border-bottom: 1px solid #bfbfbf
+}
+body>div>div {
+    background: #f8f8f8 top left;
+    border-right: 1px solid #e0e0e0
+}
+.sans,
+body>header h2,
+article header p.meta,
+article>footer,
+#content .blog-index footer,
+#blog-archives a.category,
+#blog-archives time,
+aside.sidebar section,
+body>footer {
+    font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif
+}
+.mono,
+pre,
+code,
+tt,
+p code,
+li code {
+    font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
+}
+body>header h1 {
+    font-size: 2.2em;
+    font-family: "PT Serif", "Georgia", "Helvetica Neue", Arial, sans-serif;
+    font-weight: normal;
+    line-height: 1.2em;
+    margin-bottom: 0.6667em
+}
+body>header h2 {
+    font-family: "PT Serif", "Georgia", "Helvetica Neue", Arial, sans-serif
+}
+body {
+    line-height: 1.5em;
+    color: #222
+}
+h1 {
+    font-size: 2.2em;
+    line-height: 1.2em
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-rendering: optimizelegibility;
+    margin-bottom: 1em;
+    font-weight: bold;
+    margin-top: 1em;
+}
+h2,
+section h1 {
+    font-size: 1.5em
+}
+h3,
+section h2,
+section section h1 {
+    font-size: 1.3em
+}
+h4,
+section h3,
+section section h2,
+section section section h1 {
+    font-size: 1em
+}
+h5,
+section h4,
+section section h3 {
+    font-size: .9em
+}
+h6,
+section h5,
+section section h4,
+section section section h3 {
+    font-size: .8em
+}
+p,
+article blockquote,
+ul,
+ol {
+    margin-bottom: 0.8em; /* changed this from 1.5em to 0.8 */
+}
+ul {
+    list-style-type: disc
+}
+ul ul {
+    list-style-type: circle;
+    margin-bottom: 0px
+}
+ul ul ul {
+    list-style-type: square;
+    margin-bottom: 0px
+}
+ol {
+    list-style-type: decimal
+}
+ol ol {
+    list-style-type: lower-alpha;
+    margin-bottom: 0px
+}
+ol ol ol {
+    list-style-type: lower-roman;
+    margin-bottom: 0px
+}
+ul,
+ul ul,
+ul ol,
+ol,
+ol ul,
+ol ol {
+    margin-left: 1.3em
+}
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+    margin-bottom: 0em
+}
+strong {
+    font-weight: bold
+}
+em {
+    font-style: italic
+}
+sup,
+sub {
+    font-size: 0.75em;
+    position: relative;
+    display: inline-block;
+    padding: 0 .2em;
+    line-height: .8em
+}
+sup {
+    top: -.5em
+}
+sub {
+    bottom: -.5em
+}
+a[rev='footnote'] {
+    font-size: .75em;
+    padding: 0 .3em;
+    line-height: 1
+}
+q {
+    font-style: italic
+}
+q:before {
+    content: "\201C"
+}
+q:after {
+    content: "\201D"
+}
+em,
+dfn {
+    font-style: italic
+}
+strong,
+dfn {
+    font-weight: bold
+}
+del,
+s {
+    text-decoration: line-through
+}
+abbr,
+acronym {
+    border-bottom: 1px dotted;
+    cursor: help
+}
+hr {
+    margin-bottom: 0.2em
+}
+small {
+    font-size: .8em
+}
+big {
+    font-size: 1.2em
+}
+article blockquote {
+    font-style: italic;
+    position: relative;
+    font-size: 1.0em;
+    line-height: 1.5em;
+    padding-left: 1em;
+    border-left: 4px solid rgba(170, 170, 170, 0.5)
+}
+article blockquote cite {
+    font-style: italic
+}
+article blockquote cite a {
+    color: #aaa !important;
+    word-wrap: break-word
+}
+article blockquote cite:before {
+    content: '\2014';
+    padding-right: .3em;
+    padding-left: .3em;
+    color: #aaa
+}
+@media only screen and (min-width: 992px) {
+    article blockquote {
+        padding-left: 1.5em;
+        border-left-width: 4px
+    }
+}
+.pullquote-right:before,
+.pullquote-left:before {
+    padding: 0;
+    border: none;
+    content: attr(data-pullquote);
+    float: right;
+    width: 45%;
+    margin: .5em 0 1em 1.5em;
+    position: relative;
+    top: 7px;
+    font-size: 1.4em;
+    line-height: 1.45em
+}
+.pullquote-left:before {
+    float: left;
+    margin: .5em 1.5em 1em 0
+}
+.force-wrap,
+article a,
+aside.sidebar a {
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
+    word-wrap: break-word
+}

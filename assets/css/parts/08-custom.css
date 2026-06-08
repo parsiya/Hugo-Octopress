@@ -1,0 +1,250 @@
+table,
+th,
+td
+ {
+    border: 1px solid black;
+    padding: 3px;
+}
+th {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Taken from hyde-x.css to format labels (categories) as Octopress doesn't have  */
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 80%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+a.label:hover,
+a.label:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.label:empty {
+  display: none;
+}
+
+/* keep the color of visited categories- visited color makes them unreadable */
+a.label:visited {
+    color: #fff;
+}
+
+.label {
+  margin: 0 .25em;
+  background-color: #313131;
+}
+
+.posts a.label,
+.post-date a.label {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* this part makes the mycode shortcode work */
+
+.linenodiv {
+    background-color: #002B36!important;
+}
+
+/* because we have changed the font-family of everything, we need to change it for the code inside pre to fit with line numbers */
+pre span {
+    font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+}
+
+td.code {
+    width:95%;
+}
+
+/* end of making mycode shortcode work */
+
+/* wrapped the whole output from the highlight function (which is a table) in a div to get a horizontal scrollbar for the whole row and not just the "pre" in the cell
+having a scrollbar for the cell will break alignment with line numbers
+*/
+
+div.codewrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    background-color: #002B36;
+}
+
+/* overflow for backtick code block
+   by just modifying div.highlight I will screw the codecaption overflow as they have div.highlight too.
+   This ">" syntax is something new that I learned.
+   basically it will select only div.highlights that are direct childs of entry-content */
+div.entry-content > div.highlight {
+    border-color: #002B36;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-bottom: 0.4em;
+}
+
+div.entry-content > table {
+    margin-bottom: 1em;
+}
+
+/* decrease h1 size in article body so we can use it in the article as heading */
+div.entry-content > h1 {
+    font-size:1.7em;
+}
+
+div.entry-content > h2 {
+    font-size:1.5em;
+}
+
+/* decrease margin for article headings */
+div.entry-content >
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0.5em;
+    margin-top: 0.8em;
+}
+
+/* side bar code from hyde-x - start */
+
+/*
+ * Sidebar
+ *
+ * Flexible banner for housing site name, intro, and "footer" content. Starts
+ * out above content in mobile and later moves to the side with wider viewports.
+ */
+
+.sidebar {
+  padding: 2rem 1rem;
+  color: rgba(255,255,255,.5);
+  background-color: #202020;
+}
+
+/* Sidebar links */
+
+/* Sticky sidebar
+ *
+ * Add the `sidebar-sticky` class to the sidebar's container to affix it the
+ * contents to the bottom of the sidebar in tablets and up.
+ */
+
+@media (min-width: 48em) {
+  .sidebar-sticky {
+    position: absolute;
+    right:  1rem;
+    bottom: 1rem;
+    left:   1rem;
+  }
+}
+
+/* side bar code from hyde-x - end */
+
+/* making the gist work - start */
+.gist .gist-meta {
+    font-size: 90% !important;
+    color: #586069 !important;
+    background-color: #f7f7f7;
+    border-radius: 0 0 2px 2px;
+    border: 1px solid #a5a5a5 !important;
+    background: #aaa top repeat-x !important;
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
+
+/* Force gist linenos to be the same size as code linenos */
+.gist .blob-num {
+    font-size: 0.938em !important; 
+}
+
+.gist .highlight, .gist .blob-code-inner {
+    font-size: 0.938em !important; /* oh lol what have I done? */
+    font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace !important;
+    line-height: 1.25em !important;
+}
+
+/* credit: https://gist.github.com/RomkeVdMeulen/889d44d3d4c5a11002c57ca068d295ec */
+
+.gist .pl-c1, .gist .pl-s .pl-v {
+    color: #719e07 !important;
+}
+
+.gist .gist-meta {
+    background-color: #073642 !important;
+    color: #93a1a1 !important;
+}
+
+.gist .gist-meta a {
+    color: #268bd2 !important;
+
+}
+
+.gist .gist-data, .gist .highlight {
+    background-color: #002b36 !important;
+    color: #93a1a1 !important;
+}
+
+.gist .pl-smi, .gist .pl-s .pl-s1, .gist .blob-code-inner, .gist .blob-num {
+    color: #93a1a1 !important;
+}
+
+.gist .pl-k {
+    color: #719e07 !important;
+}
+
+.gist .pl-e, .gist .pl-en {
+    color: #cb4b16 !important;
+}
+
+.gist .pl-s, .gist .pl-pds, .gist .pl-s .pl-pse .pl-s1, .gist .pl-sr,
+.gist .pl-sr .pl-cce, .gist .pl-sr .pl-sre, .gist .pl-sr .pl-sra {
+    color: #2aa198 !important;
+    
+}
+
+.gist .pl-s, .gist .pl-pds, .gist .pl-s .pl-pse .pl-s1, .gist .pl-sr,
+.gist .pl-sr .pl-cce, .gist .pl-sr .pl-sre, .gist .pl-sr .pl-sra,
+.gist .pl-e, .gist .pl-en,
+.gist .pl-k,
+.gist .pl-smi, .gist .pl-s .pl-s1, .gist .blob-code-inner, .gist .blob-num,
+.gist .gist-data, .gist .highlight,
+.gist .pl-c1, .gist .pl-s .pl-v,
+.gist .pl-c /* comments */ {
+    font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace !important;
+}
+
+/* credit gist - end*/
+
+/* making the gist work - end */
+
+/* Hugo Figure shortcode - start */
+
+figure figcaption {
+    background: #fff;
+    text-align: center;
+    font-size: 1em;
+    color: #666;
+    display: block;
+}
+
+figure {
+    color: #666;
+}
+
+figure a {
+    color: #666;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* Hugo Figure shortcode - end */
