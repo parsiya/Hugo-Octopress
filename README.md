@@ -133,7 +133,8 @@ Name translated files `post/example.en.md` and `post/example.fa.md`. The languag
 switcher links to existing translations. Prefer `pageRef` for internal menus;
 custom internal URLs are relative to the current language.
 
-English/Persian interface labels are included; missing translations use English.
+English/Persian interface labels are included. Missing translations first use
+Hugo's configured default language, then the theme's English fallback.
 Add dictionaries under your site's `i18n/`, using the theme's `i18n/en.yaml` keys.
 Configured labels such as `continueReadingText` still override defaults.
 

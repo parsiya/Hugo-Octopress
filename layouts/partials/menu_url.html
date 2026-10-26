@@ -4,7 +4,7 @@
 {{- else if and (not (urls.Parse $url).Scheme) (not (hasPrefix $url "//")) (not (hasPrefix $url "#")) -}}
   {{- $url = .Entry.MenuConfig.URL -}}
   {{- $base := strings.TrimSuffix "/" (urls.Parse .Page.Site.BaseURL).Path -}}
-  {{- if and $base (hasPrefix $url (printf "%s/" $base)) -}}
+  {{- if and $base (or (eq $url $base) (hasPrefix $url (printf "%s/" $base))) -}}
     {{- $url = strings.TrimPrefix $base $url -}}
   {{- end -}}
   {{- $home := strings.TrimPrefix $base .Page.Site.Home.RelPermalink -}}

@@ -3,11 +3,12 @@
 {{- /* codecaption short code - basically this is normal highlighted code with caption on top.
      see readme or the above repository for usage */ -}}
 
-<figure class="code">
+{{- $result := printf `<figure class="code">
   <figcaption>
-  	<span>{{ .Get "title" }}</span>
+    <span>%s</span>
   </figcaption>
   <div class="codewrapper">
-    {{ highlight (trim .Inner "\n\r") (.Get "lang") "linenos=true" }}
+    %s
   </div>
-</figure>
+</figure>` (htmlEscape (.Get "title")) (highlight (trim .Inner "\n\r") (.Get "lang") "linenos=true") | safeHTML -}}
+{{- partial "direction_fragment.html" (dict "Shortcode" . "HTML" $result "Block" true) -}}

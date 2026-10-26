@@ -13,19 +13,15 @@
 {{- end -}}
 {{- $content := .Page.RenderString (dict "display" $display) $inner -}}
 {{- range $token, $fragment := .Store.Get "directionFragments" -}}
-  {{- $content = replace $content $token $fragment -}}
+  {{- if $fragment.Block -}}
+    {{- $content = replace $content (printf "<p>%s</p>" $token) $fragment.HTML -}}
+  {{- end -}}
+  {{- $content = replace $content $token $fragment.HTML -}}
 {{- end -}}
 {{- $language := "" -}}
 {{- with .Get "lang" -}}
   {{- $language = printf ` lang="%s"` (htmlEscape .) -}}
 {{- end -}}
 {{- $result := printf `<%s dir="%s"%s>%s</%s>` $tag $direction $language $content $tag | safeHTML -}}
-{{- with .Parent -}}
-  {{- if in (slice "bidi" "direction") .Name -}}
-    {{- $token := printf "OCTODIRECTION%dTOKEN" $shortcode.Ordinal -}}
-    {{- .Store.SetInMap "directionFragments" $token $result -}}
-    {{- $result = $token -}}
-  {{- end -}}
-{{- end -}}
-{{- return $result -}}
+{{- return (partial "direction_fragment.html" (dict "Shortcode" $shortcode "HTML" $result "Block" (eq $tag "div"))) -}}
 {{- end -}}

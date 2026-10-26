@@ -3,7 +3,7 @@
       {{ if not $license }}
         {{ $license = or (hugo.Sites.Default.GetPage "/license") (hugo.Sites.Default.GetPage "/page/license") }}
       {{ end }}
-      <p>{{ partial "i18n.html" "copyright" }} &copy; {{ now.Format "2006" }} <bdi>{{ .Site.Params.author }}</bdi>{{ with $license }} - <a href="{{ .RelPermalink }}">{{ partial "i18n.html" "license" }}</a>{{ end }} -
+      <p>{{ partial "i18n.html" "copyright" }} &copy; {{ now.Format "2006" }} <bdi>{{ .Site.Params.author }}</bdi>{{ with $license }} - <a href="{{ .Permalink }}">{{ partial "i18n.html" "license" }}</a>{{ end }} -
         <span class="credit">{{ partial "i18n.html" "poweredBy" }} <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> {{ partial "i18n.html" "and" }} <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> {{ partial "i18n.html" "theme" }}</span>
       </p>
     </footer>
