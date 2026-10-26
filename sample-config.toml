@@ -1,7 +1,7 @@
 
 baseurl = "https://example.com"
 disablePathToLower = false
-languageCode = "en-us"
+locale = "en-us"
 title = "Site title"
 theme = "Hugo-Octopress"
 
@@ -16,7 +16,8 @@ theme = "Hugo-Octopress"
 # disqusShortname = "Your disqus shortname"
 
 # Number of blog posts in each pagination page
-paginate = 6
+[pagination]
+  pagerSize = 6
 
 [permalinks]
 post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the old ones

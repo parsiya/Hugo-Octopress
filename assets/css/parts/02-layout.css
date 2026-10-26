@@ -132,21 +132,21 @@ aside.sidebar img.right {
     }
     aside.sidebar section.odd,
     aside.sidebar section.even {
-        float: left;
+        float: inline-start;
         width: 48%
     }
     aside.sidebar section.odd {
-        margin-left: 0
+        margin-inline-start: 0
     }
     aside.sidebar section.even {
-        margin-left: 4%
+        margin-inline-start: 4%
     }
     aside.sidebar.thirds section {
         width: 30%;
-        margin-left: 5%
+        margin-inline-start: 5%
     }
     aside.sidebar.thirds section.first {
-        margin-left: 0;
+        margin-inline-start: 0;
         clear: both
     }
 }
@@ -168,7 +168,7 @@ aside.sidebar img.right {
         overflow: visible;
         position: relative;
         background: none;
-        border-right: 0
+        border-inline-end: 0
     }
     #content>div,
     #content>article {
@@ -177,7 +177,7 @@ aside.sidebar img.right {
         padding-top: 17.5px;
         padding-bottom: 17.5px;
         background: #f8f8f8;
-        border-right: 1px solid #e0e0e0
+        border-inline-end: 1px solid #e0e0e0
     }
     aside.sidebar {
         width: auto;
@@ -189,13 +189,13 @@ aside.sidebar img.right {
     }
     aside.sidebar section {
         width: auto;
-        margin-left: 0
+        margin-inline-start: 0
     }
     aside.sidebar section.odd,
     aside.sidebar section.even {
         float: none;
         width: auto;
-        margin-left: 0
+        margin-inline-start: 0
     }
 }
 @media only screen and (min-width: 992px) {

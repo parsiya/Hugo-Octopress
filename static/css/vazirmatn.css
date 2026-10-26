@@ -1,0 +1,23 @@
+@font-face {
+    font-family: Vazirmatn;
+    src: url("../fonts/vazirmatn/Vazirmatn-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200D, U+FB50-FDFF, U+FE70-FEFF;
+}
+
+@font-face {
+    font-family: Vazirmatn;
+    src: url("../fonts/vazirmatn/Vazirmatn-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200D, U+FB50-FDFF, U+FE70-FEFF;
+}
+
+:root {
+    --font-serif: Vazirmatn, "PT Serif", Georgia, Times, "Times New Roman", serif;
+    --font-sans: Vazirmatn, "PT Sans", "Helvetica Neue", Arial, sans-serif;
+    --font-title: Vazirmatn, "PT Serif", Georgia, "Helvetica Neue", Arial, sans-serif;
+}

@@ -1,0 +1,17 @@
+Vazirmatn v33.003
+Upstream: https://github.com/rastikerdar/vazirmatn/tree/v33.003
+
+Unmodified upstream files:
+fonts/webfonts/Vazirmatn-Regular.woff2
+fonts/webfonts/Vazirmatn-Bold.woff2
+OFL.txt
+
+Copyright 2015 The Vazirmatn Project Authors.
+These fonts remain licensed under the SIL Open Font License 1.1 in OFL.txt,
+not the theme's MIT license. Font selection and Unicode ranges are defined
+in ../../css/vazirmatn.css without modifying the font binaries.
+
+SHA-256:
+e382101336c6eb32cfb31381c027d02d2e0354bad08f6a395d4088beb3db3d91  Vazirmatn-Regular.woff2
+836fae7d42d83faa249bc00e0099592be98a1fa260d22d82f269b6091e585627  Vazirmatn-Bold.woff2
+17e355067c8284f47743a1ee3b1ef7ff684ff0601eda357f9353b10b3016ab31  OFL.txt

@@ -61,7 +61,7 @@ table {
 caption,
 th,
 td {
-    text-align: left;
+    text-align: start;
     font-weight: normal;
     vertical-align: middle;
 }
@@ -114,7 +114,7 @@ body>div {
 }
 body>div>div {
     background: #f8f8f8;
-    border-right: 1px solid #e0e0e0
+    border-inline-end: 1px solid #e0e0e0
 }
 .sans,
 article header p.meta,
@@ -219,7 +219,7 @@ ul ol,
 ol,
 ol ul,
 ol ol {
-    margin-left: 1.3em
+    margin-inline-start: 1.3em
 }
 ul ul,
 ul ol,
@@ -286,8 +286,8 @@ article blockquote {
     position: relative;
     font-size: 1.0em;
     line-height: 1.5em;
-    padding-left: 1em;
-    border-left: 4px solid rgba(170, 170, 170, 0.5)
+    padding-inline-start: 1em;
+    border-inline-start: 4px solid rgba(170, 170, 170, 0.5)
 }
 article blockquote cite {
     font-style: italic
@@ -304,8 +304,8 @@ article blockquote cite:before {
 }
 @media only screen and (min-width: 992px) {
     article blockquote {
-        padding-left: 1.5em;
-        border-left-width: 4px
+        padding-inline-start: 1.5em;
+        border-inline-start-width: 4px
     }
 }
 .pullquote-right:before,

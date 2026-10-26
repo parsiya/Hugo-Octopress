@@ -14,13 +14,13 @@
           {{ else if .Description }}
             {{ .Description }}
               <footer>
-                <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}Read On &rarr;{{ end }}</a>
+                <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}{{ partial "i18n.html" "readOn" }} {{ if eq $.Site.Language.Direction "rtl" }}&larr;{{ else }}&rarr;{{ end }}{{ end }}</a>
               </footer>
           {{ else }}
             <p>{{ .Summary }}</p>
             {{ if .Truncated }}
               <footer>
-                <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}Read On &rarr;{{ end }}</a>
+                <a href="{{ .Permalink }}" rel="full-article">{{ with .Site.Params.continueReadingText }}{{ . | markdownify }}{{ else }}{{ partial "i18n.html" "readOn" }} {{ if eq $.Site.Language.Direction "rtl" }}&larr;{{ else }}&rarr;{{ end }}{{ end }}</a>
               </footer>
             {{ end }}
           {{ end }}

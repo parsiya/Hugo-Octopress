@@ -29,7 +29,7 @@
         {{ end }}
         {{ range $.Site.Menus.sidebar }}
           <li>
-            <a href="{{ .URL | absURL }}" title="{{ .Name }}" {{ if eq $.Site.Params.sidebarNewWindow true }} target="_blank" rel="noopener noreferrer" {{ end }}>{{ .Name }}</a>
+            <a href="{{ partial "menu_url.html" (dict "Entry" . "Page" $) }}" title="{{ .Name }}" {{ if eq $.Site.Params.sidebarNewWindow true }} target="_blank" rel="noopener noreferrer" {{ end }}>{{ .Name }}</a>
           </li>
         {{ end }}
       </section>
@@ -41,7 +41,7 @@
   {{ with .Site.Params.sidebarRecentLimit }}
     {{ if not (eq . 0) }}
       <section class="even">
-        <h1>Recent Posts</h1>
+        <h1>{{ partial "i18n.html" "recentPosts" }}</h1>
         <ul id="recent_posts">
           {{ $pages := where $.Site.Pages "Type" "post" }}
           {{ range first . $pages }}

@@ -1,0 +1,12 @@
+{{- $identifier := . -}}
+{{- $context := dict -}}
+{{- if reflect.IsMap . -}}
+  {{- $identifier = .ID -}}
+  {{- $context = . -}}
+{{- end -}}
+{{- $text := i18n $identifier $context -}}
+{{- if not $text -}}
+  {{- $text = index hugo.Data.hugoOctopress $identifier -}}
+  {{- $text = replace $text "{{ .Count }}" (printf "%v" ($context.Count | default 0)) -}}
+{{- end -}}
+{{- return $text -}}

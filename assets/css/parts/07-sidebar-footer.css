@@ -28,7 +28,7 @@ aside.sidebar img {
 }
 aside.sidebar ul {
     margin-bottom: 0.5em;
-    margin-left: 0
+    margin-inline-start: 0
 }
 aside.sidebar li {
     list-style: none;

@@ -19,25 +19,23 @@
           </h2>
           <article>
             <h1>
-              <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+              <a href="{{ .Permalink }}" title="{{ .Title }}"><bdi dir="{{ .Language.Direction }}">{{ .Title }}</bdi></a>
             </h1>
             <time>
-              <span class="month">{{ .Date | dateFormat "Jan" }}</span>
+              <span class="month">{{ partial "date.html" (dict "Date" .Date "Format" "Jan") }}</span>
               <span class="day">{{ .Date | dateFormat "2" }}</span>
             </time>
             <footer>
               <span class="categories"> {{- /* show categories and tags */ -}}
-                {{ $.Scratch.Set "cats" .Params.categories }}
-                {{ with .Params.categories }}
-                posted in:
-                {{ range ($.Scratch.Get "cats") }} <a class="category" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
-              </br>
+                {{ with .GetTerms "categories" }}
+                {{ partial "i18n.html" "postedIn" }}
+                {{ range . }} <a class="category" href="{{ .RelPermalink }}"><bdi>{{ .LinkTitle }}</bdi></a>{{ end }}
+              <br>
                 {{ end }}
 
-                {{ $.Scratch.Set "tags" .Params.tags }}
-                {{ with .Params.tags }}
-                tags:
-                {{ range ($.Scratch.Get "tags") }} <a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>{{ end }}
+                {{ with .GetTerms "tags" }}
+                {{ partial "i18n.html" "tags" }}
+                {{ range . }} <a class="category" href="{{ .RelPermalink }}"><bdi>{{ .LinkTitle }}</bdi></a>{{ end }}
                 {{ end }}
               </span>
             </footer>

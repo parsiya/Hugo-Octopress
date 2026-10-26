@@ -10,6 +10,7 @@ article header {
 article header h1 {
     margin: 0;
     margin-top: 0.15em;
+    overflow-wrap: anywhere;
 }
 article header h1 a {
     text-decoration: none
@@ -136,7 +137,7 @@ article>footer p.meta {
     background: #ebebeb;
     display: inline-block;
     padding: .4em .8em;
-    margin-right: .5em;
+    margin-inline-end: .5em;
     text-decoration: none;
     color: #666;
     transition: background-color 0.5s
@@ -169,7 +170,7 @@ article>footer .byline ~ .categories:before {
 #content div.pagination a {
     text-decoration: none;
     color: #000;
-    padding-left: 0.4em; /* horizontal space between pagination links */
+    padding-inline-start: 0.4em; /* horizontal space between pagination links */
 }
 #content div.pagination a:hover {   /* hover color for pagination links/icons */
     color: var(--link-hover)
@@ -178,6 +179,21 @@ article>footer .byline ~ .categories:before {
 p.meta+.sharing {
     padding-top: 1em;
     padding-left: 0;
+}
+.post-previous,
+.post-next {
+    margin-bottom: .8em;
+}
+.post-previous {
+    float: inline-start;
+    margin-inline-end: 1.5em;
+}
+.post-next {
+    float: inline-end;
+    margin-inline-start: 1.5em;
+}
+[dir="rtl"] .pagination .fa {
+    transform: scaleX(-1);
 }
 #fb-root {
     display: none

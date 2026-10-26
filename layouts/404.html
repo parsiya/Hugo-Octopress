@@ -11,7 +11,7 @@
             {{ with .Site.Params.notFoundHeader }}
               {{ . | markdownify }}
             {{ else }}
-              Not Found
+              {{ partial "i18n.html" "notFound" }}
             {{ end }}
           </h1>
         </header>
@@ -19,7 +19,7 @@
           {{ with .Site.Params.notFoundText }}
             {{ . | markdownify }}
           {{ else }}
-            Please either go back or use the navigation/sidebar menus.
+            {{ partial "i18n.html" "notFoundText" }}
           {{ end }}
         </div>
       </article>

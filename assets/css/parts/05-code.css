@@ -1,3 +1,12 @@
+pre,
+.highlight,
+.codewrapper,
+.highlighttable,
+.gist {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: left;
+}
 pre {
     background: var(--code-bg);
     line-height: 1.45em;
@@ -5,6 +14,10 @@ pre {
     padding: 16px;
     color: var(--code-fg);
     font-size: 80%;  /* change the code font size */
+}
+code {
+    direction: ltr;
+    unicode-bidi: isolate;
 }
 p code,
 li code {
