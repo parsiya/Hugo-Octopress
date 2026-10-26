@@ -1,0 +1,5 @@
+{{- $format := .Format -}}
+{{- if not (.Date | time.Format "Jan") -}}
+  {{- $format = replace $format "Jan" "01" -}}
+{{- end -}}
+{{- return (.Date | time.Format $format) -}}

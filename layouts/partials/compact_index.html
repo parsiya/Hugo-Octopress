@@ -6,7 +6,8 @@ table.allposts, td.allposts-date, td.allposts-title {
 }
 
 td.allposts-date {
-    padding: 0 0.5em 0 0;
+  padding: 0;
+  padding-inline-end: 0.5em;
 }
 
 td.allposts-title {
@@ -22,8 +23,8 @@ td.allposts-title {
             {{ range (where site.RegularPages "Type" "in" site.Params.mainSections) }}
               {{ if .IsPage }}
                 <tr>
-                  <td class="allposts-date"><strong>{{ .Date | dateFormat "2006"}} {{ .Date | dateFormat "Jan" }} {{ .Date | dateFormat "2" }}</strong></td>
-                  <td class="allposts-title"><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></td>
+                  <td class="allposts-date"><strong>{{ partial "date.html" (dict "Date" .Date "Format" "2006 Jan 2") }}</strong></td>
+                  <td class="allposts-title"><a href="{{ .Permalink }}" title="{{ .Title }}"><bdi dir="{{ .Language.Direction }}">{{ .Title }}</bdi></a></td>
                 </tr>
               {{ end }}
             {{ end }}

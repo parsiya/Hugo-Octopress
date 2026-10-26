@@ -3,16 +3,16 @@
 
 <footer>
   <p class="meta">
-    <span class="byline author vcard">Posted by <span class="fn">{{ with .Site.Params.author }}{{ . }}{{ end }}</span></span>
+    <span class="byline author vcard">{{ partial "i18n.html" "postedBy" }} <bdi class="fn">{{ with .Site.Params.author }}{{ . }}{{ end }}</bdi></span>
     {{- /* can't put the .Date.Format inside the datetime attribute because of double quotes, so it's outside */ -}}
-    <time>{{ .Date.Format "Jan 2, 2006" }}</time>
-    {{ if isset .Params "tags" }}
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ partial "date.html" (dict "Date" .Date "Format" "Jan 2, 2006") }}</time>
+    {{ with .GetTerms "tags" }}
       <span class="categories">
-        Tags:
+        {{ partial "i18n.html" "tags" }}
         {{- /* need to convert the tags to lower for the URLs to work */ -}}
-          {{ range .Params.tags }}<a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}">{{ . }}</a>  {{ end }}
-    {{ end }}
+              {{ range . }}<a class="category" href="{{ .RelPermalink }}"><bdi>{{ .LinkTitle }}</bdi></a>  {{ end }}
     </span>
+            {{ end }}
   </p>
 
   {{- /* PrevInSection and nextInSection point to previous and next page in the
@@ -26,11 +26,11 @@
 
   <p class="meta">
     {{ with .PrevInSection }}
-        <a class="basic-alignment left" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
+        <a class="post-previous" href="{{ .Permalink }}" title="{{ .LinkTitle }}"><bdi dir="{{ .Language.Direction }}">{{ .LinkTitle }}</bdi></a>
     {{ end }}
 
     {{ with .NextInSection }}
-      <a class="basic-alignment right" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
+      <a class="post-next" href="{{ .Permalink }}" title="{{ .LinkTitle }}"><bdi dir="{{ .Language.Direction }}">{{ .LinkTitle }}</bdi></a>
     {{ end }}
   </p>
   

@@ -64,7 +64,7 @@
 }
 @media only screen and (min-width: 550px) {
     #blog-archives article {
-        margin-left: 5em
+        margin-inline-start: 5em
     }
     #blog-archives h2 {
         margin-bottom: 0.3em;
@@ -72,18 +72,18 @@
         display: inline-block;
         position: relative;
         top: -1px;
-        float: left;
+        float: inline-start;
         margin-top: 1.7em;     /* align year with the rest */
     }
     #blog-archives time {
         position: absolute;
-        text-align: right;
-        left: 0em;
+        text-align: end;
+        inset-inline-start: 0em;
         top: 3em; /* may need to change this to align the month/date on the tag/category (archive) pages with post name */
         font-family: var(--font-sans);
     }
     #blog-archives article {
-        padding-left: 4.5em;
+        padding-inline-start: 4.5em;
         padding-bottom: .7em;
     }
     #blog-archives a.category {
@@ -91,8 +91,8 @@
     }
 }
 #content>.category article {
-    margin-left: 0;
-    padding-left: 6.8em
+    margin-inline-start: 0;
+    padding-inline-start: 6.8em
 }
 #content>.category .year {
     display: inline;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html lang="{{ .Site.Language.Locale }}" dir="{{ .Site.Language.Direction }}">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
@@ -9,7 +9,7 @@
   {{ if not .Site.Params.disableGoogleFonts }}
     {{- /* if local Google fonts are enabled */ -}}
     {{ if not .Site.Params.remoteFonts }}
-      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+      <link href="{{ "css/fonts.css" | relURL }}" rel="stylesheet" type="text/css">
     {{ else }}
       <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
       <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -33,26 +33,31 @@
   {{- $style := $styles | resources.Concat "css/hugo-octopress.css" | minify | fingerprint -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
+  <link rel="stylesheet" href="{{ "css/vazirmatn.css" | relURL }}">
+
   {{- /* css overrides */ -}}
   {{ range .Site.Params.customCSS }}
     <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
   {{ end }}
 
   {{ if not .Site.Params.fontAwesome }}
-    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+    <link rel="stylesheet" href="{{ "css/fork-awesome.min.css" | relURL }}">
   {{ else }}
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   {{ end }}
 
   {{- /* favicon */ -}}
   {{ if not .Site.Params.favicon }}
-    <link href="{{ "/favicon.png" | absURL }}" rel="icon">
+    <link href="{{ "favicon.png" | relURL }}" rel="icon">
   {{ else }}
-    <link href="{{ .Site.Params.favicon | absURL }}" rel="icon">
+    <link href="{{ .Site.Params.favicon | relURL }}" rel="icon">
   {{ end }}
 
   {{- /* RSS */ -}}
   {{ with .OutputFormats.Get "RSS" }}<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />{{ end }}
+  {{ range .Translations }}
+    <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+  {{ end }}
 
   <meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
   <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">

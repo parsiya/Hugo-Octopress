@@ -33,11 +33,11 @@ body>nav form .search:focus {
     outline: none
 }
 body>nav fieldset[role=search] {
-    float: right;
+    float: inline-end;
     width: 48%
 }
 body>nav fieldset.mobile-nav {
-    float: left;
+    float: inline-start;
     width: 48%
 }
 body>nav fieldset.mobile-nav select {
@@ -57,7 +57,7 @@ body>nav ul {
         padding: 0;
         border: 0;
         overflow: hidden;
-        float: left;
+        float: inline-start;
         display: block;
         padding-top: .15em
     }
@@ -67,20 +67,20 @@ body>nav ul {
         padding: 0;
         white-space: nowrap;
         display: inline;
-        float: left
+        float: inline-start
     }
     body>nav ul.subscription {
-        margin-left: .8em;
-        float: right
+        margin-inline-start: .8em;
+        float: inline-end
     }
     body>nav ul.subscription li:last-child a {
-        padding-right: 0
+        padding-inline-end: 0
     }
     body>nav a {
         color: #6b6b6b;
         font-family: var(--font-sans);
         text-shadow: #ebebeb 0 1px;
-        float: left;
+        float: inline-start;
         text-decoration: none;
         font-size: 1.1em;
         padding: .1em 0;
@@ -93,17 +93,17 @@ body>nav ul {
         color: #2b2b2b
     }
     body>nav li+li {
-        border-left: 1px solid #b0b0b0;
-        margin-left: .8em
+        border-inline-start: 1px solid #b0b0b0;
+        margin-inline-start: .8em
     }
     body>nav li+li a {
-        padding-left: .8em;
-        border-left: 1px solid #dedede
+        padding-inline-start: .8em;
+        border-inline-start: 1px solid #dedede
     }
     body>nav form {
-        float: right;
-        text-align: left;
-        padding-left: .8em;
+        float: inline-end;
+        text-align: start;
+        padding-inline-start: .8em;
         width: 175px
     }
     body>nav form .search {

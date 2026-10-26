@@ -18,6 +18,9 @@ My personal website with the compact index (see below):
 ## Contents <!-- omit in toc -->
 - [Quick start](#quick-start)
 - [Configuration](#configuration)
+- [Languages and text direction](#languages-and-text-direction)
+  - [RTL and mixed-language text](#rtl-and-mixed-language-text)
+- [Tests](#tests)
 - [Code highlight](#code-highlight)
 - [Goldmark vs. Blackfriday Markdown Engines](#goldmark-vs-blackfriday-markdown-engines)
 - [CSS override](#css-override)
@@ -58,6 +61,8 @@ My personal website with the compact index (see below):
 ![screenshot](https://raw.githubusercontent.com/parsiya/Hugo-Octopress/master/images/screenshot.png)
 
 ## Quick start
+Requires Hugo `0.168.0` or newer.
+
 Add the theme to your existing site or [Hugo's quick start][hugo-quickstart].
 All commands are run from the root directory of your website.
 
@@ -79,7 +84,7 @@ To view the theme with the example site:
 
 ```
 cd themes/Hugo-Octopress/
-hugo serve -vw --source=exampleSite
+hugo server --source=exampleSite
 ```
 
 And view the example website at http://localhost:1313.
@@ -98,6 +103,87 @@ Hugo-Octopress can be configured by modifying the parameters in the
 [configuration file](https://gohugo.io/overview/configuration/). 
 [sample-config.toml](sample-config.toml) and
 [exampleSite/config.toml](exampleSite/config.toml) are both working examples.
+
+## Languages and text direction
+Set each language's locale, label, and direction:
+
+```toml
+defaultContentLanguage = "en"
+
+[languages.en]
+  locale = "en-US"
+  label = "English"
+  direction = "ltr"
+
+[languages.fa]
+  locale = "fa-IR"
+  label = "فارسی"
+  direction = "rtl"
+
+[[languages.en.menus.main]]
+  name = "Home"
+  pageRef = "/"
+
+[[languages.fa.menus.main]]
+  name = "خانه"
+  pageRef = "/"
+```
+
+Name translated files `post/example.en.md` and `post/example.fa.md`. The language
+switcher links to existing translations. Prefer `pageRef` for internal menus;
+custom internal URLs are relative to the current language.
+
+English/Persian interface labels are included; missing translations use English.
+Add dictionaries under your site's `i18n/`, using the theme's `i18n/en.yaml` keys.
+Configured labels such as `continueReadingText` still override defaults.
+
+RTL mirrors layout, not fonts, calendars, or digits. Dates remain Gregorian.
+Choose fonts through custom CSS; site overrides and embeds may need RTL styling.
+
+[Vazirmatn](https://rastikerdar.github.io/vazirmatn/) `v33.003` regular/bold fonts are bundled and loaded automatically,
+independent of `direction` and `disableGoogleFonts`. Only Arabic-script glyphs
+use Vazirmatn; English and code fonts remain unchanged. Files are served locally,
+with no font CDN dependency or extra configuration.
+
+### RTL and mixed-language text
+Use `bidi` for a phrase, including punctuation belonging to it:
+
+````markdown
+نسخه {{< bidi dir="ltr" lang="en" >}}C++ (v1.2){{< /bidi >}} آماده است.
+````
+
+Use `direction` for paragraphs or whole lists. This puts English bullets on the
+left while keeping the Persian note RTL:
+
+````markdown
+{{< direction dir="ltr" lang="en" >}}
+* https://example.org/first
+* https://example.org/second {{< bidi dir="rtl" lang="fa" >}}(توضیح فارسی){{< /bidi >}}
+{{< /direction >}}
+````
+
+Both shortcodes support Markdown, nesting, optional `lang`, and
+`dir="ltr|rtl|auto"` (`auto` is the default). Use `{{< >}}`, not `{{% %}}`.
+Prefer an explicit direction: `auto` misreads a Persian sentence starting with
+`HTTP`. Leave Persian lists RTL; `lang` alone does not set direction.
+
+Single-backtick code such as `` `curl -I` `` is isolated LTR in paragraphs, lists,
+headings, and table cells, as are triple-backtick fenced blocks. Code punctuation
+stays with the code; surrounding prose keeps its own direction.
+
+Copy/paste commands and URLs into a plain-text editor to check their characters.
+More cases: [Bidirectional Text example](exampleSite/content/post/bidirectional-text/index.md).
+
+## Tests
+From the theme root, with Node.js `20.12.0` or newer:
+
+```sh
+npm ci --prefix tests
+npm test --prefix tests
+```
+
+Tests use `exampleSite` fixtures and fail on Hugo warnings. See
+[the testing guide](ai-docs/testing.md) for coverage and browser checks.
 
 ## Code highlight
 This theme uses the built-in [Chroma][chroma-link] highlighter with the
@@ -720,7 +806,9 @@ similar to Octopress' output and use the existing CSS file. It's bulky (around
 Ported by [Parsia](https://parsiya.net).
 
 ## Theme license
-Open sourced under the [MIT license](LICENSE.md).
+Theme code uses the [MIT license](LICENSE.md). Bundled Vazirmatn fonts retain
+their copyright and [SIL Open Font License 1.1](static/fonts/vazirmatn/OFL.txt),
+which permits bundling with software but not selling the fonts by themselves.
 
 <!-- Links -->
 [octopress-link]: http://octopress.org
