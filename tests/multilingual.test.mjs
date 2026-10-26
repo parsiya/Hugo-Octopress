@@ -39,12 +39,14 @@ function build(name, options = {}) {
       { name: 'Custom', url: '/post/mixed/' },
       { name: 'Prefixed', url: `/${languagePath(code)}post/mixed/` },
       { name: 'Base prefixed', url: `${basePath}${languagePath(code)}post/mixed/` },
+      { name: 'Base home', url: basePath.replace(/\/$/, '') || '/' },
+      { name: 'Base home slash', url: basePath },
       { name: 'External', url: 'https://example.net/' },
       { name: 'Mail', url: 'mailto:test@example.net' },
       { name: 'Fragment', url: '#local' },
     ];
     return [code, { locale: code, label: code, direction: rtl.has(code) ? 'rtl' : 'ltr',
-      weight: index + 1, menus: { main: menu, sidebar: menu.slice(0, 2) } }];
+      weight: index + 1, menus: { main: menu, sidebar: menu.filter(entry => ['Home', 'About', 'Base home', 'Base home slash'].includes(entry.name)) } }];
   }));
   const config = {
     baseURL: `https://example.org${basePath}`, title: 'Integration test',
@@ -77,15 +79,19 @@ function build(name, options = {}) {
     return;
   }
   assert.equal(result.status, 0, result.stdout + result.stderr);
-  function documentFor(url) {
+  function htmlFor(url) {
     const pathname = new URL(url, config.baseURL).pathname;
     assert.ok(pathname.startsWith(basePath), `Lost base path: ${url}`);
     const relative = pathname.slice(basePath.length);
     const file = relative.endsWith('.html') ? relative : `${relative}index.html`;
-    return parseHTML(readFileSync(join(output, file), 'utf8')).document;
+    return readFileSync(join(output, file), 'utf8');
+  }
+  function documentFor(url) {
+    return parseHTML(htmlFor(url)).document;
   }
   for (const code of codes) {
     const home = `${basePath}${languagePath(code)}`;
+    const persianLabels = code === 'fa' || (defaultLanguage === 'fa' && code !== 'en');
     const homepage = documentFor(home);
     const article = documentFor(`${home}post/mixed/`);
     assert.equal(article.documentElement.getAttribute('lang'), code);
@@ -96,7 +102,7 @@ function build(name, options = {}) {
     assert.ok(!/^\s/.test(article.querySelector('time').textContent), `${code}: missing month`);
     for (const month of documentFor(`${home}post/`).querySelectorAll('.month')) assert.ok(month.textContent.trim(), `${code}: empty archive month`);
     if (code === 'en') assert.equal(article.querySelector('time').textContent, 'Oct 25, 2026');
-    assert.equal(article.querySelector('#recent_posts').parentElement.querySelector('h1').textContent.trim(), code === 'fa' ? 'نوشته‌های تازه' : 'Recent Posts');
+    assert.equal(article.querySelector('#recent_posts').parentElement.querySelector('h1').textContent.trim(), persianLabels ? 'نوشته‌های تازه' : 'Recent Posts');
     assert.equal(article.querySelector('.entry-content bdi strong').textContent, 'C++ (v1.2)');
     assert.equal(article.querySelector('.entry-content div[dir="ltr"] bdi[dir="rtl"]').textContent, 'שלום!');
     assert.equal(article.querySelector('bdi bdi[dir="ltr"]').textContent, 'C++');
@@ -110,6 +116,16 @@ function build(name, options = {}) {
     assert.ok(article.querySelector('.highlight table'));
     assert.ok(article.querySelector('.codewrapper table'));
     assert.equal(article.querySelector('figure.code figcaption').textContent.trim(), 'Caption');
+    assert.ok(article.querySelector('div[dir="ltr"] figure.code'));
+    assert.equal(article.querySelector('.entry-content div[dir="rtl"] > div[dir="ltr"] strong').textContent, 'block');
+    assert.doesNotMatch(htmlFor(`${home}post/mixed/`), /<p>\s*<(?:div|figure)\b/);
+    for (const selector of ['.main-navigation a', '.mobile-nav option', 'aside.sidebar a']) {
+      for (const name of ['Base home', 'Base home slash']) {
+        const link = Array.from(article.querySelectorAll(selector)).find(element => element.textContent.trim() === name);
+        assert.ok(link, `${selector}: ${name}`);
+        assert.equal(link.getAttribute(link.tagName === 'OPTION' ? 'value' : 'href'), home, `${code}: ${selector}: ${name}`);
+      }
+    }
     for (const menu of ['Home', 'About', 'Custom', 'Prefixed', 'Base prefixed']) {
       const link = article.querySelector(`.main-navigation a[title="${menu}"]`);
       const target = menu === 'Home' ? home : menu === 'About' ? `${home}about/` : `${home}post/mixed/`;
@@ -129,16 +145,16 @@ function build(name, options = {}) {
     assert.equal(article.querySelectorAll('.language-switch').length, codes.length - 1);
     assert.equal(article.querySelectorAll('link[hreflang]').length, codes.length - 1);
     assert.ok(documentFor(`${home}about/`).querySelector('article'));
-    assert.ok(documentFor(`${home}404.html`).documentElement.textContent.includes(code === 'fa' ? 'صفحه پیدا نشد' : 'Not Found'));
+    assert.ok(documentFor(`${home}404.html`).documentElement.textContent.includes(persianLabels ? 'صفحه پیدا نشد' : 'Not Found'));
     if (options.compact) {
       assert.ok(homepage.querySelector('table.allposts'));
       assert.equal(homepage.querySelector('.blog-index'), null);
     } else {
       assert.ok(homepage.querySelector('.pagination a'));
       const reading = article.querySelector('article header .meta').textContent;
-      assert.ok(reading.includes(code === 'fa' ? 'دقیقه مطالعه' : 'minute read'), reading);
+      assert.ok(reading.includes(persianLabels ? 'دقیقه مطالعه' : 'minute read'), reading);
       const readOn = homepage.querySelector('[rel="full-article"]').textContent;
-      assert.ok(readOn.includes(options.params?.continueReadingText ?? (code === 'fa' ? 'ادامه مطلب' : 'Read On')));
+      assert.ok(readOn.includes(options.params?.continueReadingText ?? (persianLabels ? 'ادامه مطلب' : 'Read On')));
     }
   }
   const firstArticle = documentFor(`${basePath}${languagePath(defaultLanguage)}post/mixed/`);
@@ -171,6 +187,7 @@ function build(name, options = {}) {
     assert.equal(unpaired.querySelector('.language-switch'), null);
     assert.ok(unpaired.querySelector('footer[role="contentinfo"] a[href$="/license/"]'));
   }
+  return { source, output };
 }
 
 for (const basePath of ['/', '/blog/']) {
@@ -183,6 +200,34 @@ test('46 reference locales plus Urdu', () => {
   build('all-locales', { codes: ['en', ...localeCodes.filter(code => code !== 'en'), 'ur'] });
 });
 test('single RTL language with English fallback', () => build('arabic-only', { codes: ['ar'] }));
+test('missing labels use the non-English default language', () => build('persian-default', { codes: ['fa', 'ar'] }));
+test('multihost translation and fallback license links retain their hosts', () => {
+  const { source, output } = build('multihost');
+  const configPath = join(source, 'hugo.json');
+  const config = JSON.parse(readFileSync(configPath, 'utf8'));
+  for (const code of ['en', 'fa']) config.languages[code].baseURL = `https://${code}.example.org/blog/`;
+  write(configPath, JSON.stringify(config, null, 2));
+  const result = spawnSync('hugo', ['--source', source, '--destination', output, '--panicOnWarning'], { encoding: 'utf8' });
+  assert.ifError(result.error);
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+  const links = [];
+  for (const code of ['en', 'fa']) {
+    const article = parseHTML(readFileSync(join(output, code, 'post/mixed/index.html'), 'utf8')).document;
+    const other = code === 'en' ? 'fa' : 'en';
+    links.push({
+      language: code,
+      desktop: article.querySelector('.language-switch a').getAttribute('href'),
+      mobile: article.querySelector(`.mobile-nav option[lang="${other}"]`).getAttribute('value'),
+      license: article.querySelector('footer[role="contentinfo"] a[href$="/license/"]').getAttribute('href'),
+    });
+  }
+  assert.deepEqual(links, ['en', 'fa'].map(code => ({
+    language: code,
+    desktop: `https://${code === 'en' ? 'fa' : 'en'}.example.org/blog/post/mixed/`,
+    mobile: `https://${code === 'en' ? 'fa' : 'en'}.example.org/blog/post/mixed/`,
+    license: 'https://en.example.org/blog/license/',
+  })));
+});
 test('compact index', () => build('compact', { compact: true }));
 test('custom continue-reading label', () => build('custom', { params: { continueReadingText: 'Custom read label' } }));
 test('invalid shortcode direction rejected', () => build('invalid', { invalid: true }));

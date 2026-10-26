@@ -9,7 +9,7 @@
       {{ if hugo.IsMultilingual }}
         {{ range .AllTranslations }}
           {{ if ne .Language.Name $.Language.Name }}
-            <option value="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" dir="{{ .Language.Direction }}">{{ .Language.Label | default .Language.Name }}</option>
+            <option value="{{ .Permalink }}" lang="{{ .Language.Locale }}" dir="{{ .Language.Direction }}">{{ .Language.Label | default .Language.Name }}</option>
           {{ end }}
         {{ end }}
       {{ end }}
@@ -25,7 +25,7 @@
   {{ end }}
   {{ if hugo.IsMultilingual }}
     {{ range .Translations }}
-      <li class="language-switch"><a href="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}" dir="{{ .Language.Direction }}">{{ .Language.Label | default .Language.Name }}</a></li>
+      <li class="language-switch"><a href="{{ .Permalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}" dir="{{ .Language.Direction }}">{{ .Language.Label | default .Language.Name }}</a></li>
     {{ end }}
   {{ end }}
 </ul>

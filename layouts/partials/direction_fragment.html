@@ -1,0 +1,13 @@
+{{- $result := .HTML -}}
+{{- $shortcode := .Shortcode -}}
+{{- with $shortcode.Parent -}}
+  {{- if in (slice "bidi" "direction") .Name -}}
+    {{- $token := printf "OCTODIRECTION%dTOKEN" $shortcode.Ordinal -}}
+    {{- .Store.SetInMap "directionFragments" $token (dict "HTML" $result "Block" $.Block) -}}
+    {{- $result = $token -}}
+    {{- if $.Block -}}
+      {{- $result = printf "\n\n%s\n\n" $token -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $result -}}

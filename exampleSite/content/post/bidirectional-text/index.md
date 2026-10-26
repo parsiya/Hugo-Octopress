@@ -22,9 +22,11 @@ Use `curl -I https://example.org/a?x=1&y=2`.
 fmt.Println("hello / سلام")
 ```
 
+{{< direction dir="ltr" lang="en" >}}
 {{< codecaption title="Caption" lang="go" >}}
 fmt.Println("caption")
 {{< /codecaption >}}
+{{< /direction >}}
 
 {{< direction dir="rtl" lang="fa" >}}
 HTTP در ابتدای این جمله است، ولی جهت جمله همچنان راست به چپ است.
@@ -46,4 +48,14 @@ HTTP در ابتدای این جمله است، ولی جهت جمله همچن�
 {{< direction dir="ltr" lang="en" >}}
 * https://example.org/first
 * https://example.org/second {{< bidi dir="rtl" lang="fa" >}}(توضیح فارسی){{< /bidi >}}
+{{< /direction >}}
+
+{{< direction dir="rtl" lang="fa" >}}
+Before the nested block.
+
+{{< direction dir="ltr" lang="en" >}}
+Nested **block**.
+{{< /direction >}}
+
+After the nested block.
 {{< /direction >}}
