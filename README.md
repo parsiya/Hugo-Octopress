@@ -124,22 +124,25 @@ defaultContentLanguage = "en"
   pageRef = "/"
 ```
 
-Name translated files `post/example.en.md` and `post/example.fa.md`. The language
-switcher links to existing translations. Prefer `pageRef` for internal menus;
-custom internal URLs are relative to the current language.
+Name translated files `post/example.en.md` and `post/example.fa.md`. The
+language switcher links to existing translations. Prefer `pageRef` for internal
+menus; custom internal URLs are relative to the current language.
 
 English/Persian interface labels are included. Missing translations first use
-Hugo's configured default language, then the theme's English fallback.
-Add dictionaries under your site's `i18n/`, using the theme's `i18n/en.yaml` keys.
+Hugo's configured default language, then the theme's English fallback. Add
+dictionaries under your site's `i18n/`, using the theme's `i18n/en.yaml` keys.
 Configured labels such as `continueReadingText` still override defaults.
 
 RTL mirrors layout, not fonts, calendars, or digits. Dates remain Gregorian.
 Choose fonts through custom CSS; site overrides and embeds may need RTL styling.
 
-[Vazirmatn](https://rastikerdar.github.io/vazirmatn/) `v33.003` regular/bold fonts are bundled and loaded automatically,
-independent of `direction` and `disableGoogleFonts`. Only Arabic-script glyphs
-use Vazirmatn; English and code fonts remain unchanged. Files are served locally,
-with no font CDN dependency or extra configuration.
+[Vazirmatn][vazir] `v33.003` regular/bold
+fonts are bundled and loaded automatically, independent of `direction` and
+`disableGoogleFonts`. Only Arabic-script glyphs use Vazirmatn; English and code
+fonts remain unchanged. Files are served locally, with no font CDN dependency or
+extra configuration.
+
+[vazir]: https://rastikerdar.github.io/vazirmatn/
 
 ### RTL and mixed-language text
 Use `bidi` for a phrase, including punctuation belonging to it:
@@ -163,9 +166,9 @@ Both shortcodes support Markdown, nesting, optional `lang`, and
 Prefer an explicit direction: `auto` misreads a Persian sentence starting with
 `HTTP`. Leave Persian lists RTL; `lang` alone does not set direction.
 
-Single-backtick code such as `` `curl -I` `` is isolated LTR in paragraphs, lists,
-headings, and table cells, as are triple-backtick fenced blocks. Code punctuation
-stays with the code; surrounding prose keeps its own direction.
+Single-backtick code such as `` `curl -I` `` is isolated LTR in paragraphs,
+lists, headings, and table cells, as are triple-backtick fenced blocks. Code
+punctuation stays with the code; surrounding prose keeps its own direction.
 
 Copy/paste commands and URLs into a plain-text editor to check their characters.
 More cases: [Bidirectional Text example](exampleSite/content/post/bidirectional-text/index.md).
@@ -313,6 +316,19 @@ The sidebar has four sections, from top to bottom:
 * Recent posts: Displays last X posts (default is 5).
 
 The sidebar is generated using the partial at `layouts/partials/sidebar.html`.
+
+The sidebar is on the right by default, including in RTL languages. Set
+`sidebarPosition` under `[params]` to `"left"` to move it to the left, or
+`"right"` to keep it on the right:
+
+```toml
+[params]
+  sidebarPosition = "left"
+```
+
+This setting uses physical left and right, regardless of text direction. Below
+768px, the sidebar stays below the content on either setting. Values are
+case-insensitive.
 
 ### Sidebar text
 The sidebar text has two parts and both can be configured. Both are passed to

@@ -96,6 +96,11 @@ function build(name, options = {}) {
     const article = documentFor(`${home}post/mixed/`);
     assert.equal(article.documentElement.getAttribute('lang'), code);
     assert.equal(article.documentElement.getAttribute('dir'), rtl.has(code) ? 'rtl' : 'ltr');
+    for (const page of [homepage, article, documentFor(`${home}about/`), documentFor(`${home}404.html`)]) {
+      assert.equal(page.body.getAttribute('data-sidebar-position'), options.params?.sidebarPosition?.toLowerCase() === 'left' ? 'left' : 'right');
+      const content = page.querySelector('#content');
+      assert.ok(content.lastElementChild.matches('aside.sidebar'));
+    }
     assert.equal(article.querySelector('body>header h1 a').getAttribute('href'), home);
     assert.equal(article.querySelector('.subscription a').getAttribute('href'), `${home}index.xml`);
     assert.equal(article.querySelector('input.search').getAttribute('dir'), 'auto');
@@ -176,6 +181,21 @@ function build(name, options = {}) {
   assert.equal(searchFieldset.style['padding-top'], '.15em');
   const fieldsetReset = Array.from(styles.sheet.cssRules).find(rule => rule.selectorText === 'fieldset,img');
   assert.equal(fieldsetReset.style.border, '0');
+  const tabletLayout = Array.from(styles.sheet.cssRules).find(rule =>
+    rule.media?.mediaText.replace(/\s/g, '') === 'onlyscreenand(min-width:768px)' &&
+    Array.from(rule.cssRules).some(child => child.selectorText === '#content' && child.style.display === 'grid'));
+  const layoutRules = Array.from(tabletLayout.cssRules);
+  const defaultGrid = layoutRules.find(rule => rule.selectorText === '#content');
+  assert.equal(defaultGrid.style['grid-template-areas'], '"main sidebar"');
+  assert.equal(defaultGrid.style['grid-template-columns'].replace(/\s/g, ''), 'minmax(0,1fr)var(--sidebar-width)');
+  const reversedGrid = layoutRules.find(rule => rule.style['grid-template-areas'] === '"sidebar main"');
+  assert.ok(reversedGrid.selectorText.includes(':root:not([dir=rtl]) body[data-sidebar-position=left] #content'));
+  assert.ok(reversedGrid.selectorText.includes(':root[dir=rtl] body[data-sidebar-position=right] #content'));
+  assert.equal(reversedGrid.style['grid-template-columns'].replace(/\s/g, ''), 'var(--sidebar-width)minmax(0,1fr)');
+  const mainGrid = layoutRules.find(rule => rule.style['grid-area'] === 'main');
+  const sidebarGrid = layoutRules.find(rule => rule.style['grid-area'] === 'sidebar');
+  assert.ok(mainGrid.selectorText.includes('#content>article'));
+  assert.equal(sidebarGrid.selectorText, 'aside.sidebar');
   const fonts = join(output, 'fonts/vazirmatn');
   const files = {
     'Vazirmatn-Regular.woff2': 'e382101336c6eb32cfb31381c027d02d2e0354bad08f6a395d4088beb3db3d91',
@@ -240,6 +260,14 @@ test('multihost translation and fallback license links retain their hosts', () =
   })));
 });
 test('compact index', () => build('compact', { compact: true }));
+test('left sidebar', () => build('sidebar-left', { params: { sidebarPosition: 'left' } }));
+test('right sidebar', () => build('sidebar-right', { params: { sidebarPosition: 'right' } }));
+test('sidebar position is case-insensitive', () => {
+  for (const [index, sidebarPosition] of ['Left', 'LEft', 'LEFT', 'lEfT', 'Right', 'RIGHT', 'RiGhT'].entries()) {
+    build(`sidebar-case-${index}`, { params: { sidebarPosition } });
+  }
+});
+test('compact index with left sidebar', () => build('compact-sidebar-left', { compact: true, params: { sidebarPosition: 'left' } }));
 test('custom continue-reading label', () => build('custom', { params: { continueReadingText: 'Custom read label' } }));
 test('invalid shortcode direction rejected', () => build('invalid', { invalid: true }));
 test('bundled Vazirmatn at site root', () => build('vazirmatn-root', { basePath: '/' }));

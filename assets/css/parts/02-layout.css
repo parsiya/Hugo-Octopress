@@ -162,8 +162,10 @@ aside.sidebar img.right {
         margin: 0 auto
     }
     #content {
+        --sidebar-width: 240px;
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 240px;
+        grid-template-columns: minmax(0, 1fr) var(--sidebar-width);
+        grid-template-areas: "main sidebar";
         align-items: stretch;
         overflow: visible;
         position: relative;
@@ -172,6 +174,7 @@ aside.sidebar img.right {
     }
     #content>div,
     #content>article {
+        grid-area: main;
         min-width: 0;
         width: auto;
         padding-top: 17.5px;
@@ -180,6 +183,7 @@ aside.sidebar img.right {
         border-inline-end: 1px solid #e0e0e0
     }
     aside.sidebar {
+        grid-area: sidebar;
         width: auto;
         padding: 0 15px 15px;
         background: none;
@@ -197,13 +201,25 @@ aside.sidebar img.right {
         width: auto;
         margin-inline-start: 0
     }
+    :root:not([dir=rtl]) body[data-sidebar-position=left] #content,
+    :root[dir=rtl] body[data-sidebar-position=right] #content {
+        grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+        grid-template-areas: "sidebar main"
+    }
+    :root:not([dir=rtl]) body[data-sidebar-position=left] #content>div,
+    :root:not([dir=rtl]) body[data-sidebar-position=left] #content>article,
+    :root[dir=rtl] body[data-sidebar-position=right] #content>div,
+    :root[dir=rtl] body[data-sidebar-position=right] #content>article {
+        border-inline-end: 0;
+        border-inline-start: 1px solid #e0e0e0
+    }
 }
 @media only screen and (min-width: 992px) {
     body>header {
         font-size: 1.3em
     }
     #content {
-        grid-template-columns: minmax(0, 1fr) 320px;
+        --sidebar-width: 320px;
     }
     #content>div,
     #content>article {

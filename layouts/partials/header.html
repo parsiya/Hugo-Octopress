@@ -75,7 +75,7 @@
   {{ partial "extend_header.html" . }}
 
 </head>
-<body>
+<body data-sidebar-position="{{ if eq (.Site.Params.sidebarPosition | default "right" | lower) "left" }}left{{ else }}right{{ end }}">
 
 {{- /* top header for octopress */ -}}
 <header role="banner">{{ partial "octo_header.html" . }}</header>

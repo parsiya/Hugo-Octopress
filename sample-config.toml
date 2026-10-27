@@ -39,6 +39,8 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
 [params]
 
   # --- Start sidebar options ---
+  sidebarPosition = "right"
+
   # Number of last posts that will be displayed in the sidebar - set to 0 or remove to hide this section
   sidebarRecentLimit = 5
 

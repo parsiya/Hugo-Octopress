@@ -44,7 +44,7 @@ Open `/blog/fa/post/mixed/`. For the locale matrix, use source
 `tests/.work/all-locales` and visit `/blog/ar/post/mixed/`, for example.
 
 ## Automated Coverage
-The fourteen tests cover:
+The eighteen tests cover:
 
 - Root and `/blog/` deployments with default-language subdirectories on/off.
 - Resolved menu page references, custom URLs, already-prefixed URLs, external
@@ -58,6 +58,9 @@ The fourteen tests cover:
 - Default-language fallback when Persian is the default and Arabic has no labels.
 - Desktop/mobile translation links and fallback license links across two hosts.
 - Classic pagination and compact-index output.
+- Default-right and explicit left/right sidebar configuration in both directions,
+  case-insensitive values, content-before-sidebar document order, named grid areas,
+  and compact indexes.
 - Inline/block Markdown, nested direction shortcodes, and invalid directions.
 - Captioned code inside direction wrappers under safe Markdown settings, and
   raw-HTML checks that nested blocks are not wrapped in paragraphs.
