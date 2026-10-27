@@ -31,16 +31,12 @@ My personal website with the compact index (see below):
   - [Social network icons](#social-network-icons)
   - [Sidebar menu](#sidebar-menu)
   - [Recent posts](#recent-posts)
-- [Shortcodes](#shortcodes)
-  - [Code caption](#code-caption)
-  - [Image caption](#image-caption)
-  - [Table of Contents](#table-of-contents)
 - [Pages](#pages)
   - [License page](#license-page)
   - [Not Found or 404.html](#not-found-or-404html)
   - [Taxonomy pages](#taxonomy-pages)
   - [Individual pages](#individual-pages)
-- [Table of contents](#table-of-contents-1)
+- [Table of contents](#table-of-contents)
   - [toc configuration](#toc-configuration)
   - [Use toc in Frontmatter](#use-toc-in-frontmatter)
   - [Use the toc Shortcode](#use-the-toc-shortcode)
@@ -53,7 +49,6 @@ My personal website with the compact index (see below):
 - [Troubleshooting](#troubleshooting)
   - [Hugo page summary bug](#hugo-page-summary-bug)
   - [Empty Posts Link on Homepage](#empty-posts-link-on-homepage)
-- [Issues/TODO](#issuestodo)
 - [Attribution](#attribution)
 - [Ported by](#ported-by)
 - [Theme license](#theme-license)
@@ -432,71 +427,6 @@ For all my Hugo shortcodes see
 [hugo-shortcodes]: https://gohugo.io/extras/shortcodes
 [my-shortcodes]: https://github.com/parsiya/Hugo-Shortcode
 
-### Code caption
-This shortcode adds a caption to codeblocks. The codeblock is wrapped in a
-`<figure>` tag and caption is added using `<figcaption>`. It has two parameters,
-`title` which is the caption of the code block and `lang` which is the language
-that is passed to the Hugo's `highlight` function along with `linenos=true` to
-enable line numbers.
-
-Usage and source (parameters are named and not positional):
-
-``` html
-{{< codecaption lang="html" title="Code caption shortcode" >}}
-<figure class="code">
-  <figcaption>
-    <span>{{ .Get "title" }}</span>
-  </figcaption>
-  <div class="codewrapper">
-    {{ highlight .Inner (.Get "lang") "linenos=true" }}
-  </div>
-</figure>
-{{< /codecaption >}}
-```
-
-And will look like:
-
-![picture](https://raw.githubusercontent.com/parsiya/Hugo-Octopress/master/images/codecaption1.png).
-
-If the code inside the tag overflows, a horizontal sidebar will be added to the
-table. It took me a while to achieve this as the `highlight` function created
-tables that were out of my control. The output from `highlight` is wrapped in
-`<div class="codewrapper">` and the scroll bar will be added for the whole
-`div`. The following in the CSS file (starting from line 2225) enables this
-behavior:
-
-``` css
-div.codewrapper {
-    overflow-x: auto;
-    overflow-y: hidden;
-    background-color: #002B36;
-}
-```
-
-### Image caption
-This shortcode adds captions to pictures. Due to the way the original CSS file
-was organized, this shortcode does not use `<figure>` and `<figcaption>`. `Alt`
-tag is also set to `title`.
-
-Usage (parameters are named and not positional):
-
-``` go
-{{< imgcap title="Sample caption" src="/images/2016/thetheme/1.png" >}}
-```
-
-Results in:
-
-``` html
-<span class="caption-wrapper">
-  <img class="caption" src="/images/2016/thetheme/1.png" title="Sample caption" alt="Sample caption">
-  <span class="caption-text">Sample caption</span>
-</span>
-```
-
-### Table of Contents
-This shortcode adds table of contents to the theme. You can use it to add the
-toc to anywhere in the page with `{{< toc >}}`.
-
 ## Pages
 This section discusses the different kind of pages that are supported by the
 theme.
@@ -606,9 +536,7 @@ The `toc` variable in the frontmatter has priority. If it is set to `false` the
 global setting is ignored for that page.
 
 ### Use the toc Shortcode
-If you want the table to appear in a different location use the shortcode. For
-example, in [the cheatsheet on my website][website-cheatsheet] it appears after
-the summary.
+If you want the table to appear in a different location use the shortcode.
 
 ```
 ---
@@ -619,8 +547,6 @@ summary or whatever.
 
 {{< toc >}}
 ```
-
-[website-cheatsheet]: https://raw.githubusercontent.com/parsiya/parsiya.net/master/content/page/CheatSheet.markdown
 
 ### Editor Plugins
 There are various editor plugins that create a table of contents in markdown
@@ -776,18 +702,6 @@ For more information please see:
 
 This should not be an issue anymore because the theme's minimum version of Hugo
 has been bumped.
-
-## Issues/TODO
-If you discover any issues/bugs or want new features please use the GitHub issue
-tracker. Please keep in my mind that development has not been my day job for
-quite a while and I may be slow in fixing things (don't be surprised if I ask
-you about details).
-
-**The css is a mess.** The CSS file is taken directly from the classic Octopress
-theme. I found it easier to just modify the templates to generate HTML code
-similar to Octopress' output and use the existing CSS file. It's bulky (around
-53KBs and 2300 lines) and it probably has code for elements that are never used
-(also duplicates).
 
 ## Attribution
 * [Octopress][octopress-link] is created by [Brandon Mathis][mathis-link].
