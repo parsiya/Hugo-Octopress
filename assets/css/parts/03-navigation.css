@@ -13,7 +13,7 @@ body>nav form {
     padding: 0
 }
 body>nav form .search {
-    padding: .3em .5em 0;
+    padding: .3em .5em;
     font-size: .85em;
     font-family: var(--font-sans);
     line-height: 1.1em;
@@ -121,7 +121,8 @@ body>nav ul {
         display: none
     }
     body>nav fieldset[role=search] {
-        width: 99%
+        width: 99%;
+        padding-top: .15em
     }
 }
 @media only screen and (min-width: 992px) {

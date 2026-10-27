@@ -143,6 +143,10 @@ function build(name, options = {}) {
       documentFor(link.getAttribute('href'));
     }
     assert.equal(article.querySelectorAll('.language-switch').length, codes.length - 1);
+    for (const link of article.querySelectorAll('.language-switch a')) {
+      assert.equal(link.getAttribute('dir'), null);
+      assert.equal(link.querySelector('bdi').getAttribute('dir'), rtl.has(link.getAttribute('hreflang')) ? 'rtl' : 'ltr');
+    }
     assert.equal(article.querySelectorAll('link[hreflang]').length, codes.length - 1);
     assert.ok(documentFor(`${home}about/`).querySelector('article'));
     assert.ok(documentFor(`${home}404.html`).documentElement.textContent.includes(persianLabels ? 'صفحه پیدا نشد' : 'Not Found'));
@@ -165,6 +169,13 @@ function build(name, options = {}) {
   assert.ok(codeRule, 'All code elements must have direction rules');
   assert.equal(codeRule.style.direction, 'ltr');
   assert.equal(codeRule.style['unicode-bidi'], 'isolate');
+  const searchRule = Array.from(styles.sheet.cssRules).find(rule => rule.selectorText === 'body>nav form .search');
+  assert.equal(searchRule.style.padding, '.3em .5em');
+  const desktopNavigation = Array.from(styles.sheet.cssRules).find(rule => rule.media?.mediaText.replace(/\s/g, '') === 'onlyscreenand(min-width:550px)');
+  const searchFieldset = Array.from(desktopNavigation.cssRules).find(rule => rule.selectorText === 'body>nav fieldset[role=search]');
+  assert.equal(searchFieldset.style['padding-top'], '.15em');
+  const fieldsetReset = Array.from(styles.sheet.cssRules).find(rule => rule.selectorText === 'fieldset,img');
+  assert.equal(fieldsetReset.style.border, '0');
   const fonts = join(output, 'fonts/vazirmatn');
   const files = {
     'Vazirmatn-Regular.woff2': 'e382101336c6eb32cfb31381c027d02d2e0354bad08f6a395d4088beb3db3d91',

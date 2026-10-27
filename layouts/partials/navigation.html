@@ -25,7 +25,7 @@
   {{ end }}
   {{ if hugo.IsMultilingual }}
     {{ range .Translations }}
-      <li class="language-switch"><a href="{{ .Permalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}" dir="{{ .Language.Direction }}">{{ .Language.Label | default .Language.Name }}</a></li>
+      <li class="language-switch"><a href="{{ .Permalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}"><bdi dir="{{ .Language.Direction }}">{{ .Language.Label | default .Language.Name }}</bdi></a></li>
     {{ end }}
   {{ end }}
 </ul>
